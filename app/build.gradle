@@ -54,27 +54,12 @@ android {
     }
 }
 
-// To produce these binaries, in latest AOSP source tree, run
-// $ m
-def aospDeps = fileTree(include: [
-        // For more information about this module:
-        // https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-11.0.0_r3/Android.bp#507
-        // framework_intermediates/classes-header.jar works for gradle build as well,
-        // but not unit tests, so we use the actual classes (without updatable modules).
-        //
-        // out/target/common/obj/JAVA_LIBRARIES/framework-minus-apex_intermediates/classes.jar
-        'android.jar',
-        // out/target/common/obj/JAVA_LIBRARIES/core-libart.com.android.art.release_intermediates/classes.jar
-        'libcore.jar'
-], dir: 'libs')
+apply from: '../gradle/dependencies.gradle'
 
-dependencies {
-    compileOnly aospDeps
-
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+configurations {
+    all {
+        resolutionStrategy {
+            failOnNonReproducibleResolution()
+        }
+    }
 }
