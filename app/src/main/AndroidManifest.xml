@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.calyxos.firewall">
+    package="org.calyxos.firewall"
+    android:versionCode="30000001"
+    android:versionName="11-1.0">
+    <!--
+    The version code is the targeted SDK_VERSION plus 6 digits for our own version code.
+    The version name is the targeted Android version followed by - and our own version name.
+    -->
 
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <uses-permission android:name="android.permission.MANAGE_NETWORK_POLICY"
