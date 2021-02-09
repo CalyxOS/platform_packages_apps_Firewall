@@ -5,7 +5,7 @@ android_app {
     resource_dirs: ["app/src/main/res"],
     manifest: "app/src/main/AndroidManifest.xml",
 
-    sdk_version: "current",
+    platform_apis: true,
 
     static_libs: [
         "androidx.appcompat_appcompat",
