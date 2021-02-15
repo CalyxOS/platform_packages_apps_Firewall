@@ -14,4 +14,5 @@
     <string name="app_name_text">App Name</string>
     <string name="setting_status">Setting status</string>
     <string name="installed_apps">Installed apps</string>
+    <string name="allow_mobile_data">Allow mobile data</string>
 </resources>
