@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private RecyclerView mRecyclerView;
-    //private SystemAppsAdapter mAdapter;
-    //private InstalledAppsAdapter mAdapter1;
+    private SystemAppsAdapter mAdapter;
+    private InstalledAppsAdapter mAdapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
