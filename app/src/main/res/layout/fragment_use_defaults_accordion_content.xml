@@ -18,14 +18,16 @@
             android:layout_marginEnd="20dp"
             android:textSize="18sp"
             android:text="@string/use_defaults"
+            android:layout_centerVertical="true"
             android:textColor="@color/white" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/app_use_default_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            android:checked="true"/>
 
     </RelativeLayout>
 
@@ -44,15 +46,17 @@
             android:layout_toStartOf="@id/app_cleartext_toggle"
             android:textSize="18sp"
             android:text="@string/allow_cleartext"
+            android:layout_centerVertical="true"
             android:textColor="@color/white" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/app_cleartext_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            android:checked="true"/>
 
     </RelativeLayout>
 
@@ -69,16 +73,18 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:textSize="18sp"
+            android:layout_centerVertical="true"
             android:layout_toStartOf="@id/app_block_ads_toggle"
             android:text="@string/block_ads_trackers"
             android:textColor="@color/white" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/app_block_ads_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            android:checked="true"/>
 
     </RelativeLayout>
 

@@ -15,4 +15,5 @@
     <string name="setting_status">Setting status</string>
     <string name="installed_apps">Installed apps</string>
     <string name="allow_mobile_data">Allow mobile data</string>
+    <string name="default_settings">Default Settings</string>
 </resources>
