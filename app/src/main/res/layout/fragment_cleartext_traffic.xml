@@ -35,7 +35,7 @@
         android:layout_below="@+id/main_title"
         android:visibility="gone"/>
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
