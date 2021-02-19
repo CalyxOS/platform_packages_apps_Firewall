@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3942e4d5_57a02138",
+        "filename": "app/src/main/java/org/calyxos/firewall/MainActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-19T12:48:35Z",
+      "side": 1,
+      "message": "This change looks unrelated, I reverted this so that it\u0027s easier to revert this in the future.",
+      "revId": "9407db3d33596637263534dd07c4add34e410d41",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}
