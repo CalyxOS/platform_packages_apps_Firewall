@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca832b3d_90d674bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-19T12:48:00Z",
+      "side": 1,
+      "message": "There should be a newline between the first and second lines of the commit message.\n\nThe first line is typically a short one-line description, then an empty line, and then you can have an explanation",
+      "revId": "6ffd29e84347181a16192d673020b65fdffdfd09",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56b83cd4_da43506f",
+        "filename": "app/src/main/java/org/calyxos/firewall/MainActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-19T12:48:00Z",
+      "side": 1,
+      "message": "I didn\u0027t touch these but you should use better variable naming rather than mAdapter, mAdapter1\n\nThat keeps the code more readable and easier to understand.\n\nmSysAppsAdapter, mInstAppsAdapter, mSystemAppsAdapter, mInstalledAppsAdapter are some options.\n\nSame for the recyclerview and all other variables.",
+      "revId": "6ffd29e84347181a16192d673020b65fdffdfd09",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}

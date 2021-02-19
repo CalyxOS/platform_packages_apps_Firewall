@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdce66bf_2fe47175",
+        "filename": "app/src/main/java/org/calyxos/firewall/MainActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-19T12:48:00Z",
+      "side": 0,
+      "message": "I kept this intentionally even when unused to make sure systemApi build works.\n\nThis is a private API not usually available to applications, and so if it builds with this we know our setup is working.",
+      "revId": "9407db3d33596637263534dd07c4add34e410d41",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}
