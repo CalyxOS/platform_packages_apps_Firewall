@@ -51,6 +51,24 @@
       "revId": "6ffd29e84347181a16192d673020b65fdffdfd09",
       "serverId": "35266860-6252-469c-a67d-185064479fc0",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d895694b_086e842b",
+        "filename": "app/src/main/java/org/calyxos/firewall/MainActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-02-19T14:35:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "56b83cd4_da43506f",
+      "revId": "6ffd29e84347181a16192d673020b65fdffdfd09",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": false
     }
   ]
 }
