@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3c955a9_c53b36c5",
+        "filename": "app/src/main/res/layout/fragment_allow_background.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-02-19T12:53:54Z",
+      "side": 1,
+      "message": "Any reason for this change to switchcompat?\n\nWe don\u0027t need any compat, we\u0027re always on latest API and this app doesn\u0027t need to run on older APIs.",
+      "revId": "3c9979c9f26c2588609a9acc40785f67ff780b1e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}
