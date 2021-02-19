@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f0281c11_8cf47d3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-02-19T14:32:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca832b3d_90d674bc",
+      "revId": "6ffd29e84347181a16192d673020b65fdffdfd09",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56b83cd4_da43506f",
         "filename": "app/src/main/java/org/calyxos/firewall/MainActivity.java",
         "patchSetId": 2

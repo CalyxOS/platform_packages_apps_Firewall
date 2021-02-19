@@ -16,6 +16,24 @@
       "revId": "9407db3d33596637263534dd07c4add34e410d41",
       "serverId": "35266860-6252-469c-a67d-185064479fc0",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7805f9f1_e5d6edac",
+        "filename": "app/src/main/java/org/calyxos/firewall/MainActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-02-19T14:32:58Z",
+      "side": 0,
+      "message": "Yeah I didn\u0027t remove it. Though I added it back in my current commit.",
+      "parentUuid": "fdce66bf_2fe47175",
+      "revId": "9407db3d33596637263534dd07c4add34e410d41",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
     }
   ]
 }
