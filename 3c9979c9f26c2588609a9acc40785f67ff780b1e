@@ -16,6 +16,24 @@
       "revId": "3c9979c9f26c2588609a9acc40785f67ff780b1e",
       "serverId": "35266860-6252-469c-a67d-185064479fc0",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "371d0605_4a49dfed",
+        "filename": "app/src/main/res/layout/fragment_allow_background.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-02-19T14:37:04Z",
+      "side": 1,
+      "message": "Right. Old habits. Lol",
+      "parentUuid": "e3c955a9_c53b36c5",
+      "revId": "3c9979c9f26c2588609a9acc40785f67ff780b1e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
     }
   ]
 }
