@@ -11,6 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.net.NetworkPolicyManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
@@ -24,6 +25,7 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
 
     private static final String TAG = AppsAdapter.class.getSimpleName();
     private Context mContext;
+    private NetworkPolicyManager mPolicyManager;
     private PackageManager mPackageManager;
     private List<ApplicationInfo> mSystemApps;
 
@@ -31,6 +33,8 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
         mSystemApps = systemApps;
         mContext = context;
         mPackageManager = packageManager;
+        mPolicyManager = NetworkPolicyManager.from(context);
+
     }
 
     @NonNull

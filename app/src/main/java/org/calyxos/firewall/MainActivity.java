@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private RecyclerView mRecyclerView, mRecyclerView1;
-    private AppsAdapter mAdapter, mAdapter1;
+    private RecyclerView mSystemAppsList, mInstalledAppsList;
+    private AppsAdapter mSystemAppsAdapter, mInstalledAppsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mRecyclerView = findViewById(R.id.system_apps);
-        mRecyclerView1 = findViewById(R.id.installed_apps);
-
+        mSystemAppsList = findViewById(R.id.system_apps);
+        mInstalledAppsList = findViewById(R.id.installed_apps);
     }
 
     @Override
@@ -54,16 +53,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        if (mAdapter == null) {
-            mAdapter = new AppsAdapter(this, pm, sysApps);
-            mRecyclerView.setAdapter(mAdapter);
+        if (mSystemAppsAdapter == null) {
+            mSystemAppsAdapter = new AppsAdapter(this, pm, sysApps);
+            mSystemAppsList.setAdapter(mSystemAppsAdapter);
         } else
-            mAdapter.notifyDataSetChanged();
+            mSystemAppsAdapter.notifyDataSetChanged();
 
-        if (mAdapter1 == null) {
-            mAdapter1 = new AppsAdapter(this, pm, instApps);
-            mRecyclerView1.setAdapter(mAdapter1);
+        if (mInstalledAppsAdapter == null) {
+            mInstalledAppsAdapter = new AppsAdapter(this, pm, instApps);
+            mInstalledAppsList.setAdapter(mInstalledAppsAdapter);
         } else
-            mAdapter1.notifyDataSetChanged();
+            mInstalledAppsAdapter.notifyDataSetChanged();
     }
 }
