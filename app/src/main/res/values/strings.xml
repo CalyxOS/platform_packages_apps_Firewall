@@ -16,4 +16,5 @@
     <string name="installed_apps">Installed apps</string>
     <string name="allow_mobile_data">Allow mobile data</string>
     <string name="default_settings">Default Settings</string>
+    <string name="status_text_placeholder">Allow %1$s</string>
 </resources>
