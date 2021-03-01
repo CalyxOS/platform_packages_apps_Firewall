@@ -3,7 +3,6 @@ package org.calyxos.firewall;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.net.NetworkPolicyManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -40,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         final PackageManager pm = getPackageManager();
         List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+        //List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_INSTRUMENTATION);//Works in Kotlin but not in java?
 
         //filter system and installed apps
         List<ApplicationInfo> sysApps = new ArrayList<>();
