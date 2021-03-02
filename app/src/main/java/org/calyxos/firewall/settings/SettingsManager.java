@@ -11,14 +11,11 @@ import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_VPN;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_WIFI;
 
-//import com.android.settingslib.core.instrumentation.MetricsFeatureProvider;
-
 public class SettingsManager {
 
     private static final String TAG = SettingsManager.class.getSimpleName();
     private Context mContext;
     private NetworkPolicyManager mPolicyManager;
-    //private final MetricsFeatureProvider mMetricsFeatureProvider;
     private SparseIntArray mUidPolicies = new SparseIntArray();
     private boolean mWhitelistInitialized;
     private boolean mBlacklistInitialized;
@@ -33,7 +30,6 @@ public class SettingsManager {
         mUidPolicies.put(uid, policy);
         if (blacklisted) {
             mPolicyManager.addUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
-            //mMetricsFeatureProvider.action(mContext, SettingsEnums.ACTION_DATA_SAVER_BLACKLIST, packageName);
         } else {
             mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
         }
