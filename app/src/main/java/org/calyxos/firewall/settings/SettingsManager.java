@@ -1,6 +1,5 @@
 package org.calyxos.firewall.settings;
 
-import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.net.NetworkPolicyManager;
 import android.util.SparseIntArray;
@@ -17,7 +16,6 @@ public class SettingsManager {
     private static final String TAG = SettingsManager.class.getSimpleName();
     private Context mContext;
     private NetworkPolicyManager mPolicyManager;
-    private final MetricsFeatureProvider mMetricsFeatureProvider;
     private SparseIntArray mUidPolicies = new SparseIntArray();
     private boolean mWhitelistInitialized;
     private boolean mBlacklistInitialized;
@@ -32,7 +30,6 @@ public class SettingsManager {
         mUidPolicies.put(uid, policy);
         if (blacklisted) {
             mPolicyManager.addUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
-            mMetricsFeatureProvider.action(mContext, SettingsEnums.ACTION_DATA_SAVER_BLACKLIST, packageName);
         } else {
             mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
         }
