@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4b8a85a_29ef8b7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-05T18:04:36Z",
+      "side": 1,
+      "message": "Ideally we should split these changes into their own commit so we can merge that\u0027s ready, and keep open what\u0027s not.\n\nIt can be a bit hard to do when it\u0027s all in the same file, but I\u0027d suggest just committing things as they are ready instead of waiting and doing one big commit at the end.",
+      "revId": "a5d039ac839b7f7099e416c81098e70123733732",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d1c11e1_c3c975d1",
+        "filename": "app/src/main/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-05T18:04:36Z",
+      "side": 1,
+      "message": "I removed this because I don\u0027t think this is needed, just adding the permission should do.",
+      "revId": "a5d039ac839b7f7099e416c81098e70123733732",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "149e4f3d_c34be00a",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppsAdapter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-05T18:04:36Z",
+      "side": 1,
+      "message": "Please use better variable names.",
+      "revId": "a5d039ac839b7f7099e416c81098e70123733732",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe6cec63_0ca0613f",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppsAdapter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-05T18:04:36Z",
+      "side": 1,
+      "message": "These now actually make the toggle work, should test.\n\nPhase 1 might be ready then, at least working, final polishes remaining.",
+      "revId": "a5d039ac839b7f7099e416c81098e70123733732",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0633e255_057f427c",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppsAdapter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-03-05T18:04:36Z",
+      "side": 1,
+      "message": "This approach likely won\u0027t work well with translations.\n\nDifferent languages have different ways and orders of joining strings and I feel like just appending bits of text like this won\u0027t work well.",
+      "revId": "a5d039ac839b7f7099e416c81098e70123733732",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}
