@@ -36,6 +36,42 @@
     },
     {
       "key": {
+        "uuid": "bf2a6253_0d0b4ee4",
+        "filename": "app/src/main/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-03-05T19:21:22Z",
+      "side": 1,
+      "message": "Yeah perhaps. I haven\u0027t tested without the \u003cqueries\u003e tag. I suggest we still include in case for some reason it\u0027s needed.",
+      "parentUuid": "6d1c11e1_c3c975d1",
+      "revId": "a5d039ac839b7f7099e416c81098e70123733732",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7162bce_3bb5b843",
+        "filename": "app/src/main/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-03-05T19:21:22Z",
+      "side": 1,
+      "message": "Yeah perhaps. I haven\u0027t tested without the \u003cqueries\u003e tag. I suggest we still include in case for some reason it\u0027s needed.",
+      "parentUuid": "6d1c11e1_c3c975d1",
+      "revId": "a5d039ac839b7f7099e416c81098e70123733732",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "149e4f3d_c34be00a",
         "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppsAdapter.java",
         "patchSetId": 1
