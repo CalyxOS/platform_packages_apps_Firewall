@@ -84,6 +84,24 @@
       "revId": "a5d039ac839b7f7099e416c81098e70123733732",
       "serverId": "35266860-6252-469c-a67d-185064479fc0",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6a46867_17e238b1",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppsAdapter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-03-05T19:03:04Z",
+      "side": 1,
+      "message": "This is just a makeshift solution. I had asked how translations are done here. I can still find a better way to handle this when we\u0027re ready for that.\n\nFor now we can use this to test",
+      "parentUuid": "0633e255_057f427c",
+      "revId": "a5d039ac839b7f7099e416c81098e70123733732",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
     }
   ]
 }
