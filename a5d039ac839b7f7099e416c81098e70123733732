@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c696e381_eaad7499",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-03-05T19:26:59Z",
+      "side": 1,
+      "message": "Right. I understand it now. I forgot to do it this way.\nI didn\u0027t really expect any issues with the changes I made.",
+      "parentUuid": "f4b8a85a_29ef8b7f",
+      "revId": "a5d039ac839b7f7099e416c81098e70123733732",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d1c11e1_c3c975d1",
         "filename": "app/src/main/AndroidManifest.xml",
         "patchSetId": 1
