@@ -70,7 +70,8 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
 
         private ApplicationInfo app;
 
-        List<String> s = new ArrayList<>();
+        List<String> stringList = new ArrayList<>();
+        String backgroundDataTxt, wifiTxt, mobileDataTxt, vpn, blockTxt, andTxt, commaTxt;
 
         public ViewHolder(@NonNull View itemView, Context context, PackageManager packageManager, SettingsManager settingsManager) {
             super(itemView);
@@ -99,6 +100,14 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
             mWifiToggle.setOnCheckedChangeListener(this);
             mMobileToggle.setOnCheckedChangeListener(this);
             mVpnToggle.setOnCheckedChangeListener(this);
+
+            backgroundDataTxt = mContext.getString(R.string.background_data);
+            wifiTxt = mContext.getString(R.string.wifi);
+            mobileDataTxt = mContext.getString(R.string.mobile_data);
+            vpn = mContext.getString(R.string.vpn);
+            blockTxt = mContext.getString(R.string.block_space);
+            andTxt = mContext.getString(R.string.space_and_comma_space);
+            commaTxt = mContext.getString(R.string.comma_space);
         }
 
         public void bind(ApplicationInfo app) {
@@ -135,14 +144,22 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
 
                 //initialize settings status
 
-                if (!mBackgroundToggle.isChecked())
-                    s.add("background data");
-                if (!mWifiToggle.isChecked())
-                    s.add("wifi");
-                if (!mMobileToggle.isChecked())
-                    s.add("mobile data");
-                if (!mVpnToggle.isChecked())
-                    s.add("VPN");
+                if (!mBackgroundToggle.isChecked()) {
+                    if (!stringList.contains(backgroundDataTxt))
+                        stringList.add(backgroundDataTxt);
+                }
+                if (!mWifiToggle.isChecked()) {
+                    if (!stringList.contains(wifiTxt))
+                        stringList.add(wifiTxt);
+                }
+                if (!mMobileToggle.isChecked()) {
+                    if (!stringList.contains(mobileDataTxt))
+                        stringList.add(mobileDataTxt);
+                }
+                if (!mVpnToggle.isChecked()) {
+                    if (!stringList.contains(vpn))
+                        stringList.add(vpn);
+                }
 
             /*} else {
                 mMainToggle.setEnabled(false);
@@ -152,7 +169,7 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
                 mVpnToggle.setEnabled(false);
             }*/
 
-            settingStatus.setText(generateStatus(s));
+            settingStatus.setText(generateStatus(stringList));
         }
 
         @Override
@@ -182,7 +199,7 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
                             mVpnToggle.setChecked(true);
                             mSettingsManager.setAppRestrictVpn(app.uid, false);
 
-                            s.clear();
+                            stringList.clear();
                         } else {
                             //block everything
                             mBackgroundToggle.setChecked(false);
@@ -194,68 +211,68 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
                             mVpnToggle.setChecked(false);
                             mSettingsManager.setAppRestrictVpn(app.uid, true);
 
-                            s.clear();
-                            s.add("background data");
-                            s.add("wifi");
-                            s.add("mobile data");
-                            s.add("VPN");
+                            stringList.clear();
+                            stringList.add(backgroundDataTxt);
+                            stringList.add(wifiTxt);
+                            stringList.add(mobileDataTxt);
+                            stringList.add(vpn);
                         }
-                        settingStatus.setText(generateStatus(s));
+                        settingStatus.setText(generateStatus(stringList));
                         break;
 
                     case R.id.app_allow_background_toggle:
                         if (compoundButton.isChecked()) {
                             mSettingsManager.setIsBlacklisted(app.uid, app.packageName, false);
-                            s.remove("background data");
+                            stringList.remove(backgroundDataTxt);
                         } else {
                             mSettingsManager.setIsBlacklisted(app.uid, app.packageName, true);
-                            if (!s.contains("background data"))
-                                s.add("background data");
+                            if (!stringList.contains(backgroundDataTxt))
+                                stringList.add(backgroundDataTxt);
                         }
-                        settingStatus.setText(generateStatus(s));
+                        settingStatus.setText(generateStatus(stringList));
                         break;
 
                     case R.id.app_allow_wifi_toggle:
                         if (compoundButton.isChecked()) {
                             mSettingsManager.setAppRestrictWifi(app.uid, false);
-                            s.remove("wifi");
+                            stringList.remove(wifiTxt);
                         } else {
                             mSettingsManager.setAppRestrictWifi(app.uid, true);
-                            if (!s.contains("wifi"))
-                                s.add("wifi");
+                            if (!stringList.contains(wifiTxt))
+                                stringList.add(wifiTxt);
                         }
-                        settingStatus.setText(generateStatus(s));
+                        settingStatus.setText(generateStatus(stringList));
                         break;
 
                     case R.id.app_allow_mobile_toggle:
                         if (compoundButton.isChecked()) {
                             mSettingsManager.setAppRestrictCellular(app.uid, false);
-                            s.remove("mobile data");
+                            stringList.remove(mobileDataTxt);
                         } else {
                             mSettingsManager.setAppRestrictCellular(app.uid, true);
-                            if (!s.contains("mobile data"))
-                                s.add("mobile data");
+                            if (!stringList.contains(mobileDataTxt))
+                                stringList.add(mobileDataTxt);
                         }
-                        settingStatus.setText(generateStatus(s));
+                        settingStatus.setText(generateStatus(stringList));
                         break;
 
                     case R.id.app_allow_vpn_toggle:
                         if (compoundButton.isChecked()) {
                             mSettingsManager.setAppRestrictVpn(app.uid, false);
-                            s.remove("VPN");
+                            stringList.remove(vpn);
                         } else {
                             mSettingsManager.setAppRestrictVpn(app.uid, true);
-                            if (!s.contains("VPN"))
-                                s.add("VPN");
+                            if (!stringList.contains(vpn))
+                                stringList.add(vpn);
                         }
-                        settingStatus.setText(generateStatus(s));
+                        settingStatus.setText(generateStatus(stringList));
                         break;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.e(TAG, e.getMessage());
 
-                settingStatus.setText(generateStatus(s));
+                settingStatus.setText(generateStatus(stringList));
                 //disable that app's toggles
                 mMainToggle.setEnabled(false);
                 mBackgroundToggle.setEnabled(false);
@@ -267,14 +284,14 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
 
         private String generateStatus(List<String> s) {
             if (!s.isEmpty()) {
-                StringBuilder statusText = new StringBuilder("Block ");
+                StringBuilder statusText = new StringBuilder(blockTxt);
                 for (String str : s) {
                     if (s.indexOf(str) == s.size() - 1 && s.size() != 1) {
-                        statusText.append(" and, ").append(str);
+                        statusText.append(andTxt).append(str);
                     } else if (s.indexOf(str) == 0) {
                         statusText.append(str);
                     } else {
-                        statusText.append(", ").append(str);
+                        statusText.append(commaTxt).append(str);
                     }
                 }
 

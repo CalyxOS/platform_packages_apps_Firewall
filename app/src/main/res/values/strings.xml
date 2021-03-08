@@ -17,4 +17,11 @@
     <string name="allow_mobile_data">Allow mobile data</string>
     <string name="default_settings">Default Settings</string>
     <string name="status_text_placeholder">Allow %1$s</string>
+    <string name="background_data">background data</string>
+    <string name="wifi">wifi</string>
+    <string name="mobile_data">mobile data</string>
+    <string name="vpn">VPN</string>
+    <string name="space_and_comma_space">" and, "</string>
+    <string name="comma_space">", "</string>
+    <string name="block_space">"Block "</string>
 </resources>
