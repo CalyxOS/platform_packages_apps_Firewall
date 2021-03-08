@@ -25,7 +25,7 @@ public class SettingsManager {
         mPolicyManager = NetworkPolicyManager.from(context);
     }
 
-    public void setIsBlacklisted(int uid, String packageName, boolean blacklisted) {
+    public void setIsBlacklisted(int uid, String packageName, boolean blacklisted) throws IllegalArgumentException {
         final int policy = blacklisted ? POLICY_REJECT_METERED_BACKGROUND : POLICY_NONE;
         mUidPolicies.put(uid, policy);
         if (blacklisted) {
@@ -68,19 +68,19 @@ public class SettingsManager {
         return (uidPolicy & policy) != 0;
     }
 
-    public void setAppRestrictCellular(int uid, boolean restrict) {
+    public void setAppRestrictCellular(int uid, boolean restrict) throws IllegalArgumentException {
         setAppRestriction(uid, POLICY_REJECT_CELLULAR, restrict);
     }
 
-    public void setAppRestrictVpn(int uid, boolean restrict) {
+    public void setAppRestrictVpn(int uid, boolean restrict) throws  IllegalArgumentException {
         setAppRestriction(uid, POLICY_REJECT_VPN, restrict);
     }
 
-    public void setAppRestrictWifi(int uid, boolean restrict) {
+    public void setAppRestrictWifi(int uid, boolean restrict) throws IllegalArgumentException {
         setAppRestriction(uid, POLICY_REJECT_WIFI, restrict);
     }
 
-    private void setAppRestriction(int uid, int policy, boolean restrict) {
+    private void setAppRestriction(int uid, int policy, boolean restrict) throws IllegalArgumentException {
         if (restrict) {
             mPolicyManager.addUidPolicy(uid, policy);
         } else {

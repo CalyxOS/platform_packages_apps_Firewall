@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,33 +114,43 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
             appName.setText(app.loadLabel(mPackageManager));
 
             //initialize toggle states
-            //get background data status
-            mBackgroundToggle.setChecked(mSettingsManager.isBlacklisted(app.uid));
+            //check if it's an app
+            //if (UserHandle.isApp(app.uid)) {
+                //get background data status
+                mBackgroundToggle.setChecked(mSettingsManager.isBlacklisted(app.uid));
 
-            //get wifi status
-            mWifiToggle.setChecked(mSettingsManager.getAppRestrictWifi(app.uid));
+                //get wifi status
+                mWifiToggle.setChecked(mSettingsManager.getAppRestrictWifi(app.uid));
 
-            //get mobile status
-            mMobileToggle.setChecked(mSettingsManager.getAppRestrictCellular(app.uid));
+                //get mobile status
+                mMobileToggle.setChecked(mSettingsManager.getAppRestrictCellular(app.uid));
 
-            //get vpn status
-            mVpnToggle.setChecked(mSettingsManager.getAppRestrictVpn(app.uid));
+                //get vpn status
+                mVpnToggle.setChecked(mSettingsManager.getAppRestrictVpn(app.uid));
 
-            //initialize main toggle
-            if (mBackgroundToggle.isChecked() || mWifiToggle.isChecked() || mMobileToggle.isChecked() || mVpnToggle.isChecked())
-                mMainToggle.setChecked(true);
-            else mMainToggle.setChecked(false);
+                //initialize main toggle
+                if (mBackgroundToggle.isChecked() || mWifiToggle.isChecked() || mMobileToggle.isChecked() || mVpnToggle.isChecked())
+                    mMainToggle.setChecked(true);
+                else mMainToggle.setChecked(false);
 
-            //initialize settings status
+                //initialize settings status
 
-            if (!mBackgroundToggle.isChecked())
-                s.add("background data");
-            if (!mWifiToggle.isChecked())
-                s.add("wifi");
-            if (!mMobileToggle.isChecked())
-                s.add("mobile data");
-            if (!mVpnToggle.isChecked())
-                s.add("VPN");
+                if (!mBackgroundToggle.isChecked())
+                    s.add("background data");
+                if (!mWifiToggle.isChecked())
+                    s.add("wifi");
+                if (!mMobileToggle.isChecked())
+                    s.add("mobile data");
+                if (!mVpnToggle.isChecked())
+                    s.add("VPN");
+
+            /*} else {
+                mMainToggle.setEnabled(false);
+                mBackgroundToggle.setEnabled(false);
+                mWifiToggle.setEnabled(false);
+                mMobileToggle.setEnabled(false);
+                mVpnToggle.setEnabled(false);
+            }*/
 
             settingStatus.setText(generateStatus(s));
         }
@@ -157,87 +168,100 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
 
         @Override
         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-            switch (compoundButton.getId()) {
-                case R.id.main_toggle:
-                    if (compoundButton.isChecked()) {
-                        //reset to default
-                        mBackgroundToggle.setChecked(true);
-                        mSettingsManager.setIsBlacklisted(app.uid, app.packageName, false);
-                        mWifiToggle.setChecked(true);
-                        mSettingsManager.setAppRestrictWifi(app.uid, false);
-                        mMobileToggle.setChecked(true);
-                        mSettingsManager.setAppRestrictCellular(app.uid, false);
-                        mVpnToggle.setChecked(true);
-                        mSettingsManager.setAppRestrictVpn(app.uid, false);
+            try {
+                switch (compoundButton.getId()) {
+                    case R.id.main_toggle:
+                        if (compoundButton.isChecked()) {
+                            //reset to default
+                            mBackgroundToggle.setChecked(true);
+                            mSettingsManager.setIsBlacklisted(app.uid, app.packageName, false);
+                            mWifiToggle.setChecked(true);
+                            mSettingsManager.setAppRestrictWifi(app.uid, false);
+                            mMobileToggle.setChecked(true);
+                            mSettingsManager.setAppRestrictCellular(app.uid, false);
+                            mVpnToggle.setChecked(true);
+                            mSettingsManager.setAppRestrictVpn(app.uid, false);
 
-                        s.clear();
-                    } else {
-                        //block everything
-                        mBackgroundToggle.setChecked(false);
-                        mSettingsManager.setIsBlacklisted(app.uid, app.packageName, true);
-                        mWifiToggle.setChecked(false);
-                        mSettingsManager.setAppRestrictWifi(app.uid, true);
-                        mMobileToggle.setChecked(false);
-                        mSettingsManager.setAppRestrictCellular(app.uid, true);
-                        mVpnToggle.setChecked(false);
-                        mSettingsManager.setAppRestrictVpn(app.uid, true);
+                            s.clear();
+                        } else {
+                            //block everything
+                            mBackgroundToggle.setChecked(false);
+                            mSettingsManager.setIsBlacklisted(app.uid, app.packageName, true);
+                            mWifiToggle.setChecked(false);
+                            mSettingsManager.setAppRestrictWifi(app.uid, true);
+                            mMobileToggle.setChecked(false);
+                            mSettingsManager.setAppRestrictCellular(app.uid, true);
+                            mVpnToggle.setChecked(false);
+                            mSettingsManager.setAppRestrictVpn(app.uid, true);
 
-                        s.clear();
-                        s.add("background data");
-                        s.add("wifi");
-                        s.add("mobile data");
-                        s.add("VPN");
-                    }
-                    settingStatus.setText(generateStatus(s));
-                    break;
-
-                case R.id.app_allow_background_toggle:
-                    if (compoundButton.isChecked()) {
-                        mSettingsManager.setIsBlacklisted(app.uid, app.packageName, false);
-                        s.remove("background data");
-                    } else {
-                        mSettingsManager.setIsBlacklisted(app.uid, app.packageName, true);
-                        if (!s.contains("background data"))
+                            s.clear();
                             s.add("background data");
-                    }
-                    settingStatus.setText(generateStatus(s));
-                    break;
-
-                case R.id.app_allow_wifi_toggle:
-                    if (compoundButton.isChecked()) {
-                        mSettingsManager.setAppRestrictWifi(app.uid, false);
-                        s.remove("wifi");
-                    } else {
-                        mSettingsManager.setAppRestrictWifi(app.uid, true);
-                        if (!s.contains("wifi"))
                             s.add("wifi");
-                    }
-                    settingStatus.setText(generateStatus(s));
-                    break;
-
-                case R.id.app_allow_mobile_toggle:
-                    if (compoundButton.isChecked()) {
-                        mSettingsManager.setAppRestrictCellular(app.uid, false);
-                        s.remove("mobile data");
-                    } else {
-                        mSettingsManager.setAppRestrictCellular(app.uid, true);
-                        if (!s.contains("mobile data"))
                             s.add("mobile data");
-                    }
-                    settingStatus.setText(generateStatus(s));
-                    break;
-
-                case R.id.app_allow_vpn_toggle:
-                    if (compoundButton.isChecked()) {
-                        mSettingsManager.setAppRestrictVpn(app.uid, false);
-                        s.remove("VPN");
-                    } else {
-                        mSettingsManager.setAppRestrictVpn(app.uid, true);
-                        if (!s.contains("VPN"))
                             s.add("VPN");
-                    }
-                    settingStatus.setText(generateStatus(s));
-                    break;
+                        }
+                        settingStatus.setText(generateStatus(s));
+                        break;
+
+                    case R.id.app_allow_background_toggle:
+                        if (compoundButton.isChecked()) {
+                            mSettingsManager.setIsBlacklisted(app.uid, app.packageName, false);
+                            s.remove("background data");
+                        } else {
+                            mSettingsManager.setIsBlacklisted(app.uid, app.packageName, true);
+                            if (!s.contains("background data"))
+                                s.add("background data");
+                        }
+                        settingStatus.setText(generateStatus(s));
+                        break;
+
+                    case R.id.app_allow_wifi_toggle:
+                        if (compoundButton.isChecked()) {
+                            mSettingsManager.setAppRestrictWifi(app.uid, false);
+                            s.remove("wifi");
+                        } else {
+                            mSettingsManager.setAppRestrictWifi(app.uid, true);
+                            if (!s.contains("wifi"))
+                                s.add("wifi");
+                        }
+                        settingStatus.setText(generateStatus(s));
+                        break;
+
+                    case R.id.app_allow_mobile_toggle:
+                        if (compoundButton.isChecked()) {
+                            mSettingsManager.setAppRestrictCellular(app.uid, false);
+                            s.remove("mobile data");
+                        } else {
+                            mSettingsManager.setAppRestrictCellular(app.uid, true);
+                            if (!s.contains("mobile data"))
+                                s.add("mobile data");
+                        }
+                        settingStatus.setText(generateStatus(s));
+                        break;
+
+                    case R.id.app_allow_vpn_toggle:
+                        if (compoundButton.isChecked()) {
+                            mSettingsManager.setAppRestrictVpn(app.uid, false);
+                            s.remove("VPN");
+                        } else {
+                            mSettingsManager.setAppRestrictVpn(app.uid, true);
+                            if (!s.contains("VPN"))
+                                s.add("VPN");
+                        }
+                        settingStatus.setText(generateStatus(s));
+                        break;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e(TAG, e.getMessage());
+
+                settingStatus.setText(generateStatus(s));
+                //disable that app's toggles
+                mMainToggle.setEnabled(false);
+                mBackgroundToggle.setEnabled(false);
+                mWifiToggle.setEnabled(false);
+                mMobileToggle.setEnabled(false);
+                mVpnToggle.setEnabled(false);
             }
         }
 
