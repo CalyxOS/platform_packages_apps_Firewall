@@ -151,7 +151,6 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
                 checkMainToggle();
 
                 //initialize settings status
-
                 if (!mBackgroundToggle.isChecked()) {
                     if (!stringList.contains(backgroundDataTxt))
                         stringList.add(backgroundDataTxt);
