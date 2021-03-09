@@ -17,4 +17,5 @@
     <string name="allow_mobile_data">Allow mobile data</string>
     <string name="default_settings">Default Settings</string>
     <string name="status_text_placeholder">Allow %1$s</string>
+    <string name="error_setting_preference">Error while setting preference for %1$s</string>
 </resources>
