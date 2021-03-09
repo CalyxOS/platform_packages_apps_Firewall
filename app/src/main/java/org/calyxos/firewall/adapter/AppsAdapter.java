@@ -136,16 +136,16 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
             //check if it's an app
             //if (UserHandle.isApp(app.uid)) {
                 //get background data status
-                mBackgroundToggle.setChecked(mSettingsManager.isBlacklisted(app.uid));
+                mBackgroundToggle.setChecked(!mSettingsManager.isBlacklisted(app.uid));
 
                 //get wifi status
-                mWifiToggle.setChecked(mSettingsManager.getAppRestrictWifi(app.uid));
+                mWifiToggle.setChecked(!mSettingsManager.getAppRestrictWifi(app.uid));
 
                 //get mobile status
-                mMobileToggle.setChecked(mSettingsManager.getAppRestrictCellular(app.uid));
+                mMobileToggle.setChecked(!mSettingsManager.getAppRestrictCellular(app.uid));
 
                 //get vpn status
-                mVpnToggle.setChecked(mSettingsManager.getAppRestrictVpn(app.uid));
+                mVpnToggle.setChecked(!mSettingsManager.getAppRestrictVpn(app.uid));
 
                 //initialize main toggle
                 checkMainToggle();
