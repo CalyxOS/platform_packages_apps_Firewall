@@ -68,19 +68,19 @@ public class SettingsManager {
         return (uidPolicy & policy) != 0;
     }
 
-    public void setAppRestrictCellular(int uid, boolean restrict) throws IllegalArgumentException {
+    public void setAppRestrictCellular(int uid, boolean restrict) throws RuntimeException {
         setAppRestriction(uid, POLICY_REJECT_CELLULAR, restrict);
     }
 
-    public void setAppRestrictVpn(int uid, boolean restrict) throws  IllegalArgumentException {
+    public void setAppRestrictVpn(int uid, boolean restrict) throws  RuntimeException {
         setAppRestriction(uid, POLICY_REJECT_VPN, restrict);
     }
 
-    public void setAppRestrictWifi(int uid, boolean restrict) throws IllegalArgumentException {
+    public void setAppRestrictWifi(int uid, boolean restrict) throws RuntimeException {
         setAppRestriction(uid, POLICY_REJECT_WIFI, restrict);
     }
 
-    private void setAppRestriction(int uid, int policy, boolean restrict) throws IllegalArgumentException {
+    private void setAppRestriction(int uid, int policy, boolean restrict) throws RuntimeException {
         if (restrict) {
             mPolicyManager.addUidPolicy(uid, policy);
         } else {
