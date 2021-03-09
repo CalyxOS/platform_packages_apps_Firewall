@@ -24,4 +24,5 @@
     <string name="space_and_comma_space">" and, "</string>
     <string name="comma_space">", "</string>
     <string name="block_space">"Block "</string>
+    <string name="error_setting_preference">Error while setting preference for %1$s</string>
 </resources>
