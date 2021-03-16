@@ -24,16 +24,28 @@ import org.calyxos.firewall.settings.SettingsManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
+public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> {
 
-    private static final String TAG = AppsAdapter.class.getSimpleName();
+    private static final String TAG = AppAdapter.class.getSimpleName();
     private Context mContext;
     private PackageManager mPackageManager;
     private SettingsManager mSettingsManager;
-    private List<ApplicationInfo> mSystemApps;
+    private List<ApplicationInfo> mTotalApps = new ArrayList<>();
 
-    public AppsAdapter(Context context, PackageManager packageManager, List<ApplicationInfo> systemApps) {
-        mSystemApps = systemApps;
+    public AppAdapter(Context context, PackageManager packageManager, List<ApplicationInfo> instApps, List<ApplicationInfo> sysApps) {
+        //add a placeholder for header text
+        ApplicationInfo ai = new ApplicationInfo();
+        ai.processName = "Header1";
+        instApps.add(0, ai);
+
+        ApplicationInfo ai1 = new ApplicationInfo();
+        ai1.processName = "Header2";
+        sysApps.add(0, ai1);
+
+        //merge lists
+        mTotalApps.addAll(instApps);
+        mTotalApps.addAll(sysApps);
+
         mContext = context;
         mPackageManager = packageManager;
         mSettingsManager = new SettingsManager(context);
@@ -48,14 +60,14 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ApplicationInfo apps = mSystemApps.get(position);
-        holder.bind(apps);
+        ApplicationInfo app = mTotalApps.get(position);
+        holder.bind(app);
     }
 
     @Override
     public int getItemCount() {
-        if(mSystemApps != null)
-            return mSystemApps.size();
+        if(mTotalApps != null)
+            return mTotalApps.size();
         else return 0;
     }
 
@@ -64,9 +76,9 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
         private Context mContext;
         private PackageManager mPackageManager;
         private SettingsManager mSettingsManager;
-        private LinearLayout linearLayout;
+        private LinearLayout mLinearLayout, mAccordion;
         private SwitchCompat mMainToggle, mBackgroundToggle, mWifiToggle, mMobileToggle, mVpnToggle;
-        private TextView appName, settingStatus;
+        private TextView appName, settingStatus, header;
         private ImageView appIcon, accordionIcon;
 
         private ApplicationInfo app;
@@ -92,7 +104,9 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
             appIcon = itemView.findViewById(R.id.app_icon);
             accordionIcon = itemView.findViewById(R.id.accordion_icon);
 
-            linearLayout = itemView.findViewById(R.id.accordion_contents);
+            mAccordion = itemView.findViewById(R.id.accordion);
+            header = itemView.findViewById(R.id.list_header_text);
+            mLinearLayout = itemView.findViewById(R.id.accordion_contents);
 
             itemView.setOnClickListener(this);
             accordionIcon.setOnClickListener(this);
@@ -122,19 +136,29 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
 
         public void bind(ApplicationInfo app) {
             this.app = app;
-            try {
-                //here just in case
-                PackageInfo packageInfo = this.mPackageManager.getPackageInfo(app.packageName, 0);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-            }
+            //check for header placeholder
+            if (app.processName.equals("Header1") || app.processName.equals("Header2")) {
+                header.setVisibility(View.VISIBLE);
+                mAccordion.setVisibility(View.GONE);
 
-            appIcon.setImageDrawable(app.loadIcon(mPackageManager));
-            appName.setText(app.loadLabel(mPackageManager));
+                header.setText(app.processName.equals("Header1") ? mContext.getString(R.string.installed_apps) : mContext.getString(R.string.system_apps));
+            } else {
+                header.setVisibility(View.GONE);
+                mAccordion.setVisibility(View.VISIBLE);
 
-            //initialize toggle states
-            //check if it's an app
-            //if (UserHandle.isApp(app.uid)) {
+                try {
+                    //here just in case
+                    PackageInfo packageInfo = this.mPackageManager.getPackageInfo(app.packageName, 0);
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                appIcon.setImageDrawable(app.loadIcon(mPackageManager));
+                appName.setText(app.loadLabel(mPackageManager));
+
+                //initialize toggle states
+                //check if it's an app
+                //if (UserHandle.isApp(app.uid)) {
                 //get background data status
                 mBackgroundToggle.setChecked(!mSettingsManager.isBlacklisted(app.uid));
 
@@ -168,25 +192,26 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
                         stringList.add(vpn);
                 }
 
-            /*} else {
+                /*} else {
                 mMainToggle.setEnabled(false);
                 mBackgroundToggle.setEnabled(false);
                 mWifiToggle.setEnabled(false);
                 mMobileToggle.setEnabled(false);
                 mVpnToggle.setEnabled(false);
-            }*/
+                }*/
 
-            settingStatus.setText(generateStatus(stringList));
+                settingStatus.setText(generateStatus(stringList));
+            }
         }
 
         @Override
         public void onClick(View v) {
             if (v.equals(itemView) || v.getId() == R.id.accordion_icon) {
-                if (linearLayout.getVisibility() == View.VISIBLE) {
-                    linearLayout.setVisibility(View.GONE);
+                if (mLinearLayout.getVisibility() == View.VISIBLE) {
+                    mLinearLayout.setVisibility(View.GONE);
                     accordionIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_accordion_down, null));
                 } else {
-                    linearLayout.setVisibility(View.VISIBLE);
+                    mLinearLayout.setVisibility(View.VISIBLE);
                     accordionIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_accordion_up, null));
                 }
             } else {
