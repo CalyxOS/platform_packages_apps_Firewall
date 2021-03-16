@@ -4,105 +4,130 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/color_primary"
-    android:orientation="vertical"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp">
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/accordion_icon"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_centerVertical="true"
-            app:srcCompat="@drawable/ic_accordion_down"/>
-
-        <ImageView
-            android:id="@+id/app_icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/accordion_icon"
-            app:srcCompat="@drawable/ic_placeholder" />
-
-        <TextView
-            android:id="@+id/app_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:textSize="16sp"
-            android:text="@string/app_name_text"
-            android:textColor="@color/white"
-            android:layout_toEndOf="@+id/app_icon"
-            android:layout_toStartOf="@id/main_toggle"/>
-
-        <TextView
-            android:id="@+id/setting_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:textSize="15sp"
-            android:text="@string/default_settings"
-            android:textColor="@color/white_1"
-            android:layout_toEndOf="@+id/app_icon"
-            android:layout_toStartOf="@id/main_toggle"
-            android:layout_below="@+id/app_name" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/main_toggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:checked="true"/>
-
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/list_header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/installed_apps"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
 
     <LinearLayout
-        android:id="@+id/accordion_contents"
+        android:id="@+id/accordion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
 
-        <include layout="@layout/fragment_use_defaults_accordion_content"
-            android:layout_marginBottom="25dp"
-            android:layout_marginStart="83dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:visibility="gone"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <include layout="@layout/fragment_allow_background"
-            android:layout_marginBottom="25dp"
-            android:layout_marginStart="83dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            <ImageView
+                android:id="@+id/accordion_icon"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/ic_accordion_down" />
 
-        <include layout="@layout/fragment_allow_wifi"
-            android:layout_marginBottom="25dp"
-            android:layout_marginStart="83dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            <ImageView
+                android:id="@+id/app_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@+id/accordion_icon"
+                app:srcCompat="@drawable/ic_placeholder" />
 
-        <include layout="@layout/fragment_allow_mobile"
-            android:layout_marginBottom="25dp"
-            android:layout_marginStart="83dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            <TextView
+                android:id="@+id/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toStartOf="@id/main_toggle"
+                android:layout_toEndOf="@+id/app_icon"
+                android:text="@string/app_name_text"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
-        <include layout="@layout/fragment_allow_vpn"
-            android:layout_marginBottom="25dp"
-            android:layout_marginStart="83dp"
+            <TextView
+                android:id="@+id/setting_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/app_name"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toStartOf="@id/main_toggle"
+                android:layout_toEndOf="@+id/app_icon"
+                android:text="@string/default_settings"
+                android:textColor="@color/white_1"
+                android:textSize="15sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/main_toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:checked="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/accordion_contents"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            android:layout_marginTop="25dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <include
+                layout="@layout/fragment_use_defaults_accordion_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="83dp"
+                android:layout_marginBottom="25dp"
+                android:visibility="gone" />
+
+            <include
+                layout="@layout/fragment_allow_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="83dp"
+                android:layout_marginBottom="25dp" />
+
+            <include
+                layout="@layout/fragment_allow_wifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="83dp"
+                android:layout_marginBottom="25dp" />
+
+            <include
+                layout="@layout/fragment_allow_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="83dp"
+                android:layout_marginBottom="25dp" />
+
+            <include
+                layout="@layout/fragment_allow_vpn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="83dp"
+                android:layout_marginBottom="25dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

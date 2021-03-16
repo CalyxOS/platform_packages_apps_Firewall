@@ -76,43 +76,14 @@
         android:padding="@dimen/container_padding_size"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/system_apps"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"/>
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/system_apps"
+            android:id="@+id/app_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.0"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/fragment_app_setting_accordion" />
-
-        <TextView
-            android:id="@+id/installed_apps_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/installed_apps"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/installed_apps"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.0"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/fragment_app_setting_accordion"/>
 
     </LinearLayout>
 
