@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.calyxos.firewall.adapter.AppsAdapter;
+import org.calyxos.firewall.adapter.AppAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private RecyclerView mSystemAppsList, mInstalledAppsList;
-    private AppsAdapter mSystemAppsAdapter, mInstalledAppsAdapter;
+    private RecyclerView mAppList;
+    private AppAdapter mAppAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mSystemAppsList = findViewById(R.id.system_apps);
-        mInstalledAppsList = findViewById(R.id.installed_apps);
+        mAppList = findViewById(R.id.app_list);
     }
 
     @Override
@@ -54,17 +53,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        if (mSystemAppsAdapter == null) {
-            mSystemAppsAdapter = new AppsAdapter(this, pm, sysApps);
-            mSystemAppsList.setAdapter(mSystemAppsAdapter);
+        if (mAppAdapter == null) {
+            mAppAdapter = new AppAdapter(this, pm, instApps, sysApps);
+            mAppList.setAdapter(mAppAdapter);
         } else
-            mSystemAppsAdapter.notifyDataSetChanged();
-
-        if (mInstalledAppsAdapter == null) {
-            mInstalledAppsAdapter = new AppsAdapter(this, pm, instApps);
-            mInstalledAppsList.setAdapter(mInstalledAppsAdapter);
-        } else
-            mInstalledAppsAdapter.notifyDataSetChanged();
+            mAppAdapter.notifyDataSetChanged();
     }
 
     @Override
