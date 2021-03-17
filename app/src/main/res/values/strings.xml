@@ -25,4 +25,5 @@
     <string name="comma_space">", "</string>
     <string name="block_space">"Block "</string>
     <string name="error_setting_preference">Error while setting preference for %1$s</string>
+    <string name="search">Search</string>
 </resources>

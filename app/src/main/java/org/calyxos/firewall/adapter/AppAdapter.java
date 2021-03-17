@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,13 +26,14 @@ import org.calyxos.firewall.settings.SettingsManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> {
+public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> implements Filterable {
 
     private static final String TAG = AppAdapter.class.getSimpleName();
-    private Context mContext;
-    private PackageManager mPackageManager;
-    private SettingsManager mSettingsManager;
-    private List<ApplicationInfo> mTotalApps = new ArrayList<>();
+    private final Context mContext;
+    private final PackageManager mPackageManager;
+    private final SettingsManager mSettingsManager;
+    private final List<ApplicationInfo> mApps = new ArrayList<>();
+    private List<ApplicationInfo> mAppsFiltered;
 
     public AppAdapter(Context context, PackageManager packageManager, List<ApplicationInfo> instApps, List<ApplicationInfo> sysApps) {
         //add a placeholder for header text
@@ -43,9 +46,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> {
         sysApps.add(0, ai1);
 
         //merge lists
-        mTotalApps.addAll(instApps);
-        mTotalApps.addAll(sysApps);
+        mApps.addAll(instApps);
+        mApps.addAll(sysApps);
 
+        mAppsFiltered = mApps;
         mContext = context;
         mPackageManager = packageManager;
         mSettingsManager = new SettingsManager(context);
@@ -60,15 +64,50 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ApplicationInfo app = mTotalApps.get(position);
+        ApplicationInfo app = mAppsFiltered.get(position);
         holder.bind(app);
     }
 
     @Override
     public int getItemCount() {
-        if(mTotalApps != null)
-            return mTotalApps.size();
+        if(mAppsFiltered != null)
+            return mAppsFiltered.size();
         else return 0;
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String charString = constraint.toString();
+                if (charString.isEmpty()) {
+                    mAppsFiltered = mApps;
+                } else {
+                    List<ApplicationInfo> filteredList = new ArrayList<>();
+                    for (ApplicationInfo app : mApps) {
+                        if (app.loadLabel(mPackageManager) != null) {
+                            if (app.loadLabel(mPackageManager).toString().toLowerCase().startsWith(constraint.toString().toLowerCase())) {
+                                filteredList.add(app);
+                            }
+                        }
+                    }
+
+                    mAppsFiltered = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = mAppsFiltered;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                mAppsFiltered = (ArrayList<ApplicationInfo>) results.values;
+
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
