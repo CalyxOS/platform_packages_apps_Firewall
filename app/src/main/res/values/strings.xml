@@ -26,4 +26,8 @@
     <string name="block_space">"Block "</string>
     <string name="error_setting_preference">Error while setting preference for %1$s</string>
     <string name="search">Search</string>
+    <string name="sort_by_last_used">Sort by last used</string>
+    <string name="sort_by_name">Sort by name</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="light_theme">Light Theme</string>
 </resources>
