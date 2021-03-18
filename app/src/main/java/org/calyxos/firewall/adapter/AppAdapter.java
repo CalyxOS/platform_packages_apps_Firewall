@@ -1,5 +1,7 @@
 package org.calyxos.firewall.adapter;
 
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -24,6 +26,8 @@ import org.calyxos.firewall.R;
 import org.calyxos.firewall.settings.SettingsManager;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Comparator;
 import java.util.List;
 
 public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> implements Filterable {
@@ -32,10 +36,14 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
     private final Context mContext;
     private final PackageManager mPackageManager;
     private final SettingsManager mSettingsManager;
-    private final List<ApplicationInfo> mApps = new ArrayList<>();
-    private List<ApplicationInfo> mAppsFiltered;
+    private final List<ApplicationInfo> mTotalApps = new ArrayList<>();
+    private List<ApplicationInfo> mAppsFiltered, mInstApps, mSysApps;
+    private String currentSort = "name";
 
     public AppAdapter(Context context, PackageManager packageManager, List<ApplicationInfo> instApps, List<ApplicationInfo> sysApps) {
+        mInstApps = instApps;
+        mSysApps = sysApps;
+
         //add a placeholder for header text
         ApplicationInfo ai = new ApplicationInfo();
         ai.processName = "Header1";
@@ -46,10 +54,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
         sysApps.add(0, ai1);
 
         //merge lists
-        mApps.addAll(instApps);
-        mApps.addAll(sysApps);
+        mTotalApps.addAll(instApps);
+        mTotalApps.addAll(sysApps);
 
-        mAppsFiltered = mApps;
+        mAppsFiltered = mTotalApps;
         mContext = context;
         mPackageManager = packageManager;
         mSettingsManager = new SettingsManager(context);
@@ -82,10 +90,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
             protected FilterResults performFiltering(CharSequence constraint) {
                 String charString = constraint.toString();
                 if (charString.isEmpty()) {
-                    mAppsFiltered = mApps;
+                    mAppsFiltered = mTotalApps;
                 } else {
                     List<ApplicationInfo> filteredList = new ArrayList<>();
-                    for (ApplicationInfo app : mApps) {
+                    for (ApplicationInfo app : mTotalApps) {
                         if (app.loadLabel(mPackageManager) != null) {
                             if (app.loadLabel(mPackageManager).toString().toLowerCase().startsWith(constraint.toString().toLowerCase())) {
                                 filteredList.add(app);
@@ -108,6 +116,156 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                 notifyDataSetChanged();
             }
         };
+    }
+
+    public void sortListByLastUsed() {
+        List<UsageStats> usageStats = getUsageStats();
+
+        List<ApplicationInfo> instApps = removeNullLabelApps(mInstApps);
+        instApps.sort(new Comparator<ApplicationInfo>() {
+            @Override
+            public int compare(ApplicationInfo lhs, ApplicationInfo rhs) {
+                long lhsTime = 0L, rhsTime = 0L;
+                for (UsageStats us : usageStats) {
+                    if (us.getPackageName().equals(lhs.packageName))
+                        lhsTime = us.getLastTimeUsed();
+
+                    if (us.getPackageName().equals(rhs.packageName))
+                        rhsTime = us.getLastTimeUsed();
+                }
+                return Long.compare(rhsTime, lhsTime);//descending order
+            }
+        });
+        ApplicationInfo ai = new ApplicationInfo();
+        ai.processName = "Header1";
+        instApps.add(0, ai);
+
+        List<ApplicationInfo> sysApps = removeNullLabelApps(mSysApps);
+        sysApps.sort(new Comparator<ApplicationInfo>() {
+            @Override
+            public int compare(ApplicationInfo lhs, ApplicationInfo rhs) {
+                long lhsTime = 0L, rhsTime = 0L;
+                for (UsageStats us : usageStats) {
+                    if (us.getPackageName().equals(lhs.packageName))
+                        lhsTime = us.getLastTimeUsed();
+
+                    if (us.getPackageName().equals(rhs.packageName))
+                        rhsTime = us.getLastTimeUsed();
+                }
+                return Long.compare(rhsTime, lhsTime);//descending order
+            }
+        });
+        ApplicationInfo ai1 = new ApplicationInfo();
+        ai1.processName = "Header2";
+        sysApps.add(0, ai1);
+
+        //merge lists
+        mAppsFiltered.clear();
+        mAppsFiltered.addAll(instApps);
+        mAppsFiltered.addAll(sysApps);
+
+        currentSort = "last_used";
+
+        notifyDataSetChanged();
+    }
+
+    public void sortResultListByLastUsed() {
+        List<UsageStats> usageStats = getUsageStats();
+
+        mAppsFiltered.sort(new Comparator<ApplicationInfo>() {
+            @Override
+            public int compare(ApplicationInfo lhs, ApplicationInfo rhs) {
+                long lhsTime = 0L, rhsTime = 0L;
+                for (UsageStats us : usageStats) {
+                    if (us.getPackageName().equals(lhs.packageName))
+                        lhsTime = us.getLastTimeUsed();
+
+                    if (us.getPackageName().equals(rhs.packageName))
+                        rhsTime = us.getLastTimeUsed();
+                }
+                return Long.compare(rhsTime, lhsTime); //descending order
+            }
+        });
+
+        currentSort = "last_used";
+
+        notifyDataSetChanged();
+    }
+
+    public void sortListByName() {
+        List<ApplicationInfo> instApps = removeNullLabelApps(mInstApps);
+        instApps.sort(new Comparator<ApplicationInfo>() {
+            @Override
+            public int compare(ApplicationInfo lhs, ApplicationInfo rhs) {
+                return lhs.loadLabel(mPackageManager).toString().compareTo(rhs.loadLabel(mPackageManager).toString());
+            }
+        });
+
+        //add a placeholder for header text
+        ApplicationInfo ai = new ApplicationInfo();
+        ai.processName = "Header1";
+        instApps.add(0, ai);
+
+        List<ApplicationInfo> sysApps = removeNullLabelApps(mSysApps);
+        sysApps.sort(new Comparator<ApplicationInfo>() {
+            @Override
+            public int compare(ApplicationInfo lhs, ApplicationInfo rhs) {
+                return lhs.loadLabel(mPackageManager).toString().compareTo(rhs.loadLabel(mPackageManager).toString());
+            }
+        });
+
+        ApplicationInfo ai1 = new ApplicationInfo();
+        ai1.processName = "Header2";
+        sysApps.add(0, ai1);
+
+        //merge lists
+        mAppsFiltered.clear();
+        mAppsFiltered.addAll(instApps);
+        mAppsFiltered.addAll(sysApps);
+
+        currentSort = "name";
+
+        notifyDataSetChanged();
+    }
+
+    public void sortResultListByName() {
+        mAppsFiltered.sort(new Comparator<ApplicationInfo>() {
+            @Override
+            public int compare(ApplicationInfo lhs, ApplicationInfo rhs) {
+                return lhs.loadLabel(mPackageManager).toString().compareTo(rhs.loadLabel(mPackageManager).toString());
+            }
+        });
+
+        currentSort = "name";
+
+        notifyDataSetChanged();
+    }
+
+    public void reApplySort() {
+        if (currentSort.equals("name"))
+            sortListByName();
+        else sortListByLastUsed();
+    }
+
+    private List<ApplicationInfo> removeNullLabelApps(List<ApplicationInfo> list) {
+        //Remove apps with null labels
+        List<ApplicationInfo> temp = new ArrayList<>();
+        for (ApplicationInfo app : list) {
+            if (app.loadLabel(mPackageManager) != null)
+                temp.add(app);
+        }
+        list = temp;
+
+        return list;
+    }
+
+    private List<UsageStats> getUsageStats() {
+        UsageStatsManager usm = (UsageStatsManager) mContext.getSystemService(Context.USAGE_STATS_SERVICE);
+        Calendar calendar = Calendar.getInstance();
+        long endTime = calendar.getTimeInMillis();
+        calendar.add(Calendar.YEAR, -1);
+        long startTime = calendar.getTimeInMillis();
+        return usm.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, startTime, endTime);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
