@@ -95,7 +95,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                     List<ApplicationInfo> filteredList = new ArrayList<>();
                     for (ApplicationInfo app : mTotalApps) {
                         if (app.loadLabel(mPackageManager) != null) {
-                            if (app.loadLabel(mPackageManager).toString().toLowerCase().startsWith(constraint.toString().toLowerCase())) {
+                            if (app.loadLabel(mPackageManager).toString().toLowerCase().contains(constraint.toString().toLowerCase())) {
                                 filteredList.add(app);
                             }
                         }
