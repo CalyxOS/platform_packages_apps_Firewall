@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_sort"
+        android:title="@string/sort_by_name"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_theme"
+        android:title="@string/light_theme"
+        android:visible="false"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_settings"
-        android:title="@string/settings"/>
+        android:title="@string/settings"
+        android:visible="false"
+        app:showAsAction="never"/>
+
     <item
         android:id="@+id/action_about"
-        android:title="@string/about"/>
-
+        android:title="@string/about"
+        android:visible="false"
+        app:showAsAction="never"/>
 </menu>

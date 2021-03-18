@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         final PackageManager pm = getPackageManager();
 
-        //To avoid search list and real list mix up
+        //To avoid search result list and real list mix up
         if (mSearchBar.getVisibility() == View.VISIBLE && !mSearchBar.getText().toString().isEmpty())
             return;
 
@@ -101,6 +102,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.firewall_settings_menu, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
@@ -120,6 +127,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else
                     onBackPressed();
                 break;
+            }
+
+            case R.id.action_sort: {
+                if (item.getTitle().equals(getString(R.string.sort_by_name))) {
+                    //Check and call a different sort function for search result list
+                    if (mSearchBar.getVisibility() == View.VISIBLE && !mSearchBar.getText().toString().isEmpty())
+                        mAppAdapter.sortResultListByName();
+                    else mAppAdapter.sortListByName();
+
+                    item.setTitle(getString(R.string.sort_by_last_used));
+                } else {
+                    if (mSearchBar.getVisibility() == View.VISIBLE && !mSearchBar.getText().toString().isEmpty())
+                        mAppAdapter.sortResultListByLastUsed();
+                    else mAppAdapter.sortListByLastUsed();
+                }
+
+                break;
+            }
+
+            case R.id.action_theme: {
+                //TODO: switch themes
             }
         }
         return true;
