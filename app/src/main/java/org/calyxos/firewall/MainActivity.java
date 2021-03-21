@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     mSearchClear.setVisibility(View.VISIBLE);
 
                 //search list
-                mAppAdapter.getFilter().filter(mSearchBar.getText().toString());
+                if (mAppAdapter != null)
+                    mAppAdapter.getFilter().filter(mSearchBar.getText().toString());
             }
 
             @Override
@@ -144,10 +145,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-            }
-
-            case R.id.action_theme: {
-                //TODO: switch themes
             }
         }
         return true;

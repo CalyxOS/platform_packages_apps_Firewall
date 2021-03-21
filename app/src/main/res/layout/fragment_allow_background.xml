@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="25dp"
-    android:background="@color/color_primary">
+    android:layout_marginBottom="25dp">
 
     <TextView
         android:id="@+id/main_title"
@@ -12,9 +11,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="@string/allow_background_data"
-        android:textColor="@color/white"
         android:layout_centerVertical="true"
-        android:textSize="18sp" />
+        android:textSize="15sp" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/app_allow_background_toggle"
