@@ -2,8 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/color_primary">
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,10 +15,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:text="@string/use_defaults"
-            android:layout_centerVertical="true"
-            android:textColor="@color/white" />
+            android:layout_centerVertical="true" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/app_use_default_toggle"
@@ -44,10 +42,9 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_toStartOf="@id/app_cleartext_toggle"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/allow_cleartext"
-            android:layout_centerVertical="true"
-            android:textColor="@color/white" />
+            android:layout_centerVertical="true" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/app_cleartext_toggle"
@@ -72,11 +69,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:layout_centerVertical="true"
             android:layout_toStartOf="@id/app_block_ads_toggle"
-            android:text="@string/block_ads_trackers"
-            android:textColor="@color/white" />
+            android:text="@string/block_ads_trackers" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/app_block_ads_toggle"
