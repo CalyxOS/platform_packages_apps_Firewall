@@ -7,12 +7,6 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/action_theme"
-        android:title="@string/light_theme"
-        android:visible="false"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/action_settings"
         android:title="@string/settings"
         android:visible="false"

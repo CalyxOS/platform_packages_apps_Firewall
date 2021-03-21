@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_primary"
     android:orientation="vertical"
     tools:context=".MainActivity"
     tools:menu="@menu/firewall_settings_menu">
@@ -12,20 +11,16 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="?android:actionBarSize"
-        android:background="@color/color_primary_dark">
+        android:layout_height="?android:actionBarSize">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:theme="@style/ToolBarStyle"
-            app:popupTheme="@style/ToolBarPopupStyle">
+            android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:textSize="20sp"/>
 
             <ImageView
@@ -41,10 +36,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="5dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white_1"
+                android:textColor="?android:textColorPrimary"
+                android:textColorHint="?android:textColorHint"
                 android:cursorVisible="true"
-                android:background="@color/color_primary_dark"
+                android:background="@android:color/transparent"
                 android:singleLine="true"
                 android:lines="1"
                 android:paddingLeft="5dp"
@@ -76,7 +71,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/global_settings"
-            android:textColor="@color/white"
             android:textSize="15sp"
             android:layout_marginBottom="15dp"/>
 
