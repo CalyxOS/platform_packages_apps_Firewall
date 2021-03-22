@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,8 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
     private final List<ApplicationInfo> mTotalApps = new ArrayList<>();
     private List<ApplicationInfo> mAppsFiltered, mInstApps, mSysApps;
     private String currentSort = "name";
+    private static boolean isSearching = false;
+    private static String searchTerm = "";
 
     public AppAdapter(Context context, PackageManager packageManager, List<ApplicationInfo> instApps, List<ApplicationInfo> sysApps) {
         mInstApps = instApps;
@@ -90,6 +93,8 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
             protected FilterResults performFiltering(CharSequence constraint) {
                 String charString = constraint.toString();
                 if (charString.isEmpty()) {
+                    isSearching = false;
+
                     mAppsFiltered = mTotalApps;
                 } else {
                     List<ApplicationInfo> filteredList = new ArrayList<>();
@@ -100,6 +105,9 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                             }
                         }
                     }
+
+                    isSearching = true;
+                    searchTerm = charString;
 
                     mAppsFiltered = filteredList;
                 }
@@ -351,7 +359,13 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                 }
 
                 appIcon.setImageDrawable(app.loadIcon(mPackageManager));
-                appName.setText(app.loadLabel(mPackageManager));
+                String name = app.loadLabel(mPackageManager).toString();
+                if (isSearching) {
+                    int ind = name.toLowerCase().indexOf(searchTerm.toLowerCase());
+                    appName.setText(Html.fromHtml(name.replaceAll("(?i)" + searchTerm,
+                            "<b>" + name.substring(ind, (ind + searchTerm.length())) + "</b>")));
+                } else
+                    appName.setText(name);
 
                 //initialize toggle states
                 //check if it's an app
