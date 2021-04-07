@@ -1,4 +1,4 @@
-package org.calyxos.firewall.settings;
+package org.calyxos.datura.settings;
 
 import android.content.Context;
 import android.net.NetworkPolicyManager;

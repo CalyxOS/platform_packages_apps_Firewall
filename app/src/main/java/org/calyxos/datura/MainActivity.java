@@ -1,4 +1,4 @@
-package org.calyxos.firewall;
+package org.calyxos.datura;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.calyxos.firewall.adapter.AppAdapter;
+import org.calyxos.datura.adapter.AppAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

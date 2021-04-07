@@ -16,7 +16,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "org.calyxos.firewall"
+        applicationId "org.calyxos.datura"
         minSdkVersion 30
         targetSdkVersion 30
         versionNameSuffix "-$gitDescribe"

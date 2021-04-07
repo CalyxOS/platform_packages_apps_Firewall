@@ -1,4 +1,4 @@
-package org.calyxos.firewall;
+package org.calyxos.datura;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package org.calyxos.firewall.adapter;
+package org.calyxos.datura.adapter;
 
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
@@ -23,8 +23,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.calyxos.firewall.R;
-import org.calyxos.firewall.settings.SettingsManager;
+import org.calyxos.datura.R;
+import org.calyxos.datura.settings.SettingsManager;
 
 import java.util.ArrayList;
 import java.util.Calendar;
