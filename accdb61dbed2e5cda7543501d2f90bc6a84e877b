@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fb8ab9b_8ff8c4c4",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppAdapter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-04-07T16:27:16Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "revId": "accdb61dbed2e5cda7543501d2f90bc6a84e877b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "393fa12f_1926e62c",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppAdapter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-04-07T16:27:16Z",
+      "side": 1,
+      "message": "This looks really, really hacky.",
+      "revId": "accdb61dbed2e5cda7543501d2f90bc6a84e877b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}
