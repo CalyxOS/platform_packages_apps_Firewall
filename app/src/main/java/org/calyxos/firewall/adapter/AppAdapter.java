@@ -372,7 +372,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                 mVpnToggle.setChecked(!mSettingsManager.getAppRestrictVpn(app.uid));
 
                 //initialize main toggle
-                checkMainToggle();
+                mMainToggle.setChecked(!mSettingsManager.getAppRestrictAll(app.uid));
 
                 // Set status text
                 setStatusText();
@@ -402,25 +402,20 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                     switch (v.getId()) {
                         case R.id.main_toggle:
                             if (mMainToggle.isChecked()) {
-                                //reset to default
-                                mBackgroundToggle.setChecked(true);
-                                mSettingsManager.setIsBlacklisted(app.uid, app.packageName, false);
-                                mWifiToggle.setChecked(true);
-                                mSettingsManager.setAppRestrictWifi(app.uid, false);
-                                mMobileToggle.setChecked(true);
-                                mSettingsManager.setAppRestrictCellular(app.uid, false);
-                                mVpnToggle.setChecked(true);
-                                mSettingsManager.setAppRestrictVpn(app.uid, false);
-                            } else {
-                                //block everything
-                                mBackgroundToggle.setChecked(false);
-                                mSettingsManager.setIsBlacklisted(app.uid, app.packageName, true);
-                                mWifiToggle.setChecked(false);
-                                mSettingsManager.setAppRestrictWifi(app.uid, true);
-                                mMobileToggle.setChecked(false);
-                                mSettingsManager.setAppRestrictCellular(app.uid, true);
-                                mVpnToggle.setChecked(false);
-                                mSettingsManager.setAppRestrictVpn(app.uid, true);
+                                mSettingsManager.setAppRestrictAll(app.uid, false);
+                                // Re-enable all other toggles
+                                mBackgroundToggle.setEnabled(true);
+                                mWifiToggle.setEnabled(true);
+                                mMobileToggle.setEnabled(true);
+                                mVpnToggle.setEnabled(true);
+                            }
+                            else {
+                                mSettingsManager.setAppRestrictAll(app.uid, true);
+                                // Disable all other toggles
+                                mBackgroundToggle.setEnabled(false);
+                                mWifiToggle.setEnabled(false);
+                                mMobileToggle.setEnabled(false);
+                                mVpnToggle.setEnabled(false);
                             }
                             break;
 
@@ -429,8 +424,6 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                                 mSettingsManager.setIsBlacklisted(app.uid, app.packageName, false);
                             else
                                 mSettingsManager.setIsBlacklisted(app.uid, app.packageName, true);
-
-                            checkMainToggle();
                             break;
 
                         case R.id.app_allow_wifi_toggle:
@@ -438,8 +431,6 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                                 mSettingsManager.setAppRestrictWifi(app.uid, false);
                             else
                                 mSettingsManager.setAppRestrictWifi(app.uid, true);
-
-                            checkMainToggle();
                             break;
 
                         case R.id.app_allow_mobile_toggle:
@@ -447,8 +438,6 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                                 mSettingsManager.setAppRestrictCellular(app.uid, false);
                             else
                                 mSettingsManager.setAppRestrictCellular(app.uid, true);
-
-                            checkMainToggle();
                             break;
 
                         case R.id.app_allow_vpn_toggle:
@@ -456,8 +445,6 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                                 mSettingsManager.setAppRestrictVpn(app.uid, false);
                             else
                                 mSettingsManager.setAppRestrictVpn(app.uid, true);
-
-                            checkMainToggle();
                             break;
                     }
                 } catch (Exception e) {
@@ -482,16 +469,9 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
             setStatusText();
         }
 
-        private void checkMainToggle() {
-            if (mBackgroundToggle.isChecked() && mWifiToggle.isChecked() && mMobileToggle.isChecked() && mVpnToggle.isChecked())
-                mMainToggle.setChecked(true);
-            else if (!mBackgroundToggle.isChecked() && !mWifiToggle.isChecked() && !mMobileToggle.isChecked() && !mVpnToggle.isChecked())
-                mMainToggle.setChecked(false);
-        }
-
         private void setStatusText() {
             // Keep it as-is if all toggles are checkec
-            if (mBackgroundToggle.isChecked() && mWifiToggle.isChecked() && mMobileToggle.isChecked() && mVpnToggle.isChecked()) {
+            if (mMainToggle.isChecked() && mBackgroundToggle.isChecked() && mWifiToggle.isChecked() && mMobileToggle.isChecked() && mVpnToggle.isChecked()) {
                 settingStatus.setVisibility(View.VISIBLE);
                 return;
             }

@@ -6,6 +6,7 @@ import android.util.SparseIntArray;
 
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ALL;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_CELLULAR;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_VPN;
@@ -51,6 +52,10 @@ public class SettingsManager {
         mBlacklistInitialized = true;
     }
 
+    public boolean getAppRestrictAll(int uid) {
+        return getAppRestriction(uid, POLICY_REJECT_ALL);
+    }
+
     public boolean getAppRestrictCellular(int uid) {
         return getAppRestriction(uid, POLICY_REJECT_CELLULAR);
     }
@@ -66,6 +71,10 @@ public class SettingsManager {
     private boolean getAppRestriction(int uid, int policy) {
         final int uidPolicy = mPolicyManager.getUidPolicy(uid);
         return (uidPolicy & policy) != 0;
+    }
+
+    public void setAppRestrictAll(int uid, boolean restrict) throws RuntimeException {
+        setAppRestriction(uid, POLICY_REJECT_ALL, restrict);
     }
 
     public void setAppRestrictCellular(int uid, boolean restrict) throws RuntimeException {
