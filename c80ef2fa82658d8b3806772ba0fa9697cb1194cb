@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b40a8232_74ee4d7b",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-04-07T17:20:08Z",
+      "side": 1,
+      "message": "I know this looks bad / is too long, but background data can make the users think it\u0027s only mobile data like stock, but we made a change here to prevent all internet / network access in the background.\n\nWe either need a new string, or need to adjust the layout.",
+      "revId": "c80ef2fa82658d8b3806772ba0fa9697cb1194cb",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}
