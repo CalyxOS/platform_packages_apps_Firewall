@@ -8,8 +8,8 @@
     <string name="allow_cleartext">Allow cleartext traffic</string>
     <string name="block_ads_trackers">Block ads and trackers</string>
     <string name="system_apps">System Apps</string>
-    <string name="allow_background_data">Allow background data</string>
-    <string name="allow_wifi_data">Allow wifi data</string>
+    <string name="allow_background_data">Allow background network access</string>
+    <string name="allow_wifi_data">Allow Wi-Fi data</string>
     <string name="allow_vpn_data">Allow VPN data</string>
     <string name="app_name_text">App Name</string>
     <string name="setting_status">Setting status</string>
