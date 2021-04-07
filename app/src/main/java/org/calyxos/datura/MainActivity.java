@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -88,10 +89,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         List<ApplicationInfo> instApps = new ArrayList<>();
 
         for (ApplicationInfo ai : packages) {
-            if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                sysApps.add(ai);
-            } else {
-                instApps.add(ai);
+            // Skip anything that isn't an "app" since we can't set policies for those, as
+            // the framework code which handles setting the policies has a similar check.
+            if (UserHandle.isApp(ai.uid)) {
+                if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                    sysApps.add(ai);
+                } else {
+                    instApps.add(ai);
+                }
             }
         }
 

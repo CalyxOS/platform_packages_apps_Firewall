@@ -357,8 +357,6 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                     appName.setText(name);
 
                 //initialize toggle states
-                //check if it's an app
-                //if (UserHandle.isApp(app.uid)) {
                 //get background data status
                 mBackgroundToggle.setChecked(!mSettingsManager.isBlacklisted(app.uid));
 
@@ -376,14 +374,6 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
 
                 // Set status text
                 setStatusText();
-
-                /*} else {
-                mMainToggle.setEnabled(false);
-                mBackgroundToggle.setEnabled(false);
-                mWifiToggle.setEnabled(false);
-                mMobileToggle.setEnabled(false);
-                mVpnToggle.setEnabled(false);
-                }*/
             }
         }
 
