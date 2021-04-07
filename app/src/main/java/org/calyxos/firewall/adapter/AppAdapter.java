@@ -283,7 +283,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
         private SettingsManager mSettingsManager;
         private LinearLayout mLinearLayout, mAccordion;
         private SwitchCompat mMainToggle, mBackgroundToggle, mWifiToggle, mMobileToggle, mVpnToggle;
-        private TextView appName, header;
+        private TextView appName, header, settingStatus;
         private ImageView appIcon, accordionIcon;
 
         private ApplicationInfo app;
@@ -302,6 +302,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
             mVpnToggle = itemView.findViewById(R.id.app_allow_vpn_toggle);
 
             appName = itemView.findViewById(R.id.app_name);
+            settingStatus = itemView.findViewById(R.id.setting_status);
             appIcon = itemView.findViewById(R.id.app_icon);
             accordionIcon = itemView.findViewById(R.id.accordion_icon);
 
@@ -372,6 +373,9 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
 
                 //initialize main toggle
                 checkMainToggle();
+
+                // Set status text
+                setStatusText();
 
                 /*} else {
                 mMainToggle.setEnabled(false);
@@ -474,27 +478,8 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
 
         @Override
         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-            switch (compoundButton.getId()) {
-                case R.id.main_toggle:
-
-                    break;
-
-                case R.id.app_allow_background_toggle:
-
-                    break;
-
-                case R.id.app_allow_wifi_toggle:
-
-                    break;
-
-                case R.id.app_allow_mobile_toggle:
-
-                    break;
-
-                case R.id.app_allow_vpn_toggle:
-
-                    break;
-            }
+            // Set status text
+            setStatusText();
         }
 
         private void checkMainToggle() {
@@ -502,6 +487,16 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                 mMainToggle.setChecked(true);
             else if (!mBackgroundToggle.isChecked() && !mWifiToggle.isChecked() && !mMobileToggle.isChecked() && !mVpnToggle.isChecked())
                 mMainToggle.setChecked(false);
+        }
+
+        private void setStatusText() {
+            // Keep it as-is if all toggles are checkec
+            if (mBackgroundToggle.isChecked() && mWifiToggle.isChecked() && mMobileToggle.isChecked() && mVpnToggle.isChecked()) {
+                settingStatus.setVisibility(View.VISIBLE);
+                return;
+            }
+            // It's no longer "default settings" if even a single toggle is changed, hide the status
+            settingStatus.setVisibility(View.GONE);
         }
     }
 }
