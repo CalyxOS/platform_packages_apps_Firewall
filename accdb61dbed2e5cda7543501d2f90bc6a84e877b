@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d5c873a2_42a97acf",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppAdapter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-04-08T14:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "426dcfd8_4a6f02f5",
+      "revId": "accdb61dbed2e5cda7543501d2f90bc6a84e877b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "393fa12f_1926e62c",
         "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppAdapter.java",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2021-04-07T16:27:16Z",
       "side": 1,
       "message": "This looks really, really hacky.",
+      "revId": "accdb61dbed2e5cda7543501d2f90bc6a84e877b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab7ba6e7_6c417272",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppAdapter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-04-08T14:09:51Z",
+      "side": 1,
+      "message": "Unfortunately. But I think it\u0027s okay. It\u0027s just checking if the object is a header or an app",
+      "parentUuid": "393fa12f_1926e62c",
       "revId": "accdb61dbed2e5cda7543501d2f90bc6a84e877b",
       "serverId": "35266860-6252-469c-a67d-185064479fc0",
       "unresolved": true
