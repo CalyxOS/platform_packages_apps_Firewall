@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "0276b2aa_597291cc",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppAdapter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-04-08T16:30:22Z",
+      "side": 1,
+      "message": "If you see https://github.com/seedvault-app/seedvault/pull/166 - it has a similar design, but implements it differently.\n\nLook for `list_item_app_section_title` - that is the section title.\n\nIt is kotlin so it\u0027d be slightly different code but the layout bits are still basically the same.",
+      "parentUuid": "d5c873a2_42a97acf",
+      "revId": "accdb61dbed2e5cda7543501d2f90bc6a84e877b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "393fa12f_1926e62c",
         "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppAdapter.java",
         "patchSetId": 2
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Unfortunately. But I think it\u0027s okay. It\u0027s just checking if the object is a header or an app",
       "parentUuid": "393fa12f_1926e62c",
+      "revId": "accdb61dbed2e5cda7543501d2f90bc6a84e877b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b12a125a_8bd88b35",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppAdapter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-04-08T16:30:22Z",
+      "side": 1,
+      "message": "In general, we should try to avoid code like this. It may work now, but it can bite us later / we can run into unforeseen issues.",
+      "parentUuid": "ab7ba6e7_6c417272",
       "revId": "accdb61dbed2e5cda7543501d2f90bc6a84e877b",
       "serverId": "35266860-6252-469c-a67d-185064479fc0",
       "unresolved": true
