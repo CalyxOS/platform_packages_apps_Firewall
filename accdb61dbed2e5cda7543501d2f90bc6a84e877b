@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "426dcfd8_4a6f02f5",
+        "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppAdapter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-04-08T14:08:20Z",
+      "side": 1,
+      "message": "It\u0027s a workaround. The headers are basically ApplicationInfo Objects as well as the apps to be able show them in the list. Initializing the processName with custom strings prevents it from crashing and also enables us know if it\u0027s a header or an actual app.\nThere maybe better ways to implement it but that\u0027s what I felt works for now.",
+      "parentUuid": "1fb8ab9b_8ff8c4c4",
+      "revId": "accdb61dbed2e5cda7543501d2f90bc6a84e877b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "393fa12f_1926e62c",
         "filename": "app/src/main/java/org/calyxos/firewall/adapter/AppAdapter.java",
         "patchSetId": 2
