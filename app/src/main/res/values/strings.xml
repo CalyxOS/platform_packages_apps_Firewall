@@ -24,4 +24,5 @@
     <string name="sort_by_name">Sort by name</string>
     <string name="dark_theme">Dark Theme</string>
     <string name="light_theme">Light Theme</string>
+    <string name="allow_cleartext_traffic">Allow Cleartext Traffic</string>
 </resources>
