@@ -148,6 +148,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (mSearchBar.getVisibility() == View.VISIBLE && !mSearchBar.getText().toString().isEmpty())
                         mAppAdapter.sortResultListByLastUsed();
                     else mAppAdapter.sortListByLastUsed();
+
+                    item.setTitle(getString(R.string.sort_by_name));
                 }
 
                 break;
