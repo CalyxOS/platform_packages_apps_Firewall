@@ -16,10 +16,12 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.calyxos.datura.adapter.AppAdapter;
+import org.calyxos.datura.settings.SettingsManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AppAdapter mAppAdapter;
     private EditText mSearchBar;
     private ImageView mSearchIcon, mSearchClear;
+    private SwitchCompat mCleartextToggle;
+
+    private SettingsManager mSettingsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +74,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         mSearchClear = findViewById(R.id.search_clear);
         mSearchClear.setOnClickListener(this);
+        mCleartextToggle = findViewById(R.id.global_cleartext_toggle);
+        mCleartextToggle.setOnClickListener(this);
 
         mAppList = findViewById(R.id.app_list);
+
+        mSettingsManager = new SettingsManager(this);
     }
 
     @Override
@@ -78,6 +87,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
 
         final PackageManager pm = getPackageManager();
+
+        //check if Private DNS is enabled
+        mCleartextToggle.setEnabled(mSettingsManager.isPrivateDNSEnabled());
 
         //To avoid search result list and real list mix up
         if (mSearchBar.getVisibility() == View.VISIBLE && !mSearchBar.getText().toString().isEmpty())
@@ -171,6 +183,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (v.getId() == R.id.search_clear) {
             mSearchBar.setText("");
+        }
+
+        if (v.getId() == R.id.global_cleartext_toggle) {
+            mSettingsManager.blockCleartextTraffic(mCleartextToggle.isChecked());
         }
     }
 }

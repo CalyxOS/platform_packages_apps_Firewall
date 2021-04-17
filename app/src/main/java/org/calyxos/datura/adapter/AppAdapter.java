@@ -47,7 +47,8 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
         mInstApps = instApps;
         mSysApps = sysApps;
 
-        //add a placeholder for header text
+        //add a placeholder for header text. This placeholder helps indicate that this is a header not an app.
+        //also helps to prevent a crash when calling system settings on the apps.
         ApplicationInfo ai = new ApplicationInfo();
         ai.processName = "Header1";
         instApps.add(0, ai);
@@ -282,9 +283,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
         private PackageManager mPackageManager;
         private SettingsManager mSettingsManager;
         private LinearLayout mLinearLayout, mAccordion;
-        private SwitchCompat mMainToggle, mBackgroundToggle, mWifiToggle, mMobileToggle, mVpnToggle;
+        private SwitchCompat mMainToggle, mBackgroundToggle, mWifiToggle, mMobileToggle, mVpnToggle, mClrTextToggle;
         private TextView appName, header, settingStatus;
         private ImageView appIcon, accordionIcon;
+        private boolean mPrivateDNSEnabled;
 
         private ApplicationInfo app;
 
@@ -295,11 +297,15 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
             mPackageManager = packageManager;
             mSettingsManager = settingsManager;
 
+            //check if Private DNS is enabled to grey out app cleartext toggles
+            mPrivateDNSEnabled = mSettingsManager.isPrivateDNSEnabled();
+
             mMainToggle = itemView.findViewById(R.id.main_toggle);
             mBackgroundToggle = itemView.findViewById(R.id.app_allow_background_toggle);
             mWifiToggle = itemView.findViewById(R.id.app_allow_wifi_toggle);
             mMobileToggle = itemView.findViewById(R.id.app_allow_mobile_toggle);
             mVpnToggle = itemView.findViewById(R.id.app_allow_vpn_toggle);
+            mClrTextToggle = itemView.findViewById(R.id.app_cleartext_toggle);
 
             appName = itemView.findViewById(R.id.app_name);
             settingStatus = itemView.findViewById(R.id.setting_status);
@@ -371,6 +377,9 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
 
                 //initialize main toggle
                 mMainToggle.setChecked(!mSettingsManager.getAppRestrictAll(app.uid));
+
+                //initialize cleartext toggle
+                mClrTextToggle.setEnabled(mPrivateDNSEnabled);
 
                 // Set status text
                 setStatusText();
@@ -460,7 +469,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
         }
 
         private void setStatusText() {
-            // Keep it as-is if all toggles are checkec
+            // Keep it as-is if all toggles are checked
             if (mMainToggle.isChecked() && mBackgroundToggle.isChecked() && mWifiToggle.isChecked() && mMobileToggle.isChecked() && mVpnToggle.isChecked()) {
                 settingStatus.setVisibility(View.VISIBLE);
                 return;
