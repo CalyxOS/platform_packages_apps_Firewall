@@ -18,22 +18,11 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:textSize="16sp"
-        android:text="@string/allow_cleartext"
+        android:text="@string/block_cleartext"
         android:layout_toEndOf="@+id/icon"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:textSize="15sp"
-        android:text="@string/block_cleartext_etc"
-        android:layout_toEndOf="@+id/icon"
-        android:layout_below="@+id/main_title"
-        android:visibility="gone"/>
-
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/toggle"
+        android:id="@+id/global_cleartext_toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"

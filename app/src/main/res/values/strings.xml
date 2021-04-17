@@ -6,7 +6,7 @@
     <string name="global_settings">Global Settings</string>
     <string name="use_defaults">Use Defaults</string>
     <string name="block_cleartext_etc">Block cleartext traffic, ads, and trackers</string>
-    <string name="allow_cleartext">Allow cleartext traffic</string>
+    <string name="block_cleartext">Block cleartext traffic</string>
     <string name="block_ads_trackers">Block ads and trackers</string>
     <string name="system_apps">System Apps</string>
     <string name="allow_background_data">Allow background network access</string>

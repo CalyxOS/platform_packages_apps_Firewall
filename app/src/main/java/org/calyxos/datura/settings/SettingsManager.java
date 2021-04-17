@@ -1,7 +1,12 @@
 package org.calyxos.datura.settings;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.LinkProperties;
+import android.net.Network;
 import android.net.NetworkPolicyManager;
+import android.os.StrictMode;
+import android.provider.Settings;
 import android.util.SparseIntArray;
 
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
@@ -66,6 +71,28 @@ public class SettingsManager {
 
     public boolean getAppRestrictWifi(int uid) {
         return getAppRestriction(uid, POLICY_REJECT_WIFI);
+    }
+
+    public boolean isPrivateDNSEnabled() {
+        ConnectivityManager connectivityManager = (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        Network network = connectivityManager.getActiveNetwork();
+        if (network != null) {
+            LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
+            if (linkProperties != null) {
+                return linkProperties.isPrivateDnsActive();
+            }
+        }
+        return false;
+    }
+
+    public void blockCleartextTraffic(boolean block) {
+        Settings.Global.putInt(mContext.getContentResolver(), Settings.Global.CLEARTEXT_NETWORK_POLICY,
+                block? StrictMode.NETWORK_POLICY_REJECT : StrictMode.NETWORK_POLICY_ACCEPT);
+    }
+
+    public boolean isCleartextBlocked() {
+        return Settings.Global.getInt(mContext.getContentResolver(), Settings.Global.CLEARTEXT_NETWORK_POLICY, StrictMode.NETWORK_POLICY_ACCEPT)
+                != StrictMode.NETWORK_POLICY_ACCEPT;
     }
 
     private boolean getAppRestriction(int uid, int policy) {
