@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.RemoteException;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -325,6 +326,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
             mWifiToggle.setOnClickListener(this);
             mMobileToggle.setOnClickListener(this);
             mVpnToggle.setOnClickListener(this);
+            mClrTextToggle.setOnClickListener(this);
 
             //set check changed here for status text updates
             mMainToggle.setOnCheckedChangeListener(this);
@@ -332,6 +334,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
             mWifiToggle.setOnCheckedChangeListener(this);
             mMobileToggle.setOnCheckedChangeListener(this);
             mVpnToggle.setOnCheckedChangeListener(this);
+            mClrTextToggle.setOnCheckedChangeListener(this);
         }
 
         public void bind(ApplicationInfo app) {
@@ -445,10 +448,20 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                             else
                                 mSettingsManager.setAppRestrictVpn(app.uid, true);
                             break;
+
+                        case R.id.app_allow_cleartext_toggle:
+                            mSettingsManager.allowAppCleartext(app.uid, mClrTextToggle.isChecked());
+                            break;
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.e(TAG, e.getMessage());
+                } catch (RemoteException remoteException) {
+                    remoteException.printStackTrace();
+                    Log.e(TAG, remoteException.getMessage());
+                    Toast.makeText(mContext, mContext.getString(R.string.error_setting_preference, appName.getText()), Toast.LENGTH_LONG).show();
+
+                    mClrTextToggle.setEnabled(false);
+                } catch (RuntimeException runtimeException) {
+                    runtimeException.printStackTrace();
+                    Log.e(TAG, runtimeException.getMessage());
 
                     //disable that app's toggles
                     mMainToggle.setEnabled(false);
