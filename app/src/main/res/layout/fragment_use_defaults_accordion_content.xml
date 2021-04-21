@@ -4,84 +4,82 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp">
 
         <TextView
             android:id="@+id/main_title_1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="15dp"
             android:textSize="16sp"
-            android:text="@string/use_defaults"
-            android:layout_centerVertical="true" />
+            android:text="@string/use_defaults" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/app_use_default_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:layout_gravity="end"
             android:checked="true"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="50dp"
         android:layout_marginBottom="25dp">
 
         <TextView
             android:id="@+id/main_title_2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_toStartOf="@id/app_cleartext_toggle"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginEnd="15dp"
             android:textSize="15sp"
-            android:text="@string/block_cleartext"
-            android:layout_centerVertical="true" />
+            android:text="@string/block_cleartext" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/app_cleartext_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:layout_gravity="end"
             android:checked="true"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="50dp"
         android:layout_marginBottom="25dp">
 
         <TextView
             android:id="@+id/main_title_3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginEnd="15dp"
             android:textSize="15sp"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/app_block_ads_toggle"
             android:text="@string/block_ads_trackers" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/app_block_ads_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:layout_gravity="end"
             android:checked="true"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

@@ -105,28 +105,28 @@
 
             <include
                 layout="@layout/fragment_allow_wifi"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="83dp"
                 android:layout_marginBottom="25dp" />
 
             <include
                 layout="@layout/fragment_allow_mobile"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="83dp"
                 android:layout_marginBottom="25dp" />
 
             <include
                 layout="@layout/fragment_allow_vpn"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="83dp"
                 android:layout_marginBottom="25dp" />
 
             <include
                 layout="@layout/fragment_allow_cleartext"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="83dp"
                 android:layout_marginBottom="25dp" />
