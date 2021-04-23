@@ -79,10 +79,30 @@
             android:layout_width="wrap_content"
             android:visibility="gone"/>
 
-        <include layout="@layout/fragment_cleartext_traffic"
+        <include layout="@layout/fragment_allow_background"
+            android:layout_marginBottom="25dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+
+        <include layout="@layout/fragment_allow_wifi"
+            android:layout_marginBottom="25dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+
+        <include layout="@layout/fragment_allow_mobile"
+            android:layout_marginBottom="25dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+
+        <include layout="@layout/fragment_allow_vpn"
+            android:layout_marginBottom="25dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+
+        <include layout="@layout/fragment_cleartext_traffic_global"
             android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="match_parent" />
 
         <include layout="@layout/fragment_block_ad_trackers"
             android:layout_marginBottom="0dp"
