@@ -257,6 +257,82 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
         else sortListByLastUsed();
     }
 
+    public void allowAllBackgroundData(boolean checked) {
+        for (ApplicationInfo app : mAppsFiltered) {
+            mSettingsManager.setIsBlacklisted(app.uid, app.packageName, !checked);
+        }
+
+        notifyDataSetChanged();
+    }
+
+    public void allowAllWIFIData(boolean checked) {
+        for (ApplicationInfo app : mAppsFiltered) {
+            mSettingsManager.setAppRestrictWifi(app.uid, !checked);
+        }
+
+        notifyDataSetChanged();
+    }
+
+    public void allowAllMobileData(boolean checked) {
+        for (ApplicationInfo app : mAppsFiltered) {
+            mSettingsManager.setAppRestrictCellular(app.uid, !checked);
+        }
+
+        notifyDataSetChanged();
+    }
+
+    public void allowAllVPNData(boolean checked) {
+        for (ApplicationInfo app : mAppsFiltered) {
+            mSettingsManager.setAppRestrictVpn(app.uid, !checked);
+        }
+
+        notifyDataSetChanged();
+    }
+
+    public boolean isAllBackgroundDataBlocked() {
+        //if all apps have their background data blocked then the global toggle should be unchecked as this
+        //means background data is blocked for all apps
+        List<Boolean> appStatuses = new ArrayList<>();
+        for (ApplicationInfo app : mAppsFiltered) {
+            appStatuses.add(mSettingsManager.isBlacklisted(app.uid));
+        }
+
+        return !appStatuses.contains(false);
+    }
+
+    public boolean isAllWIFIDataBlocked() {
+        //if all apps have their WIFI data blocked then the global toggle should be unchecked as this
+        //means background data is blocked for all apps
+        List<Boolean> appStatuses = new ArrayList<>();
+        for (ApplicationInfo app : mAppsFiltered) {
+            appStatuses.add(mSettingsManager.getAppRestrictWifi(app.uid));
+        }
+
+        return !appStatuses.contains(false);
+    }
+
+    public boolean isAllMobileDataBlocked() {
+        //if all apps have their background data blocked then the global toggle should be unchecked as this
+        //means background data is blocked for all apps
+        List<Boolean> appStatuses = new ArrayList<>();
+        for (ApplicationInfo app : mAppsFiltered) {
+            appStatuses.add(mSettingsManager.getAppRestrictCellular(app.uid));
+        }
+
+        return !appStatuses.contains(false);
+    }
+
+    public boolean isAllVPNDataBlocked() {
+        //if all apps have their background data blocked then the global toggle should be unchecked as this
+        //means background data is blocked for all apps
+        List<Boolean> appStatuses = new ArrayList<>();
+        for (ApplicationInfo app : mAppsFiltered) {
+            appStatuses.add(mSettingsManager.getAppRestrictVpn(app.uid));
+        }
+
+        return !appStatuses.contains(false);
+    }
+
     private List<ApplicationInfo> removeNullLabelApps(List<ApplicationInfo> list) {
         //Remove apps with null labels
         List<ApplicationInfo> temp = new ArrayList<>();

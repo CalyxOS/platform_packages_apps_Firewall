@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AppAdapter mAppAdapter;
     private EditText mSearchBar;
     private ImageView mSearchIcon, mSearchClear;
-    private SwitchCompat mCleartextToggle;
+    private SwitchCompat mCleartextToggle, mBackgroundDataToggle, mWIFIDataToggle, mMobileDataToggle, mVPNDataToggle;
 
     private SettingsManager mSettingsManager;
 
@@ -74,8 +74,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         mSearchClear = findViewById(R.id.search_clear);
         mSearchClear.setOnClickListener(this);
+
         mCleartextToggle = findViewById(R.id.global_cleartext_toggle);
         mCleartextToggle.setOnClickListener(this);
+        mBackgroundDataToggle = findViewById(R.id.app_allow_background_toggle);
+        mBackgroundDataToggle.setOnClickListener(this);
+        mWIFIDataToggle = findViewById(R.id.app_allow_wifi_toggle);
+        mWIFIDataToggle.setOnClickListener(this);
+        mMobileDataToggle = findViewById(R.id.app_allow_mobile_toggle);
+        mMobileDataToggle.setOnClickListener(this);
+        mVPNDataToggle = findViewById(R.id.app_allow_vpn_toggle);
+        mVPNDataToggle.setOnClickListener(this);
 
         mAppList = findViewById(R.id.app_list);
 
@@ -119,6 +128,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mAppList.setAdapter(mAppAdapter);
         } else
             mAppAdapter.notifyDataSetChanged();
+
+        //initialize global toggles states
+
+        //if all apps have their background data blocked then the global toggle should be unchecked as this
+        //means background data is blocked for all apps
+        mBackgroundDataToggle.setChecked(!mAppAdapter.isAllBackgroundDataBlocked());
+        //this applies to the rest of the toggles
+        mWIFIDataToggle.setChecked(!mAppAdapter.isAllWIFIDataBlocked());
+        mMobileDataToggle.setChecked(!mAppAdapter.isAllMobileDataBlocked());
+        mVPNDataToggle.setChecked(!mAppAdapter.isAllVPNDataBlocked());
     }
 
     @Override
@@ -173,21 +192,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.search_icon) {
-            mSearchIcon.setVisibility(View.GONE);
-            mSearchBar.setVisibility(View.VISIBLE);
-            mSearchBar.requestFocus();
+        switch (v.getId()) {
 
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.showSoftInput(mSearchBar, InputMethodManager.SHOW_IMPLICIT);
-        }
+            case R.id.search_icon: {
+                mSearchIcon.setVisibility(View.GONE);
+                mSearchBar.setVisibility(View.VISIBLE);
+                mSearchBar.requestFocus();
 
-        if (v.getId() == R.id.search_clear) {
-            mSearchBar.setText("");
-        }
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.showSoftInput(mSearchBar, InputMethodManager.SHOW_IMPLICIT);
 
-        if (v.getId() == R.id.global_cleartext_toggle) {
-            mSettingsManager.blockCleartextTraffic(mCleartextToggle.isChecked());
+                break;
+            }
+
+            case R.id.search_clear: {
+                mSearchBar.setText("");
+                break;
+            }
+
+            case R.id.global_cleartext_toggle: {
+                mSettingsManager.blockCleartextTraffic(mCleartextToggle.isChecked());
+                break;
+            }
+
+            case R.id.app_allow_background_toggle: {
+                mAppAdapter.allowAllBackgroundData(mBackgroundDataToggle.isChecked());
+                break;
+            }
+
+            case R.id.app_allow_wifi_toggle: {
+                mAppAdapter.allowAllWIFIData(mWIFIDataToggle.isChecked());
+                break;
+            }
+
+            case R.id.app_allow_mobile_toggle: {
+                mAppAdapter.allowAllMobileData(mMobileDataToggle.isChecked());
+                break;
+            }
+
+            case R.id.app_allow_vpn_toggle: {
+                mAppAdapter.allowAllVPNData(mVPNDataToggle.isChecked());
+                break;
+            }
         }
     }
 }
