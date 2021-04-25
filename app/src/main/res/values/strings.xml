@@ -25,4 +25,5 @@
     <string name="dark_theme">Dark Theme</string>
     <string name="light_theme">Light Theme</string>
     <string name="allow_cleartext_traffic">Allow cleartext traffic</string>
+    <string name="allow_all_network">Allow network access</string>
 </resources>

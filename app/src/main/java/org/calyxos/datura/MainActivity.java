@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.calyxos.datura.adapter.AppAdapter;
 import org.calyxos.datura.settings.SettingsManager;
+import org.calyxos.datura.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AppAdapter mAppAdapter;
     private EditText mSearchBar;
     private ImageView mSearchIcon, mSearchClear;
-    private SwitchCompat mCleartextToggle, mBackgroundDataToggle, mWIFIDataToggle, mMobileDataToggle, mVPNDataToggle;
+    private SwitchCompat mCleartextToggle, mBackgroundDataToggle, mWIFIDataToggle, mMobileDataToggle, mVPNDataToggle, mAllNetworkToggle;
 
     private SettingsManager mSettingsManager;
 
@@ -85,6 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mMobileDataToggle.setOnClickListener(this);
         mVPNDataToggle = findViewById(R.id.app_allow_vpn_toggle);
         mVPNDataToggle.setOnClickListener(this);
+        mAllNetworkToggle = findViewById(R.id.all_network_toggle);
+        mAllNetworkToggle.setOnClickListener(this);
 
         mAppList = findViewById(R.id.app_list);
 
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (ApplicationInfo ai : packages) {
             // Skip anything that isn't an "app" since we can't set policies for those, as
             // the framework code which handles setting the policies has a similar check.
-            if (UserHandle.isApp(ai.uid)) {
+            if (Util.isApp(ai.uid)) {
                 if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
                     sysApps.add(ai);
                 } else {
@@ -138,6 +141,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mWIFIDataToggle.setChecked(!mAppAdapter.isAllWIFIDataBlocked());
         mMobileDataToggle.setChecked(!mAppAdapter.isAllMobileDataBlocked());
         mVPNDataToggle.setChecked(!mAppAdapter.isAllVPNDataBlocked());
+
+        mAllNetworkToggle.setChecked(!mBackgroundDataToggle.isChecked() || mWIFIDataToggle.isChecked() || mMobileDataToggle.isChecked()
+                || mVPNDataToggle.isChecked());
     }
 
     @Override
@@ -217,21 +223,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.app_allow_background_toggle: {
                 mAppAdapter.allowAllBackgroundData(mBackgroundDataToggle.isChecked());
+                //if all network access toggle is off when this is switched on, that toggle should be set on again
+                if (!mAllNetworkToggle.isChecked() && mBackgroundDataToggle.isChecked())
+                    mAllNetworkToggle.setChecked(true);
                 break;
             }
 
             case R.id.app_allow_wifi_toggle: {
                 mAppAdapter.allowAllWIFIData(mWIFIDataToggle.isChecked());
+                //if all network access toggle is off when this is switched on, that toggle should be set on again
+                if (!mAllNetworkToggle.isChecked() && mWIFIDataToggle.isChecked())
+                    mAllNetworkToggle.setChecked(true);
                 break;
             }
 
             case R.id.app_allow_mobile_toggle: {
                 mAppAdapter.allowAllMobileData(mMobileDataToggle.isChecked());
+                //if all network access toggle is off when this is switched on, that toggle should be set on again
+                if (!mAllNetworkToggle.isChecked() && mMobileDataToggle.isChecked())
+                    mAllNetworkToggle.setChecked(true);
                 break;
             }
 
             case R.id.app_allow_vpn_toggle: {
                 mAppAdapter.allowAllVPNData(mVPNDataToggle.isChecked());
+                //if all network access toggle is off when this is switched on, that toggle should be set on again
+                if (!mAllNetworkToggle.isChecked() && mVPNDataToggle.isChecked())
+                    mAllNetworkToggle.setChecked(true);
+                break;
+            }
+
+            case R.id.all_network_toggle: {
+                mAppAdapter.allowAllNetworkAccess(mAllNetworkToggle.isChecked());
+
+                //mAppAdapter.allowAllBackgroundData(mAllNetworkToggle.isChecked());
+                mBackgroundDataToggle.setChecked(mAllNetworkToggle.isChecked());
+
+                //mAppAdapter.allowAllWIFIData(mAllNetworkToggle.isChecked());
+                mWIFIDataToggle.setChecked(mAllNetworkToggle.isChecked());
+
+                //mAppAdapter.allowAllMobileData(mAllNetworkToggle.isChecked());
+                mMobileDataToggle.setChecked(mAllNetworkToggle.isChecked());
+
+                //mAppAdapter.allowAllVPNData(mAllNetworkToggle.isChecked());
+                mVPNDataToggle.setChecked(mAllNetworkToggle.isChecked());
                 break;
             }
         }
