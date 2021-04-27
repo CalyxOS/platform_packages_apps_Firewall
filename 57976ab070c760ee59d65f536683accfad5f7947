@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2fcb7b0_c04a8a4a",
+        "filename": "app/src/main/java/org/calyxos/datura/settings/SettingsManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-04-27T01:12:24Z",
+      "side": 1,
+      "message": "causes `init: Unable to set property \u0027persist.sys.strictmode.clear\u0027 from uid:10103 gid:10103 pid:4333: SELinux permission check failed`",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 124,
+        "endChar": 85
+      },
+      "revId": "57976ab070c760ee59d65f536683accfad5f7947",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}
