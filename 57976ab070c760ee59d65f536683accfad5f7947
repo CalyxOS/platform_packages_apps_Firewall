@@ -22,6 +22,30 @@
       "revId": "57976ab070c760ee59d65f536683accfad5f7947",
       "serverId": "35266860-6252-469c-a67d-185064479fc0",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90a75f63_100cdcaf",
+        "filename": "app/src/main/java/org/calyxos/datura/settings/SettingsManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-04-27T01:13:51Z",
+      "side": 1,
+      "message": "and `type\u003d1107 audit(1619485863.990:16): uid\u003d0 auid\u003d4294967295 ses\u003d4294967295 subj\u003du:r:init:s0 msg\u003d\u0027avc: denied { set } for property\u003dpersist.sys.strictmode.clear pid\u003d4333 uid\u003d10103 gid\u003d10103 scontext\u003du:r:platform_app:s0:c512,c768 tcontext\u003du:object_r:system_prop:s0 tclass\u003dproperty_service permissive\u003d0`",
+      "parentUuid": "f2fcb7b0_c04a8a4a",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 124,
+        "endChar": 85
+      },
+      "revId": "57976ab070c760ee59d65f536683accfad5f7947",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
     }
   ]
 }
