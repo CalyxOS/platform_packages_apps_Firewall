@@ -46,6 +46,30 @@
       "revId": "57976ab070c760ee59d65f536683accfad5f7947",
       "serverId": "35266860-6252-469c-a67d-185064479fc0",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4fce622_4baddf29",
+        "filename": "app/src/main/java/org/calyxos/datura/settings/SettingsManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-04-27T01:39:20Z",
+      "side": 1,
+      "message": "Yeah this will need a rule, let\u0027s create a new property and add them for that instead.",
+      "parentUuid": "90a75f63_100cdcaf",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 124,
+        "endChar": 85
+      },
+      "revId": "57976ab070c760ee59d65f536683accfad5f7947",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
     }
   ]
 }
