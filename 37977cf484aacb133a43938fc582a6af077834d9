@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4590632c_4d9c846e",
+        "filename": "app/src/main/java/org/calyxos/datura/settings/SettingsManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-01T08:30:34Z",
+      "side": 1,
+      "message": "Note, this will need an android.jar update for the gradle build to work.",
+      "revId": "37977cf484aacb133a43938fc582a6af077834d9",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}
