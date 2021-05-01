@@ -16,6 +16,24 @@
       "revId": "391987f17880f3f1fde96cbfc1ac8901ae2c11d7",
       "serverId": "35266860-6252-469c-a67d-185064479fc0",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae50654b_ded53548",
+        "filename": "app/src/main/java/org/calyxos/datura/settings/SettingsManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-01T02:59:24Z",
+      "side": 1,
+      "message": "Ninja\u0027d",
+      "parentUuid": "7338b4e1_e61e94d0",
+      "revId": "391987f17880f3f1fde96cbfc1ac8901ae2c11d7",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": false
     }
   ]
 }
