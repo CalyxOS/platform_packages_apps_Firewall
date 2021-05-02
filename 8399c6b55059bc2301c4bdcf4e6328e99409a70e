@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "656a000c_a7b788b3",
+        "filename": "app/src/main/java/org/calyxos/datura/settings/SettingsManager.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-02T04:38:30Z",
+      "side": 1,
+      "message": "Nevermind, fixed.",
+      "revId": "8399c6b55059bc2301c4bdcf4e6328e99409a70e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": false
+    }
+  ]
+}
