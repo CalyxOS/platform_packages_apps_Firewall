@@ -223,6 +223,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.global_cleartext_toggle: {
                 mSettingsManager.blockCleartextTraffic(mCleartextToggle.isChecked());
+                if (mAppAdapter != null)
+                    mAppAdapter.notifyDataSetChanged(); //NOTE include this in a thread/service as well
                 break;
             }
 

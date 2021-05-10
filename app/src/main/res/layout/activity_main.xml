@@ -71,6 +71,7 @@
             android:layout_height="wrap_content"
             android:text="@string/global_settings"
             android:textSize="15sp"
+            android:textStyle="bold"
             android:layout_marginBottom="25dp"/>
 
         <include layout="@layout/fragment_use_defaults"
