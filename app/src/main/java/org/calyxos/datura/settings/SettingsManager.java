@@ -6,11 +6,6 @@ import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkPolicyManager;
 import android.os.RemoteException;
-import android.os.ServiceManager;
-import android.os.StrictMode;
-import android.os.SystemProperties;
-import android.os.INetworkManagementService;
-import android.provider.Settings;
 import android.util.SparseIntArray;
 
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
@@ -26,7 +21,7 @@ public class SettingsManager {
     private static final String TAG = SettingsManager.class.getSimpleName();
     private Context mContext;
     private NetworkPolicyManager mPolicyManager;
-    private final INetworkManagementService netd;
+    //private final INetworkManagementService netd;
     private SparseIntArray mUidPolicies = new SparseIntArray();
     private boolean mWhitelistInitialized;
     private boolean mBlacklistInitialized;
@@ -34,7 +29,7 @@ public class SettingsManager {
     public SettingsManager(Context context) {
         mContext =  context;
         mPolicyManager = NetworkPolicyManager.from(context);
-        netd = INetworkManagementService.Stub.asInterface(ServiceManager.getService(Context.NETWORKMANAGEMENT_SERVICE));
+        //netd = INetworkManagementService.Stub.asInterface(ServiceManager.getService(Context.NETWORKMANAGEMENT_SERVICE));
     }
 
     public boolean isBlacklisted(int uid) {
@@ -74,8 +69,8 @@ public class SettingsManager {
     }
 
     public boolean getAppRestrictCleartext(int uid) throws RemoteException {
-        final int uidPolicy = netd.getUidCleartextNetworkPolicy(uid);
-        return (uidPolicy == StrictMode.NETWORK_POLICY_ACCEPT);
+        //final int uidPolicy = netd.getUidCleartextNetworkPolicy(uid);
+        return false;//(uidPolicy == StrictMode.NETWORK_POLICY_ACCEPT);
     }
 
     public void setIsBlacklisted(int uid, String packageName, boolean blacklisted) throws IllegalArgumentException {
@@ -126,22 +121,22 @@ public class SettingsManager {
     }
 
     public void blockCleartextTraffic(boolean block) {
-        SystemProperties.set(StrictMode.GLOBAL_CLEARTEXT_PROPERTY, Boolean.toString(block));
-        Settings.Global.putInt(mContext.getContentResolver(), Settings.Global.CLEARTEXT_NETWORK_POLICY,
-                block? StrictMode.NETWORK_POLICY_REJECT : StrictMode.NETWORK_POLICY_ACCEPT);
+        //SystemProperties.set(StrictMode.GLOBAL_CLEARTEXT_PROPERTY, Boolean.toString(block));
+        //Settings.Global.putInt(mContext.getContentResolver(), Settings.Global.CLEARTEXT_NETWORK_POLICY,
+                //block? StrictMode.NETWORK_POLICY_REJECT : StrictMode.NETWORK_POLICY_ACCEPT);
     }
 
     public boolean isCleartextBlocked() {
-        return Settings.Global.getInt(mContext.getContentResolver(), Settings.Global.CLEARTEXT_NETWORK_POLICY, StrictMode.NETWORK_POLICY_ACCEPT)
-                != StrictMode.NETWORK_POLICY_ACCEPT;
+        return false;//Settings.Global.getInt(mContext.getContentResolver(), Settings.Global.CLEARTEXT_NETWORK_POLICY, StrictMode.NETWORK_POLICY_ACCEPT)
+                //!= StrictMode.NETWORK_POLICY_ACCEPT;
     }
 
     public void allowAppCleartext(int uid, boolean allow) throws RemoteException {
-        setAppCleartextPolicy(uid, allow ? StrictMode.NETWORK_POLICY_ACCEPT : StrictMode.NETWORK_POLICY_REJECT);
+        //setAppCleartextPolicy(uid, allow ? StrictMode.NETWORK_POLICY_ACCEPT : StrictMode.NETWORK_POLICY_REJECT);
     }
 
     private void setAppCleartextPolicy(int uid, int policy) throws RemoteException {
-        netd.setUidCleartextNetworkPolicy(uid, policy);
+        //netd.setUidCleartextNetworkPolicy(uid, policy);
     }
 
 }

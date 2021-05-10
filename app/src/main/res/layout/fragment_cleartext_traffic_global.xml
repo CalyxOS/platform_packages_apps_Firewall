@@ -4,12 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:srcCompat="@drawable/ic_cleartext"/>
-
     <TextView
         android:id="@+id/main_title"
         android:layout_width="0dp"
