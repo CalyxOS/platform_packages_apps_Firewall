@@ -22,6 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.calyxos.datura.adapter.AppAdapter;
+import org.calyxos.datura.fragment.AboutDialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -159,6 +160,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     item.setTitle(getString(R.string.sort_by_name));
                 }
 
+                break;
+            }
+
+            case R.id.action_about: {
+                new AboutDialogFragment().show(getSupportFragmentManager(), AboutDialogFragment.TAG);
                 break;
             }
         }
