@@ -4,6 +4,7 @@
     <string name="settings">Settings</string>
     <string name="about">About</string>
     <string name="global_settings">Global settings</string>
+    <string name="global_settings_for_all">Global settings for all apps</string>
     <string name="use_defaults">Use defaults</string>
     <string name="block_cleartext_etc">Block cleartext traffic, ads, and trackers</string>
     <string name="block_cleartext">Block cleartext traffic</string>
@@ -35,5 +36,7 @@
     <string name="about_design">Design by: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
     <string name="about_sponsor">Sponsored by: <a href="https://www.calyxinstitute.org">Calyx Institute</a> for use in <a href="https://calyxos.org">CalyxOS</a></string>
     <string name="about_source_code">Source Code: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="advanced">Advanced</string>
+    <string name="advanced_settings">Advanced Settings</string>
 
 </resources>

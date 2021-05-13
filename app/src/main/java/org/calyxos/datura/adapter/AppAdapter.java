@@ -26,7 +26,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.calyxos.datura.R;
 import org.calyxos.datura.settings.SettingsManager;
-import org.calyxos.datura.util.Util;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -259,96 +258,49 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
     }
 
     public void allowAllNetworkAccess(boolean checked) {
-        for (ApplicationInfo app : mAppsFiltered) {
-            if (Util.isApp(app.uid))
-                mSettingsManager.setAppRestrictAll(app.uid, !checked);
-        }
+        mSettingsManager.allowAppsNetworkAccess(mAppsFiltered, checked);
 
         notifyDataSetChanged();
     }
 
     public void allowAllBackgroundData(boolean checked) {
-        for (ApplicationInfo app : mAppsFiltered) {
-            if (Util.isApp(app.uid))
-                mSettingsManager.setIsBlacklisted(app.uid, app.packageName, !checked);
-        }
+        mSettingsManager.allowAppsBackgroundData(mAppsFiltered, checked);
 
         notifyDataSetChanged();
     }
 
     public void allowAllWIFIData(boolean checked) {
-        for (ApplicationInfo app : mAppsFiltered) {
-            if (Util.isApp(app.uid))
-                mSettingsManager.setAppRestrictWifi(app.uid, !checked);
-        }
+        mSettingsManager.allowAppsWIFIData(mAppsFiltered, checked);
 
         notifyDataSetChanged();
     }
 
     public void allowAllMobileData(boolean checked) {
-        for (ApplicationInfo app : mAppsFiltered) {
-            if (Util.isApp(app.uid))
-                mSettingsManager.setAppRestrictCellular(app.uid, !checked);
-        }
+        mSettingsManager.allowAppsMobileData(mAppsFiltered, checked);
 
         notifyDataSetChanged();
     }
 
     public void allowAllVPNData(boolean checked) {
-        for (ApplicationInfo app : mAppsFiltered) {
-            if (Util.isApp(app.uid))
-                mSettingsManager.setAppRestrictVpn(app.uid, !checked);
-        }
+        mSettingsManager.allowAppsVPNData(mAppsFiltered, checked);
 
         notifyDataSetChanged();
     }
 
     public boolean isAllBackgroundDataBlocked() {
-        //if all apps have their background data blocked then the global toggle should be unchecked as this
-        //means background data is blocked for all apps
-        List<Boolean> appStatuses = new ArrayList<>();
-        for (ApplicationInfo app : mAppsFiltered) {
-            if (Util.isApp(app.uid))
-                appStatuses.add(mSettingsManager.isBlacklisted(app.uid));
-        }
-
-        return !appStatuses.contains(false);
+        return mSettingsManager.isAppsBackgroundDataBlocked(mAppsFiltered);
     }
 
     public boolean isAllWIFIDataBlocked() {
-        //if all apps have their WIFI data blocked then the global toggle should be unchecked as this
-        //means background data is blocked for all apps
-        List<Boolean> appStatuses = new ArrayList<>();
-        for (ApplicationInfo app : mAppsFiltered) {
-            if (Util.isApp(app.uid))
-                appStatuses.add(mSettingsManager.getAppRestrictWifi(app.uid));
-        }
-
-        return !appStatuses.contains(false);
+        return  mSettingsManager.isAppsWIFIDataBlocked(mAppsFiltered);
     }
 
     public boolean isAllMobileDataBlocked() {
-        //if all apps have their background data blocked then the global toggle should be unchecked as this
-        //means background data is blocked for all apps
-        List<Boolean> appStatuses = new ArrayList<>();
-        for (ApplicationInfo app : mAppsFiltered) {
-            if (Util.isApp(app.uid))
-                appStatuses.add(mSettingsManager.getAppRestrictCellular(app.uid));
-        }
-
-        return !appStatuses.contains(false);
+        return mSettingsManager.isAppsMobileDataBlocked(mAppsFiltered);
     }
 
     public boolean isAllVPNDataBlocked() {
-        //if all apps have their background data blocked then the global toggle should be unchecked as this
-        //means background data is blocked for all apps
-        List<Boolean> appStatuses = new ArrayList<>();
-        for (ApplicationInfo app : mAppsFiltered) {
-            if (Util.isApp(app.uid))
-                appStatuses.add(mSettingsManager.getAppRestrictVpn(app.uid));
-        }
-
-        return !appStatuses.contains(false);
+        return mSettingsManager.isAppsVPNDataBlocked(mAppsFiltered);
     }
 
     private List<ApplicationInfo> removeNullLabelApps(List<ApplicationInfo> list) {

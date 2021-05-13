@@ -1,6 +1,7 @@
 package org.calyxos.datura;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AppAdapter mAppAdapter;
     private EditText mSearchBar;
     private ImageView mSearchIcon, mSearchClear;
-    private SwitchCompat mCleartextToggle, mBackgroundDataToggle, mWIFIDataToggle, mMobileDataToggle, mVPNDataToggle, mAllNetworkToggle;
+
+    private SwitchCompat mCleartextToggle;
 
     private SettingsManager mSettingsManager;
 
@@ -78,16 +80,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mCleartextToggle = findViewById(R.id.global_cleartext_toggle);
         mCleartextToggle.setOnClickListener(this);
-        mBackgroundDataToggle = findViewById(R.id.app_allow_background_toggle);
-        mBackgroundDataToggle.setOnClickListener(this);
-        mWIFIDataToggle = findViewById(R.id.app_allow_wifi_toggle);
-        mWIFIDataToggle.setOnClickListener(this);
-        mMobileDataToggle = findViewById(R.id.app_allow_mobile_toggle);
-        mMobileDataToggle.setOnClickListener(this);
-        mVPNDataToggle = findViewById(R.id.app_allow_vpn_toggle);
-        mVPNDataToggle.setOnClickListener(this);
-        mAllNetworkToggle = findViewById(R.id.all_network_toggle);
-        mAllNetworkToggle.setOnClickListener(this);
 
         mAppList = findViewById(R.id.app_list);
 
@@ -102,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //check if Private DNS is enabled
         mCleartextToggle.setEnabled(mSettingsManager.isPrivateDNSEnabled());
+        //initialize cleartext toggle state
         mCleartextToggle.setChecked(mSettingsManager.isCleartextBlocked());
 
         //To avoid search result list and real list mix up
@@ -131,19 +124,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mAppList.setAdapter(mAppAdapter);
         } else
             mAppAdapter.notifyDataSetChanged();
-
-        //initialize global toggles states
-
-        //if all apps have their background data blocked then the global toggle should be unchecked as this
-        //means background data is blocked for all apps
-        mBackgroundDataToggle.setChecked(!mAppAdapter.isAllBackgroundDataBlocked());
-        //this applies to the rest of the toggles
-        mWIFIDataToggle.setChecked(!mAppAdapter.isAllWIFIDataBlocked());
-        mMobileDataToggle.setChecked(!mAppAdapter.isAllMobileDataBlocked());
-        mVPNDataToggle.setChecked(!mAppAdapter.isAllVPNDataBlocked());
-
-        mAllNetworkToggle.setChecked(!mBackgroundDataToggle.isChecked() || mWIFIDataToggle.isChecked() || mMobileDataToggle.isChecked()
-                || mVPNDataToggle.isChecked());
     }
 
     @Override
@@ -197,6 +177,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new AboutDialogFragment().show(getSupportFragmentManager(), AboutDialogFragment.TAG);
                 break;
             }
+
+            case R.id.action_advanced: {
+                startActivity(new Intent(this, GlobalSettingsActivity.class));
+                break;
+            }
         }
         return true;
     }
@@ -225,55 +210,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mSettingsManager.blockCleartextTraffic(mCleartextToggle.isChecked());
                 if (mAppAdapter != null)
                     mAppAdapter.notifyDataSetChanged(); //NOTE include this in a thread/service as well
-                break;
-            }
-
-            case R.id.app_allow_background_toggle: {
-                mAppAdapter.allowAllBackgroundData(mBackgroundDataToggle.isChecked());
-                //if all network access toggle is off when this is switched on, that toggle should be set on again
-                if (!mAllNetworkToggle.isChecked() && mBackgroundDataToggle.isChecked())
-                    mAllNetworkToggle.setChecked(true);
-                break;
-            }
-
-            case R.id.app_allow_wifi_toggle: {
-                mAppAdapter.allowAllWIFIData(mWIFIDataToggle.isChecked());
-                //if all network access toggle is off when this is switched on, that toggle should be set on again
-                if (!mAllNetworkToggle.isChecked() && mWIFIDataToggle.isChecked())
-                    mAllNetworkToggle.setChecked(true);
-                break;
-            }
-
-            case R.id.app_allow_mobile_toggle: {
-                mAppAdapter.allowAllMobileData(mMobileDataToggle.isChecked());
-                //if all network access toggle is off when this is switched on, that toggle should be set on again
-                if (!mAllNetworkToggle.isChecked() && mMobileDataToggle.isChecked())
-                    mAllNetworkToggle.setChecked(true);
-                break;
-            }
-
-            case R.id.app_allow_vpn_toggle: {
-                mAppAdapter.allowAllVPNData(mVPNDataToggle.isChecked());
-                //if all network access toggle is off when this is switched on, that toggle should be set on again
-                if (!mAllNetworkToggle.isChecked() && mVPNDataToggle.isChecked())
-                    mAllNetworkToggle.setChecked(true);
-                break;
-            }
-
-            case R.id.all_network_toggle: {
-                mAppAdapter.allowAllNetworkAccess(mAllNetworkToggle.isChecked());
-
-                //mAppAdapter.allowAllBackgroundData(mAllNetworkToggle.isChecked());
-                mBackgroundDataToggle.setChecked(mAllNetworkToggle.isChecked());
-
-                //mAppAdapter.allowAllWIFIData(mAllNetworkToggle.isChecked());
-                mWIFIDataToggle.setChecked(mAllNetworkToggle.isChecked());
-
-                //mAppAdapter.allowAllMobileData(mAllNetworkToggle.isChecked());
-                mMobileDataToggle.setChecked(mAllNetworkToggle.isChecked());
-
-                //mAppAdapter.allowAllVPNData(mAllNetworkToggle.isChecked());
-                mVPNDataToggle.setChecked(mAllNetworkToggle.isChecked());
                 break;
             }
         }
