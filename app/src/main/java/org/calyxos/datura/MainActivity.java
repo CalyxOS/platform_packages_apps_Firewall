@@ -3,8 +3,10 @@ package org.calyxos.datura;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.UserInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -78,12 +80,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
 
         final PackageManager pm = getPackageManager();
+        final UserManager um = getSystemService(UserManager.class);
 
         //To avoid search result list and real list mix up
         if (mSearchBar.getVisibility() == View.VISIBLE && !mSearchBar.getText().toString().isEmpty())
             return;
 
-        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+        List<ApplicationInfo> packages = new ArrayList<>();
+
+        for (UserInfo user : um.getProfiles(UserHandle.myUserId())) {
+            packages.addAll(pm.getInstalledApplicationsAsUser(PackageManager.GET_META_DATA, user.id));
+        }
 
         //filter system and installed apps
         List<ApplicationInfo> sysApps = new ArrayList<>();
