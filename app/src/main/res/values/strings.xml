@@ -38,5 +38,6 @@
     <string name="about_source_code">Source Code: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
     <string name="advanced">Advanced</string>
     <string name="advanced_settings">Advanced Settings</string>
+    <string name="warning">Changes to these settings will change the default settings per app permanently and unsetting it will not return to their initial states</string>
 
 </resources>
