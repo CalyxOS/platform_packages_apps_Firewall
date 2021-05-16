@@ -96,7 +96,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/container_padding_size"
+        android:paddingLeft="@dimen/container_padding_size"
+        android:paddingRight="@dimen/container_padding_size"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
