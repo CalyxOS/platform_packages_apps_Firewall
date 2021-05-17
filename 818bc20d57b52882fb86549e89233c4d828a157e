@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8419979_6c97072f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-17T20:06:43Z",
+      "side": 1,
+      "message": "https://developer.android.com/reference/android/content/pm/PackageManager?hl\u003den#getUserBadgedIcon(android.graphics.drawable.Drawable,%20android.os.UserHandle)",
+      "revId": "818bc20d57b52882fb86549e89233c4d828a157e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
