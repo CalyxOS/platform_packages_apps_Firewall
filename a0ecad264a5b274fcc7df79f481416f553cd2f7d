@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "672bc451_53baa548",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-18T20:45:13Z",
+      "side": 1,
+      "message": "Untested but I think this should work for now, from reading the code.\n\nIt\u0027d intermingle work apps with user and installed apps, we may want a separate section or maybe just keep it like this.\n\nAnyway, for now, it should do, better to have a way to control the settings than not being able to change them.",
+      "revId": "a0ecad264a5b274fcc7df79f481416f553cd2f7d",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
