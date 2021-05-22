@@ -7,6 +7,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.RemoteException;
+import android.os.UserHandle;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -402,7 +403,8 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                     e.printStackTrace();
                 }
 
-                appIcon.setImageDrawable(app.loadIcon(mPackageManager));
+                appIcon.setImageDrawable(mPackageManager.getUserBadgedIcon(
+                        app.loadIcon(mPackageManager), UserHandle.getUserHandleForUid(app.uid)));
                 String name = app.loadLabel(mPackageManager).toString();
                 if (isSearching) {
                     int ind = name.toLowerCase().indexOf(searchTerm.toLowerCase());

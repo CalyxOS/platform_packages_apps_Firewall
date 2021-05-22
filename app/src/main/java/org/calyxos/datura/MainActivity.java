@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.UserInfo;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.os.UserManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -18,9 +21,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.ConcatAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.calyxos.datura.adapter.AppAdapter;
+import org.calyxos.datura.adapter.GlobalSettingsAdapter;
 import org.calyxos.datura.fragment.AboutDialogFragment;
 import org.calyxos.datura.settings.SettingsManager;
 import org.calyxos.datura.util.Util;
@@ -34,12 +39,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private RecyclerView mAppList;
     private AppAdapter mAppAdapter;
+    private GlobalSettingsAdapter mGlobalSettingsAdapter;
     private EditText mSearchBar;
     private ImageView mSearchIcon, mSearchClear;
 
     private SwitchCompat mCleartextToggle;
-
     private SettingsManager mSettingsManager;
+    private static MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +90,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAppList = findViewById(R.id.app_list);
 
         mSettingsManager = new SettingsManager(this);
+
+        mainActivity = this;
     }
 
     @Override
@@ -91,17 +99,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
 
         final PackageManager pm = getPackageManager();
-
-        //check if Private DNS is enabled
-        mCleartextToggle.setEnabled(mSettingsManager.isPrivateDNSEnabled());
-        //initialize cleartext toggle state
-        mCleartextToggle.setChecked(mSettingsManager.isCleartextBlocked());
+        final UserManager um = getSystemService(UserManager.class);
 
         //To avoid search result list and real list mix up
         if (mSearchBar.getVisibility() == View.VISIBLE && !mSearchBar.getText().toString().isEmpty())
             return;
 
-        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+        List<ApplicationInfo> packages = new ArrayList<>();
+
+        for (UserInfo user : um.getProfiles(UserHandle.myUserId())) {
+            packages.addAll(pm.getInstalledApplicationsAsUser(PackageManager.GET_META_DATA, user.id));
+        }
 
         //filter system and installed apps
         List<ApplicationInfo> sysApps = new ArrayList<>();
@@ -121,7 +129,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (mAppAdapter == null) {
             mAppAdapter = new AppAdapter(this, pm, instApps, sysApps);
-            mAppList.setAdapter(mAppAdapter);
+            mGlobalSettingsAdapter = new GlobalSettingsAdapter(this, pm);
+            ConcatAdapter concatAdapter = new ConcatAdapter(mGlobalSettingsAdapter, mAppAdapter);
+            mAppList.setAdapter(concatAdapter);
         } else
             mAppAdapter.notifyDataSetChanged();
     }
@@ -205,13 +215,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mSearchBar.setText("");
                 break;
             }
-
-            case R.id.global_cleartext_toggle: {
-                mSettingsManager.blockCleartextTraffic(mCleartextToggle.isChecked());
-                if (mAppAdapter != null)
-                    mAppAdapter.notifyDataSetChanged(); //NOTE include this in a thread/service as well
-                break;
-            }
         }
+    }
+
+    public static MainActivity getInstance() {
+        return mainActivity;
+    }
+
+    public void notifyDataSetChanged() {
+        if (mAppAdapter != null)
+            mAppAdapter.notifyDataSetChanged(); //NOTE include this in a thread/service as well
     }
 }

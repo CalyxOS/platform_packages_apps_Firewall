@@ -38,6 +38,11 @@ dependencies {
         version { strictly '1.1.0-alpha05' }
     }
 
+    implementation('androidx.recyclerview:recyclerview') {
+        // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-11.0.0_r3/current/support/Android.bp#527
+        version { strictly '1.2.0-alpha04' }
+    }
+
     /**
      * Test Dependencies (do not concern the AOSP build)
      */
