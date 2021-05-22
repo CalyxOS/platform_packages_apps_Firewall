@@ -12,5 +12,6 @@ android_app {
         "androidx.appcompat_appcompat",
         "androidx-constraintlayout_constraintlayout",
         "com.google.android.material_material",
+        "android-support-v7-recyclerview-nodeps",
     ],
 }
