@@ -1,37 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/top_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/container_padding_size"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/container_padding_size"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
             android:text="@string/global_settings"
             android:textSize="15sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="25dp"/>
+            android:textStyle="bold" />
 
-        <include layout="@layout/fragment_cleartext_traffic_global"
-            android:layout_marginBottom="10dp"
+        <include
+            layout="@layout/fragment_cleartext_traffic_global"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent" />
+            android:layout_marginBottom="10dp" />
 
-        <include layout="@layout/fragment_block_ad_trackers"
-            android:layout_marginBottom="0dp"
-            android:layout_height="wrap_content"
+        <include
+            layout="@layout/fragment_block_ad_trackers"
             android:layout_width="wrap_content"
-            android:visibility="gone"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:visibility="gone" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/default_config_accordion_icon"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="@dimen/container_padding_size"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_container"
+        app:srcCompat="@drawable/ic_accordion_down" />
+
+    <TextView
+        android:id="@+id/apply_to_new_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/container_padding_size"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/default_for_new_apps"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/default_config_accordion_icon"
+        app:layout_constraintTop_toBottomOf="@id/top_container" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/default_config_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/container_padding_size"
+        android:checked="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_container" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/default_config_accordion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="30dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/default_config_accordion_icon">
+
+        <LinearLayout
+            android:id="@+id/default_config_accordion_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/default_config_accordion"
+            app:layout_constraintEnd_toEndOf="@id/default_config_accordion"
+            app:layout_constraintStart_toStartOf="@id/default_config_accordion"
+            app:layout_constraintTop_toTopOf="@+id/default_config_accordion">
+
+            <include
+                layout="@layout/fragment_allow_all_network"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="25dp" />
+
+            <include
+                layout="@layout/fragment_allow_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp" />
+
+            <include
+                layout="@layout/fragment_allow_wifi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp" />
+
+            <include
+                android:id="@+id/fragment_allow_mobile_include_id"
+                layout="@layout/fragment_allow_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp" />
+
+            <include
+                android:id="@+id/fragment_allow_vpn_include_id"
+                layout="@layout/fragment_allow_vpn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp" />
+
+            <include
+                layout="@layout/fragment_allow_cleartext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

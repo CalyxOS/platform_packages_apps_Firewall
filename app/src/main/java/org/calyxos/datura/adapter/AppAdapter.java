@@ -358,7 +358,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
             appName = itemView.findViewById(R.id.app_name);
             settingStatus = itemView.findViewById(R.id.setting_status);
             appIcon = itemView.findViewById(R.id.app_icon);
-            accordionIcon = itemView.findViewById(R.id.accordion_icon);
+            accordionIcon = itemView.findViewById(R.id.default_config_accordion_icon);
 
             mAccordion = itemView.findViewById(R.id.accordion);
             header = itemView.findViewById(R.id.list_header_text);
@@ -444,7 +444,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
 
         @Override
         public void onClick(View v) {
-            if (v.equals(itemView) || v.getId() == R.id.accordion_icon) {
+            if (v.equals(itemView) || v.getId() == R.id.default_config_accordion_icon) {
                 if (mLinearLayout.getVisibility() == View.VISIBLE) {
                     mLinearLayout.setVisibility(View.GONE);
                     accordionIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_accordion_down, null));
