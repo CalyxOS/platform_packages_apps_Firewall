@@ -2,6 +2,7 @@ package org.calyxos.datura.settings;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
@@ -12,12 +13,16 @@ import android.os.ServiceManager;
 import android.os.StrictMode;
 import android.os.SystemProperties;
 import android.provider.Settings;
+import android.security.NetworkSecurityPolicy;
+import android.security.net.config.ApplicationConfig;
 import android.util.SparseIntArray;
 
 import org.calyxos.datura.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import libcore.net.NetworkSecurityPolicy;
 
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
@@ -148,6 +153,20 @@ public class SettingsManager {
 
     private void setAppCleartextPolicy(int uid, int policy) throws RemoteException {
         netd.setUidCleartextNetworkPolicy(uid, policy);
+    }
+
+    /**
+     * Returns whether cleartext network traffic (HTTP) is permitted for the provided package
+     */
+    public boolean isCleartextTrafficPermitted(String packageName) {
+        ApplicationConfig appConfig;
+        try {
+            appConfig = NetworkSecurityPolicy.getApplicationConfigForPackage(mContext, packageName);
+        } catch (PackageManager.NameNotFoundException e) {
+            // Unknown package -- fail for safety
+            return false;
+        }
+        return appConfig.isCleartextTrafficPermitted();
     }
 
     public boolean isAppsBackgroundDataBlocked(List<ApplicationInfo> apps) {
