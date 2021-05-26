@@ -430,11 +430,16 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                 mMainToggle.setChecked(!mSettingsManager.getAppRestrictAll(app.uid));
 
                 //initialize cleartext toggle
-                mClrTextToggle.setEnabled(mSettingsManager.isCleartextBlocked());
-                try {
-                    mClrTextToggle.setChecked(mSettingsManager.getAppRestrictCleartext(app.uid));
-                } catch (RemoteException e) {
-                    e.printStackTrace();
+                if(mSettingsManager.isCleartextTrafficPermitted(app.packageName)) {
+                    mClrTextToggle.setEnabled(mSettingsManager.isCleartextBlocked());
+                    try {
+                        mClrTextToggle.setChecked(mSettingsManager.getAppRestrictCleartext(app.uid));
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    //disable permanently
+                    mClrTextToggle.setEnabled(false);
                 }
 
                 // Set status text
