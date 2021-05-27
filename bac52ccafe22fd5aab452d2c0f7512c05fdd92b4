@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ee80e50_186a5c8c",
+        "filename": "app/src/main/java/org/calyxos/datura/adapter/AppAdapter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-27T12:26:27Z",
+      "side": 1,
+      "message": "This would be better to make it less confusing.\n\n\"Can\u0027t disable cleartext\" would be better than \"Why is there no cleartext toggle\" I\u0027d say.",
+      "revId": "bac52ccafe22fd5aab452d2c0f7512c05fdd92b4",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52ca5d73_87dc7c31",
+        "filename": "app/src/main/java/org/calyxos/datura/settings/SettingsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-05-27T12:26:27Z",
+      "side": 1,
+      "message": "Remove null here, it needs to call the function without a hostname.\n\nSo `return appConfig.isCleartextTrafficPermitted();`",
+      "revId": "bac52ccafe22fd5aab452d2c0f7512c05fdd92b4",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
