@@ -2,12 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/top_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="@dimen/container_padding_size"
         android:orientation="vertical"
         android:padding="@dimen/container_padding_size"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,11 +23,10 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <include
-            layout="@layout/fragment_cleartext_traffic_global"
+        <include layout="@layout/fragment_cleartext_traffic_global"
+            android:layout_marginBottom="25dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" />
+            android:layout_height="wrap_content" />
 
         <include
             layout="@layout/fragment_block_ad_trackers"
@@ -132,5 +132,14 @@
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
