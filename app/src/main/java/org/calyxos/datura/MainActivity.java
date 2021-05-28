@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText mSearchBar;
     private ImageView mSearchIcon, mSearchClear;
 
-    private SwitchCompat mCleartextToggle;
-    private SettingsManager mSettingsManager;
     private static MainActivity mainActivity;
 
 
@@ -126,12 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSearchClear = findViewById(R.id.search_clear);
         mSearchClear.setOnClickListener(this);
 
-        mCleartextToggle = findViewById(R.id.global_cleartext_toggle);
-        mCleartextToggle.setOnClickListener(this);
-
         mAppList = findViewById(R.id.app_list);
-
-        mSettingsManager = new SettingsManager(this);
 
         mainActivity = this;
     }
