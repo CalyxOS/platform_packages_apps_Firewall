@@ -77,7 +77,7 @@ public class GlobalSettingsAdapter extends RecyclerView.Adapter<GlobalSettingsAd
 
         @Override
         public void onClick(View v) {
-            if (v.equals(mClrTextToggle)) {
+            if (v.getId() == R.id.global_cleartext_toggle) {
                 mSettingsManager.blockCleartextTraffic(mClrTextToggle.isChecked());
                 //call a main activity function that refreshes the list of apps
                 MainActivity.getInstance().notifyDataSetChanged();
