@@ -33,6 +33,11 @@ dependencies {
         version { strictly '2.0.0-beta7' }
     }
 
+    implementation('androidx.preference:preference') {
+        // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-11.0.0_r3/current/androidx/Android.bp#2412
+        version { strictly '1.1.1' } // should be 1.2.0-alpha01, but that is not even released, yet
+    }
+
     implementation('com.google.android.material:material') {
         // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-11.0.0_r3/current/extras/material-design-x/Android.bp#6
         version { strictly '1.1.0-alpha05' }

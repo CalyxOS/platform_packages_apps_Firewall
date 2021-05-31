@@ -10,6 +10,7 @@ android_app {
 
     static_libs: [
         "androidx.appcompat_appcompat",
+        "androidx.preference_preference",
         "androidx.recyclerview_recyclerview",
         "androidx-constraintlayout_constraintlayout",
         "com.google.android.material_material",
