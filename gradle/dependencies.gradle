@@ -9,11 +9,18 @@ def aospDeps = fileTree(include: [
         // out/target/common/obj/JAVA_LIBRARIES/framework-minus-apex_intermediates/classes.jar
         'android.jar',
         // out/target/common/obj/JAVA_LIBRARIES/core-libart.com.android.art.release_intermediates/classes.jar
-        'libcore.jar'
+        'libcore.jar',
+], dir: 'libs')
+
+def aospDepsImpl = fileTree(include: [
+        // Anything android.support and androidx manually removed from below lib
+        // out/target/common/obj/JAVA_LIBRARIES/SettingsLib_intermediates/classes.jar
+        'settingslib.jar',
 ], dir: 'libs')
 
 dependencies {
     compileOnly aospDeps
+    implementation aospDepsImpl
 
     /**
      * Dependencies in AOSP
