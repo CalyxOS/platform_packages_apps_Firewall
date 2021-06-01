@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "750a2cab_e2634037",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-01T01:42:37Z",
+      "side": 1,
+      "message": "This breaks gradle build sadly 😞\n\nComplains about duplicate classes.",
+      "revId": "468f8da916c0dc0c5234f2f3467fe7e702f21a44",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
