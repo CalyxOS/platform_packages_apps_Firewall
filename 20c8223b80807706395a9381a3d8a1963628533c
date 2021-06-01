@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "390c7ff8_9fab6199",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-01T01:40:59Z",
+      "side": 1,
+      "message": "DNM\n\nThis will be dropped once this chain is fixed.",
+      "revId": "20c8223b80807706395a9381a3d8a1963628533c",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
