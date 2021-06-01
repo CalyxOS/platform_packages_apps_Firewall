@@ -3,4 +3,10 @@
     <dimen name="app_name_text_size">18sp</dimen>
     <dimen name="container_title_text_size">14sp</dimen>
     <dimen name="container_padding_size">20dp</dimen>
+
+    <!-- Developer option bluetooth settings dialog -->
+    <dimen name="developer_option_dialog_margin_start">8dp</dimen>
+    <dimen name="developer_option_dialog_margin_top">8dp</dimen>
+    <dimen name="developer_option_dialog_min_height">48dp</dimen>
+    <dimen name="developer_option_dialog_padding_start">16dp</dimen>
 </resources>
