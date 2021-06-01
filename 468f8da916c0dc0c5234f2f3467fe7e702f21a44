@@ -16,6 +16,23 @@
       "message": "This breaks gradle build sadly 😞\n\nComplains about duplicate classes.",
       "revId": "468f8da916c0dc0c5234f2f3467fe7e702f21a44",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8b6fc51_852afab0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-01T01:44:21Z",
+      "side": 1,
+      "message": "\u003e Duplicate class android.support.v4.app.RemoteActionCompatParcelizer found in modules core-1.4.0-alpha01-runtime (androidx.core:core:1.4.0-alpha01) and jetified-settingslib (settingslib.jar)\n\nAnd this repeats for everything androidx under the sun.\n\nWe might be able to exclude androidx from settingslib, if not in gradle then maybe just manually editing the jar and adding the needed deps directly?",
+      "revId": "468f8da916c0dc0c5234f2f3467fe7e702f21a44",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
