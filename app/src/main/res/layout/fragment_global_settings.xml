@@ -27,6 +27,12 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent" />
 
+        <fragment
+            android:layout_marginBottom="25dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:name="org.calyxos.datura.PrivateDnsPreferenceFragment" />
+
         <include layout="@layout/fragment_block_ad_trackers"
             android:layout_marginBottom="0dp"
             android:layout_height="wrap_content"
