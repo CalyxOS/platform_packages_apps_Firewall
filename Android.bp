@@ -15,4 +15,8 @@ android_app {
         "androidx-constraintlayout_constraintlayout",
         "com.google.android.material_material",
     ],
+
+    defaults: [
+        "SettingsLibDefaults",
+    ],
 }
