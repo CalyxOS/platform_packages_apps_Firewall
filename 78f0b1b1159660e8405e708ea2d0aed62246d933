@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3c1d625_15056e5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-06-04T22:17:12Z",
+      "side": 1,
+      "message": "So this is one of those commits with mistakenly mixed unrelated changes which we discussed. Sorry about that. \n\nIt started as UI changes for per-app cleartext settings toggle but has other UI fixes for things I remembered at the moment.\n\nThe commit message should say \"Make UI changes for per-app cleartext traffic settings\"",
+      "revId": "78f0b1b1159660e8405e708ea2d0aed62246d933",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
