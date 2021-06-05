@@ -208,7 +208,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
         instApps.sort(new Comparator<ApplicationInfo>() {
             @Override
             public int compare(ApplicationInfo lhs, ApplicationInfo rhs) {
-                return lhs.loadLabel(mPackageManager).toString().compareTo(rhs.loadLabel(mPackageManager).toString());
+                return lhs.loadLabel(mPackageManager).toString().compareToIgnoreCase(rhs.loadLabel(mPackageManager).toString());
             }
         });
 
@@ -221,7 +221,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
         sysApps.sort(new Comparator<ApplicationInfo>() {
             @Override
             public int compare(ApplicationInfo lhs, ApplicationInfo rhs) {
-                return lhs.loadLabel(mPackageManager).toString().compareTo(rhs.loadLabel(mPackageManager).toString());
+                return lhs.loadLabel(mPackageManager).toString().compareToIgnoreCase(rhs.loadLabel(mPackageManager).toString());
             }
         });
 
@@ -243,7 +243,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
         mAppsFiltered.sort(new Comparator<ApplicationInfo>() {
             @Override
             public int compare(ApplicationInfo lhs, ApplicationInfo rhs) {
-                return lhs.loadLabel(mPackageManager).toString().compareTo(rhs.loadLabel(mPackageManager).toString());
+                return lhs.loadLabel(mPackageManager).toString().compareToIgnoreCase(rhs.loadLabel(mPackageManager).toString());
             }
         });
 
