@@ -1,0 +1,12 @@
+package org.calyxos.datura.util;
+
+public class Constants {
+
+    public static final String DEFAULT_CONFIG = "default_configurations";
+    public static final String ALLOW_BACKGROUND_DATA = "allow_background_data";
+    public static final String ALLOW_NETWORK_ACCESS = "allow_network_access";
+    public static final String ALLOW_WIFI_DATA = "allow_wifi_data";
+    public static final String ALLOW_MOBILE_DATA = "allow_mobile_data";
+    public static final String ALLOW_VPN_DATA = "allow_vpn_data";
+    public static final String ALLOW_CLEARTEXT_TRAFFIC = "allow_cleartext_traffic";
+}
