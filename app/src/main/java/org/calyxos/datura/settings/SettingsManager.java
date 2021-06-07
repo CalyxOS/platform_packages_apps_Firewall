@@ -89,10 +89,11 @@ public class SettingsManager {
         mUidPolicies.put(uid, policy);
         if (blacklisted) {
             mPolicyManager.addUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
+            mPolicyManager.removeUidPolicy(uid, POLICY_ALLOW_METERED_BACKGROUND);
         } else {
             mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
+            mPolicyManager.addUidPolicy(uid, POLICY_ALLOW_METERED_BACKGROUND);
         }
-        mPolicyManager.removeUidPolicy(uid, POLICY_ALLOW_METERED_BACKGROUND);
     }
 
     public void setAppRestrictAll(int uid, boolean restrict) throws RuntimeException {
