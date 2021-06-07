@@ -16,6 +16,24 @@
       "message": "I feel this is a bug. mPolicyManager.removeUidPolicy(uid, POLICY_ALLOW_METERED_BACKGROUND); is applied outside of the if statement. Which means sets this for the app whether or not blacklisted is true or not. Can\u0027t remember writing that code that way.\n\nMaybe I\u0027m wrong. If so feel free to abandon",
       "revId": "112605307d0fa0dd8ca4f624278133a6fe61a621",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c805a5ba_e37aa5db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-07T15:34:12Z",
+      "side": 1,
+      "message": "This code comes from https://gitlab.com/CalyxOS/platform_packages_apps_Settings/-/blob/android11-qpr1/src/com/android/settings/datausage/DataSaverBackend.java#L84\n\nFlipping the login might have resulted in this bug, I see what you mean.\n\nOliver, can you check? Need to look at the rest of the flow to see what makes sense.",
+      "parentUuid": "e46ab2ef_82404f91",
+      "revId": "112605307d0fa0dd8ca4f624278133a6fe61a621",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
