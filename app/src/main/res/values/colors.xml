@@ -13,4 +13,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_1">#C1C1C1</color>
     <color name="gray">#494949</color>
+
+    <!-- launcher icon color -->
+    <color name="ic_launcher_background">@*android:color/accent_device_default_light</color>
 </resources>
