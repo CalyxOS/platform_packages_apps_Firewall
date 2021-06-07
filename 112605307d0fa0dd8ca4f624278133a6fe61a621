@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e46ab2ef_82404f91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-06-07T14:55:01Z",
+      "side": 1,
+      "message": "I feel this is a bug. mPolicyManager.removeUidPolicy(uid, POLICY_ALLOW_METERED_BACKGROUND); is applied outside of the if statement. Which means sets this for the app whether or not blacklisted is true or not. Can\u0027t remember writing that code that way.\n\nMaybe I\u0027m wrong. If so feel free to abandon",
+      "revId": "112605307d0fa0dd8ca4f624278133a6fe61a621",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
