@@ -56,7 +56,7 @@ public class GlobalSettingsAdapter extends RecyclerView.Adapter<GlobalSettingsAd
         private Context mContext;
         private PackageManager mPackageManager;
         private SettingsManager mSettingsManager;
-        private SwitchCompat mClrTextToggle, mDefaultConfigToggle, mNetworkAccessToggle, mBackgroundToggle, mWifiToggle, mMobileToggle, mVpnToggle,
+        private SwitchCompat mGlobalClrTextToggle, mDefaultConfigToggle, mNetworkAccessToggle, mBackgroundToggle, mWifiToggle, mMobileToggle, mVpnToggle,
                 mAppClrTextToggle;
         private ImageView mAccordionIcon;
         private TextView mAccordionTitle;
@@ -71,7 +71,7 @@ public class GlobalSettingsAdapter extends RecyclerView.Adapter<GlobalSettingsAd
 
             mAccordion = itemView.findViewById(R.id.default_config_accordion);
 
-            mClrTextToggle = itemView.findViewById(R.id.global_cleartext_toggle);
+            mGlobalClrTextToggle = itemView.findViewById(R.id.global_cleartext_toggle);
             mDefaultConfigToggle = itemView.findViewById(R.id.default_config_toggle);
             mNetworkAccessToggle = itemView.findViewById(R.id.all_network_toggle);
             mBackgroundToggle = itemView.findViewById(R.id.app_allow_background_toggle);
@@ -85,13 +85,13 @@ public class GlobalSettingsAdapter extends RecyclerView.Adapter<GlobalSettingsAd
 
 
             //check if Private DNS is enabled
-            mClrTextToggle.setEnabled(mSettingsManager.isPrivateDNSEnabled());
+            mGlobalClrTextToggle.setEnabled(mSettingsManager.isPrivateDNSEnabled());
             //initialize cleartext toggle state
-            mClrTextToggle.setChecked(mSettingsManager.isCleartextBlocked());
+            mGlobalClrTextToggle.setChecked(mSettingsManager.isCleartextBlocked());
 
             //set on click listeners instead of checked change for actual settings API calls because known issues
             //that comes with that
-            mClrTextToggle.setOnClickListener(this);
+            mGlobalClrTextToggle.setOnClickListener(this);
 
             mAccordionIcon.setOnClickListener(this);
             mAccordionTitle.setOnClickListener(this);
@@ -112,8 +112,8 @@ public class GlobalSettingsAdapter extends RecyclerView.Adapter<GlobalSettingsAd
 
         @Override
         public void onClick(View v) {
-            if (v.equals(mClrTextToggle)) {
-                mSettingsManager.blockCleartextTraffic(mClrTextToggle.isChecked());
+            if (v.equals(mGlobalClrTextToggle)) {
+                mSettingsManager.blockCleartextTraffic(mGlobalClrTextToggle.isChecked());
                 //call a main activity function that refreshes the list of apps
                 MainActivity.getInstance().notifyDataSetChanged();
             } else if (v.getId() == R.id.default_config_accordion_icon || v.getId() == R.id.apply_to_new_text) {
