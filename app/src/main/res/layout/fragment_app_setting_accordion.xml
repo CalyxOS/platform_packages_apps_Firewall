@@ -29,7 +29,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/default_config_accordion_icon"
+                android:id="@+id/accordion_icon"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:layout_centerVertical="true"
@@ -42,7 +42,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="10dp"
-                android:layout_toEndOf="@+id/default_config_accordion_icon"
+                android:layout_toEndOf="@+id/accordion_icon"
                 app:srcCompat="@drawable/ic_placeholder" />
 
             <TextView
