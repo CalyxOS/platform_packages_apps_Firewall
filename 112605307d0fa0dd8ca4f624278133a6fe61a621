@@ -75,6 +75,30 @@
       },
       "revId": "112605307d0fa0dd8ca4f624278133a6fe61a621",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a51fa2bb_c1399c29",
+        "filename": "app/src/main/java/org/calyxos/datura/settings/SettingsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-06-08T15:06:08Z",
+      "side": 1,
+      "message": "Okay. This clears things up.",
+      "parentUuid": "03496575_4962b146",
+      "range": {
+        "startLine": 95,
+        "startChar": 11,
+        "endLine": 95,
+        "endChar": 78
+      },
+      "revId": "112605307d0fa0dd8ca4f624278133a6fe61a621",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
