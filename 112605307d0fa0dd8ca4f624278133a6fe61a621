@@ -34,6 +34,47 @@
       "parentUuid": "e46ab2ef_82404f91",
       "revId": "112605307d0fa0dd8ca4f624278133a6fe61a621",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03c4e261_2f364ecb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-06-08T02:28:57Z",
+      "side": 1,
+      "message": "Upstream was changed from AOSP because it used to be setUidPolicy which nukes all applied policies and only applies the one being set. Therefore using add or remove made sense. The blacklist and whitelist should not be confused as they are separate things with separate meanings. There are 3 states, an app can be on neither, on one or the other. See my comment in the code for the explanation",
+      "parentUuid": "c805a5ba_e37aa5db",
+      "revId": "112605307d0fa0dd8ca4f624278133a6fe61a621",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03496575_4962b146",
+        "filename": "app/src/main/java/org/calyxos/datura/settings/SettingsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-06-08T02:28:57Z",
+      "side": 1,
+      "message": "This is incorrect. This allows background traffic from the UID to unconditionally flow (including on metered networks). Blacklisted variable being false means we want to remove the POLICY_REJECT_METERED_BACKGROUND, not that we want to allowlist it too",
+      "range": {
+        "startLine": 95,
+        "startChar": 11,
+        "endLine": 95,
+        "endChar": 78
+      },
+      "revId": "112605307d0fa0dd8ca4f624278133a6fe61a621",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
