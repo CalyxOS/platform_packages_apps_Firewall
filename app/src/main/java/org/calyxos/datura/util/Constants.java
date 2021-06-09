@@ -2,7 +2,7 @@ package org.calyxos.datura.util;
 
 public class Constants {
 
-    public static final String DEFAULT_CONFIG = "default_configurations";
+    public static final String DEFAULT_CONFIG = "org.calyxos.datura.default_configurations";
     public static final String ALLOW_BACKGROUND_DATA = "allow_background_data";
     public static final String ALLOW_NETWORK_ACCESS = "allow_network_access";
     public static final String ALLOW_WIFI_DATA = "allow_wifi_data";
