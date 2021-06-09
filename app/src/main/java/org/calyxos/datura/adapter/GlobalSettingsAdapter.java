@@ -129,68 +129,73 @@ public class GlobalSettingsAdapter extends RecyclerView.Adapter<GlobalSettingsAd
 
         @Override
         public void onClick(View v) {
-            if (v.equals(mGlobalClrTextToggle)) {
-                mSettingsManager.blockCleartextTraffic(mGlobalClrTextToggle.isChecked());
-                //call a main activity function that refreshes the list of apps
-                MainActivity.getInstance().notifyDataSetChanged();
-            } else if (v.getId() == R.id.default_config_accordion_icon || v.getId() == R.id.apply_to_new_text) {
-                if (mAccordion.getVisibility() == View.VISIBLE) {
-                    mAccordion.setVisibility(View.GONE);
-                    mAccordionIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_accordion_down, null));
-                } else {
-                    mAccordion.setVisibility(View.VISIBLE);
-                    mAccordionIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_accordion_up, null));
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            switch (v.getId()) {
+                case R.id.global_cleartext_toggle: {
+                    mSettingsManager.blockCleartextTraffic(mGlobalClrTextToggle.isChecked());
+                    //call a main activity function that refreshes the list of apps
+                    MainActivity.getInstance().notifyDataSetChanged();
+                    break;
                 }
-            } else {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                switch (v.getId()) {
-                    case R.id.default_config_toggle: {
-                        if (mDefaultConfigToggle.isChecked()) {
-                            editor.putBoolean(Constants.ALLOW_NETWORK_ACCESS, mNetworkAccessToggle.isChecked())
-                                    .putBoolean(Constants.ALLOW_BACKGROUND_DATA, mBackgroundToggle.isChecked())
-                                    .putBoolean(Constants.ALLOW_WIFI_DATA, mWifiToggle.isChecked())
-                                    .putBoolean(Constants.ALLOW_MOBILE_DATA, mMobileToggle.isChecked())
-                                    .putBoolean(Constants.ALLOW_VPN_DATA, mVpnToggle.isChecked())
-                                    .putBoolean(Constants.ALLOW_CLEARTEXT_TRAFFIC, mAppClrTextToggle.isChecked()).apply();
 
-                            MainActivity.getInstance().startDefaultConfigService();
-                        } else {
-                            editor.clear().apply();
-
-                            MainActivity.getInstance().stopDefaultConfigService();
-                        }
-                        break;
+                case R.id.default_config_accordion_icon:
+                case R.id.apply_to_new_text: {
+                    if (mAccordion.getVisibility() == View.VISIBLE) {
+                        mAccordion.setVisibility(View.GONE);
+                        mAccordionIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_accordion_down, null));
+                    } else {
+                        mAccordion.setVisibility(View.VISIBLE);
+                        mAccordionIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_accordion_up, null));
                     }
+                    break;
+                }
 
-                    case R.id.all_network_toggle: {
-                        editor.putBoolean(Constants.ALLOW_NETWORK_ACCESS, mNetworkAccessToggle.isChecked()).apply();
-                        break;
-                    }
+                case R.id.default_config_toggle: {
+                    if (mDefaultConfigToggle.isChecked()) {
+                        editor.putBoolean(Constants.ALLOW_NETWORK_ACCESS, mNetworkAccessToggle.isChecked())
+                                .putBoolean(Constants.ALLOW_BACKGROUND_DATA, mBackgroundToggle.isChecked())
+                                .putBoolean(Constants.ALLOW_WIFI_DATA, mWifiToggle.isChecked())
+                                .putBoolean(Constants.ALLOW_MOBILE_DATA, mMobileToggle.isChecked())
+                                .putBoolean(Constants.ALLOW_VPN_DATA, mVpnToggle.isChecked())
+                                .putBoolean(Constants.ALLOW_CLEARTEXT_TRAFFIC, mAppClrTextToggle.isChecked()).apply();
 
-                    case R.id.app_allow_background_toggle: {
-                        editor.putBoolean(Constants.ALLOW_BACKGROUND_DATA, mBackgroundToggle.isChecked()).apply();
-                        break;
-                    }
+                        MainActivity.getInstance().startDefaultConfigService();
+                    } else {
+                        editor.clear().apply();
 
-                    case R.id.app_allow_wifi_toggle: {
-                        editor.putBoolean(Constants.ALLOW_WIFI_DATA, mWifiToggle.isChecked()).apply();
-                        break;
+                        MainActivity.getInstance().stopDefaultConfigService();
                     }
+                    break;
+                }
 
-                    case R.id.app_allow_mobile_toggle: {
-                        editor.putBoolean(Constants.ALLOW_MOBILE_DATA, mMobileToggle.isChecked()).apply();
-                        break;
-                    }
+                case R.id.all_network_toggle: {
+                    editor.putBoolean(Constants.ALLOW_NETWORK_ACCESS, mNetworkAccessToggle.isChecked()).apply();
+                    break;
+                }
 
-                    case R.id.app_allow_vpn_toggle: {
-                        editor.putBoolean(Constants.ALLOW_VPN_DATA, mVpnToggle.isChecked()).apply();
-                        break;
-                    }
+                case R.id.app_allow_background_toggle: {
+                    editor.putBoolean(Constants.ALLOW_BACKGROUND_DATA, mBackgroundToggle.isChecked()).apply();
+                    break;
+                }
 
-                    case R.id.app_allow_cleartext_toggle: {
-                        editor.putBoolean(Constants.ALLOW_CLEARTEXT_TRAFFIC, mAppClrTextToggle.isChecked()).apply();
-                        break;
-                    }
+                case R.id.app_allow_wifi_toggle: {
+                    editor.putBoolean(Constants.ALLOW_WIFI_DATA, mWifiToggle.isChecked()).apply();
+                    break;
+                }
+
+                case R.id.app_allow_mobile_toggle: {
+                    editor.putBoolean(Constants.ALLOW_MOBILE_DATA, mMobileToggle.isChecked()).apply();
+                    break;
+                }
+
+                case R.id.app_allow_vpn_toggle: {
+                    editor.putBoolean(Constants.ALLOW_VPN_DATA, mVpnToggle.isChecked()).apply();
+                    break;
+                }
+
+                case R.id.app_allow_cleartext_toggle: {
+                    editor.putBoolean(Constants.ALLOW_CLEARTEXT_TRAFFIC, mAppClrTextToggle.isChecked()).apply();
+                    break;
                 }
             }
         }
