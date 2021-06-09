@@ -9,4 +9,5 @@ public class Constants {
     public static final String ALLOW_MOBILE_DATA = "allow_mobile_data";
     public static final String ALLOW_VPN_DATA = "allow_vpn_data";
     public static final String ALLOW_CLEARTEXT_TRAFFIC = "allow_cleartext_traffic";
+    public static final int DEFAULT_CONFIG_NOTIFICATION_ID = 5;
 }

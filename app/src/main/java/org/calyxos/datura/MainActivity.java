@@ -1,15 +1,19 @@
 package org.calyxos.datura;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +31,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.calyxos.datura.adapter.AppAdapter;
 import org.calyxos.datura.adapter.GlobalSettingsAdapter;
 import org.calyxos.datura.fragment.AboutDialogFragment;
+import org.calyxos.datura.service.DefaultConfigService;
 import org.calyxos.datura.settings.SettingsManager;
+import org.calyxos.datura.util.Constants;
 import org.calyxos.datura.util.Util;
 
 import java.util.ArrayList;
@@ -46,6 +52,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SwitchCompat mCleartextToggle;
     private SettingsManager mSettingsManager;
     private static MainActivity mainActivity;
+
+
+    public void startDefaultConfigService () {
+        //Service connection to bind the service to this context because of startForegroundService issues
+        new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                DefaultConfigService.ServiceBinder binder = (DefaultConfigService.ServiceBinder) service;
+                DefaultConfigService configService = binder.getService();
+                startForegroundService(new Intent(MainActivity.this, DefaultConfigService.class));
+                configService.startForeground(Constants.DEFAULT_CONFIG_NOTIFICATION_ID, configService.getNotification());
+
+                // Release the connection to prevent leaks.
+                unbindService(this);
+            }
+
+            @Override
+            public void onBindingDied(ComponentName name) {
+                Log.w(TAG, "Binding has dead.");
+            }
+
+            @Override
+            public void onNullBinding(ComponentName name) {
+                Log.w(TAG, "Bind was null.");
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                Log.w(TAG, "Service is disconnected..");
+            }
+        };
+    }
+
+    public void stopDefaultConfigService() {
+        stopService(new Intent(this, DefaultConfigService.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

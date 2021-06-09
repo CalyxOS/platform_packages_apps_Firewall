@@ -142,11 +142,11 @@ public class GlobalSettingsAdapter extends RecyclerView.Adapter<GlobalSettingsAd
                                 .putBoolean(Constants.ALLOW_VPN_DATA, mVpnToggle.isChecked())
                                 .putBoolean(Constants.ALLOW_CLEARTEXT_TRAFFIC, mAppClrTextToggle.isChecked()).apply();
 
-                        //TODO:: start PACKAGE_ADDED foreground service
+                        MainActivity.getInstance().startDefaultConfigService();
                     } else {
                         editor.clear().apply();
 
-                        //TODO:: kill PACKAGE_ADDED foreground service
+                        MainActivity.getInstance().stopDefaultConfigService();
                     }
                     break;
                 }

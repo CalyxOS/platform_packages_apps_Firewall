@@ -27,6 +27,7 @@
         tools:ignore="ProtectedPermissions"/>
     <uses-permission android:name="android.permission.OBSERVE_NETWORK_POLICY"
         tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
         android:allowBackup="true"
@@ -56,6 +57,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
+        <service android:name=".service.DefaultConfigService" android:exported="false">
+        </service>
 
     </application>
 
