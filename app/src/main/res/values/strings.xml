@@ -41,5 +41,10 @@
     <string name="warning">Changes to these settings will change the default settings per app permanently and unsetting it will not return to their initial states</string>
     <string name="apply_to_new_apps">Apply to new apps</string>
     <string name="default_for_new_apps">Default for new apps</string>
+    <string name="default_config_notification_title">Firewall settings for new apps</string>
+    <string name="default_config_notification_desc">Settings to apply to the new apps you install</string>
+    <string name="default_config_notification_channel_name">Datura Firewall Default Configuration Channel</string>
+    <string name="default_config_notification_channel_description">Notification channel for default configurations for new apps</string>
+    <string name="stop">Stop</string>
 
 </resources>
