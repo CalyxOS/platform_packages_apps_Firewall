@@ -28,6 +28,7 @@ public class DefaultConfigService extends Service {
 
     private static final String TAG = DefaultConfigService.class.getSimpleName();
     private NewPackageInstallReceiver newPackageInstallReceiver;
+    private boolean broadcastRegistered = false;
 
     public class ServiceBinder extends Binder {
         public DefaultConfigService getService() {
@@ -90,6 +91,24 @@ public class DefaultConfigService extends Service {
     }
 
     @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d(TAG, "onStartCommand called");
+        if (!broadcastRegistered) {
+            Log.d(TAG, "broadcast registered");
+            newPackageInstallReceiver = new NewPackageInstallReceiver();
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
+            intentFilter.addDataScheme("package");
+            registerReceiver(newPackageInstallReceiver, intentFilter);
+
+            startForeground(Constants.DEFAULT_CONFIG_NOTIFICATION_ID, getNotification());
+
+            broadcastRegistered = true;
+        }
+        return START_STICKY;
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "onCreate called");
@@ -98,6 +117,10 @@ public class DefaultConfigService extends Service {
         intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
         intentFilter.addDataScheme("package");
         registerReceiver(newPackageInstallReceiver, intentFilter);
+
+        startForeground(Constants.DEFAULT_CONFIG_NOTIFICATION_ID, getNotification());
+
+        broadcastRegistered = true;
     }
 
     @Nullable

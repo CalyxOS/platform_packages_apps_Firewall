@@ -55,41 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void startDefaultConfigService () {
         Log.d(TAG, "Service about to be started");
         Intent serviceIntent = new Intent(MainActivity.this, DefaultConfigService.class);
-        //Service connection to bind the service to this context because of startForegroundService issues
-        ServiceConnection serviceConnection = new ServiceConnection() {
-            @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                Log.e(TAG, "Service connected");
-                DefaultConfigService.ServiceBinder binder = (DefaultConfigService.ServiceBinder) service;
-                DefaultConfigService configService = binder.getService();
-                startForegroundService(serviceIntent);
-                configService.startForeground(Constants.DEFAULT_CONFIG_NOTIFICATION_ID, configService.getNotification());
-            }
-
-            @Override
-            public void onBindingDied(ComponentName name) {
-                Log.w(TAG, "Binding has dead.");
-            }
-
-            @Override
-            public void onNullBinding(ComponentName name) {
-                Log.w(TAG, "Bind was null.");
-            }
-
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-                Log.w(TAG, "Service is disconnected..");
-            }
-        };
-
-        try {
-            Log.d(TAG, "Service bound");
-            bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
-        } catch (RuntimeException ignored) {
-            Log.d(TAG, "Runtime exception");
-            //Use the normal way and accept it will fail sometimes
-            startForegroundService(serviceIntent);
-        }
+        startForegroundService(serviceIntent);
     }
 
     public void stopDefaultConfigService() {
