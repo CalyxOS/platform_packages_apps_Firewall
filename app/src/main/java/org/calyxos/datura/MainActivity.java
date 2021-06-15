@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void startDefaultConfigService () {
         Log.d(TAG, "Service about to be started");
         Intent serviceIntent = new Intent(MainActivity.this, DefaultConfigService.class);
-        startForegroundService(serviceIntent);
+        startService(serviceIntent);
     }
 
     public void stopDefaultConfigService() {

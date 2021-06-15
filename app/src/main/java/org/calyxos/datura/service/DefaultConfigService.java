@@ -28,6 +28,7 @@ public class DefaultConfigService extends Service {
 
     private static final String TAG = DefaultConfigService.class.getSimpleName();
     private NewPackageInstallReceiver newPackageInstallReceiver;
+    private NotificationManagerCompat notificationManager;
     private boolean broadcastRegistered = false;
 
     public class ServiceBinder extends Binder {
@@ -38,7 +39,7 @@ public class DefaultConfigService extends Service {
 
     private final ServiceBinder binder = new ServiceBinder();
 
-    public Notification getNotification() {
+    public void getNotification() {
         Log.d(TAG, "Notification creation started");
         createNotificationChannel();
 
@@ -54,12 +55,10 @@ public class DefaultConfigService extends Service {
                 .addAction(R.drawable.ic_close_24, getString(R.string.stop), getStopActionPendingIntent());
 
         Notification notification = builder.build();
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(Constants.DEFAULT_CONFIG_NOTIFICATION_ID, notification);
 
         Log.d(TAG, "Notification finished and showing");
-
-        return notification;
     }
 
     private void createNotificationChannel() {
@@ -101,7 +100,7 @@ public class DefaultConfigService extends Service {
             intentFilter.addDataScheme("package");
             registerReceiver(newPackageInstallReceiver, intentFilter);
 
-            startForeground(Constants.DEFAULT_CONFIG_NOTIFICATION_ID, getNotification());
+            getNotification();
 
             broadcastRegistered = true;
         }
@@ -118,7 +117,7 @@ public class DefaultConfigService extends Service {
         intentFilter.addDataScheme("package");
         registerReceiver(newPackageInstallReceiver, intentFilter);
 
-        startForeground(Constants.DEFAULT_CONFIG_NOTIFICATION_ID, getNotification());
+        getNotification();
 
         broadcastRegistered = true;
     }
@@ -135,7 +134,7 @@ public class DefaultConfigService extends Service {
         Log.d(TAG, "onDestroy called");
         if (newPackageInstallReceiver != null)
             unregisterReceiver(newPackageInstallReceiver);
-        stopForeground(true);
+        notificationManager.cancel(Constants.DEFAULT_CONFIG_NOTIFICATION_ID);
     }
 
     class DismissActionReceiver extends BroadcastReceiver {
