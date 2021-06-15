@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Binder;
 import android.os.IBinder;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
@@ -25,7 +26,8 @@ import static android.app.Notification.EXTRA_NOTIFICATION_ID;
 
 public class DefaultConfigService extends Service {
 
-    NewPackageInstallReceiver newPackageInstallReceiver;
+    private static final String TAG = DefaultConfigService.class.getSimpleName();
+    private NewPackageInstallReceiver newPackageInstallReceiver;
 
     public class ServiceBinder extends Binder {
         public DefaultConfigService getService() {
@@ -36,6 +38,7 @@ public class DefaultConfigService extends Service {
     private final ServiceBinder binder = new ServiceBinder();
 
     public Notification getNotification() {
+        Log.d(TAG, "Notification creation started");
         createNotificationChannel();
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL_ID)
@@ -52,6 +55,8 @@ public class DefaultConfigService extends Service {
         Notification notification = builder.build();
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(Constants.DEFAULT_CONFIG_NOTIFICATION_ID, notification);
+
+        Log.d(TAG, "Notification finished and showing");
 
         return notification;
     }
@@ -87,6 +92,7 @@ public class DefaultConfigService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d(TAG, "onCreate called");
         newPackageInstallReceiver = new NewPackageInstallReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
@@ -103,6 +109,7 @@ public class DefaultConfigService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Log.d(TAG, "onDestroy called");
         if (newPackageInstallReceiver != null)
             unregisterReceiver(newPackageInstallReceiver);
         stopForeground(true);

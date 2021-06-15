@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -142,10 +143,12 @@ public class GlobalSettingsAdapter extends RecyclerView.Adapter<GlobalSettingsAd
                     mAccordionIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_accordion_up, null));
                 }
             } else {
+                Log.d(TAG, "Click event started");
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 switch (v.getId()) {
                     case R.id.default_config_toggle: {
                         if (mDefaultConfigToggle.isChecked()) {
+                            Log.d(TAG, "Toggle not checked");
                             editor.putBoolean(Constants.ALLOW_NETWORK_ACCESS, mNetworkAccessToggle.isChecked())
                                     .putBoolean(Constants.ALLOW_BACKGROUND_DATA, mBackgroundToggle.isChecked())
                                     .putBoolean(Constants.ALLOW_WIFI_DATA, mWifiToggle.isChecked())
