@@ -96,8 +96,6 @@ public class DefaultConfigService extends Service {
         stopSelf();
     }
 
-
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -151,7 +149,18 @@ public class DefaultConfigService extends Service {
                 Log.d(TAG, "Extra Noti Id: " + notificationId);
                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
                 notificationManager.cancel(null, notificationId);
-                DefaultConfigService.getInstance().stopForeground(true);
+
+                MainActivity mainActivity = MainActivity.getInstance();
+                DefaultConfigService defaultConfigService = DefaultConfigService.getInstance();
+                defaultConfigService.stopForeground(true);
+
+                //update the main activity adapter to show default config service has been killed
+                if (mainActivity != null) {
+                    mainActivity.serverServiceConnection();
+                }
+
+                defaultConfigService.stopService();
+
                 Log.d(TAG, "Stop action receiver ended");
             }
         }

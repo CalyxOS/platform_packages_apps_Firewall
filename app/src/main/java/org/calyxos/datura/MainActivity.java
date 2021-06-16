@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private GlobalSettingsAdapter mGlobalSettingsAdapter;
     private EditText mSearchBar;
     private ImageView mSearchIcon, mSearchClear;
+    private ServiceConnection serviceConnection;
+    private DefaultConfigService configService;
 
     private static MainActivity mainActivity;
 
@@ -56,12 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "Service about to be started");
         Intent serviceIntent = new Intent(MainActivity.this, DefaultConfigService.class);
         //Service connection to bind the service to this context because of startForegroundService issues
-        ServiceConnection serviceConnection = new ServiceConnection() {
+        serviceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 Log.d(TAG, "Service connected");
                 DefaultConfigService.ServiceBinder binder = (DefaultConfigService.ServiceBinder) service;
-                DefaultConfigService configService = binder.getService();
+                configService = binder.getService();
                 startForegroundService(serviceIntent);
                 configService.startForeground(Constants.DEFAULT_CONFIG_NOTIFICATION_ID, configService.getNotification());
             }
@@ -93,6 +95,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void stopDefaultConfigService() {
+        unbindService(serviceConnection);
+        if (configService != null)
+            configService.stopForeground(true);
         stopService(new Intent(this, DefaultConfigService.class));
     }
 
@@ -269,5 +274,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void notifyDataSetChanged() {
         if (mAppAdapter != null)
             mAppAdapter.notifyDataSetChanged(); //NOTE include this in a thread/service as well
+    }
+
+    public void serverServiceConnection() {
+        unbindService(serviceConnection);
+    }
+
+    public GlobalSettingsAdapter getGlobalSettingsAdapter() {
+        return mGlobalSettingsAdapter;
     }
 }

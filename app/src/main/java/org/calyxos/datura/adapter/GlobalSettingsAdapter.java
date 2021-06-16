@@ -209,5 +209,9 @@ public class GlobalSettingsAdapter extends RecyclerView.Adapter<GlobalSettingsAd
             }
             return false;
         }
+
+        private SwitchCompat getDefaultConfigToggle() {
+            return mDefaultConfigToggle;
+        }
     }
 }
