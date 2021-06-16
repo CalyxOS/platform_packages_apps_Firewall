@@ -58,6 +58,8 @@
                 android:value=".MainActivity" />
         </activity>
 
+        <receiver android:name=".service.DefaultConfigService$StopActionReceiver" />
+
         <service android:name=".service.DefaultConfigService" android:exported="false">
         </service>
 

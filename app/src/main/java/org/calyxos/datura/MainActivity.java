@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ServiceConnection serviceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                Log.e(TAG, "Service connected");
+                Log.d(TAG, "Service connected");
                 DefaultConfigService.ServiceBinder binder = (DefaultConfigService.ServiceBinder) service;
                 DefaultConfigService configService = binder.getService();
                 startForegroundService(serviceIntent);

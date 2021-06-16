@@ -12,6 +12,6 @@ public class Constants {
     public static final int DEFAULT_CONFIG_NOTIFICATION_ID = 5;
     public static final String NOTIFICATION_CHANNEL_ID = "org.calyxos.datura.default_config_channel";
     public static final String NOTIFICATION_CHANNEL_GROUP_ID = "org.calyxos.datura.channel_group";
-    public static final String ACTION_STOP = "action_dismiss";
+    public static final String ACTION_STOP = "action_stop";
 
 }
