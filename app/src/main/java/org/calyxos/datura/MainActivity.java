@@ -1,10 +1,12 @@
 package org.calyxos.datura;
 
+import android.Manifest;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.os.Bundle;
@@ -23,7 +25,6 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.ConcatAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,7 +33,6 @@ import org.calyxos.datura.adapter.AppAdapter;
 import org.calyxos.datura.adapter.GlobalSettingsAdapter;
 import org.calyxos.datura.fragment.AboutDialogFragment;
 import org.calyxos.datura.service.DefaultConfigService;
-import org.calyxos.datura.settings.SettingsManager;
 import org.calyxos.datura.util.Constants;
 import org.calyxos.datura.util.Util;
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static MainActivity mainActivity;
 
 
-    public void startDefaultConfigService () {
+    public void startDefaultConfigService() {
         Log.d(TAG, "Service about to be started");
         Intent serviceIntent = new Intent(MainActivity.this, DefaultConfigService.class);
         //Service connection to bind the service to this context because of startForegroundService issues
@@ -160,6 +160,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             packages.addAll(pm.getInstalledApplicationsAsUser(PackageManager.GET_META_DATA, user.id));
         }
 
+        //filter out packages without internet access permissions
+        List<ApplicationInfo> internetPackages = new ArrayList<>();
+        for (ApplicationInfo applicationInfo : packages) {
+            try {
+                PackageInfo packageInfo = pm.getPackageInfo(applicationInfo.packageName, PackageManager.GET_META_DATA | PackageManager.GET_PERMISSIONS);
+                if (packageInfo.requestedPermissions != null && hasInternetPermission(packageInfo.requestedPermissions)) {
+                    internetPackages.add(applicationInfo);
+                }
+            } catch (PackageManager.NameNotFoundException ignored) {
+            }
+        }
+
+        packages = internetPackages;
+
         //filter system and installed apps
         List<ApplicationInfo> sysApps = new ArrayList<>();
         List<ApplicationInfo> instApps = new ArrayList<>();
@@ -206,7 +220,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     //remove virtual keypad
                     //mSearchIcon.requestFocus();
-                    InputMethodManager imm =(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(mSearchIcon.getWindowToken(), 0);
                 } else
                     onBackPressed();
@@ -231,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             }
-            
+
             case R.id.action_about: {
                 new AboutDialogFragment().show(getSupportFragmentManager(), AboutDialogFragment.TAG);
                 break;
@@ -265,6 +279,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             }
         }
+    }
+
+    private boolean hasInternetPermission(String[] permissions) {
+        for (String s : permissions) {
+            if (s.equalsIgnoreCase(Manifest.permission.INTERNET))
+                return true;
+        }
+        return false;
     }
 
     public static MainActivity getInstance() {
