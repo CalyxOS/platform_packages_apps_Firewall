@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f3e7b5f_8c1522f8",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-18T12:45:42Z",
+      "side": 1,
+      "message": "\u003e It can\u0027t work because of the different objects involved. The loop here is to convert ApplicationInfo returned from getInstalledApplicationsAsUser to PackageInfo to retrieve permissions.\n\nIt will, both loops are on ApplicationInfo, you just fetch additional info for the permission which is just one extra call to `getPackageInfo`\n\n\u003e Accept we fetch apps with getInstalledPackagesAsUser if such function exists. Plus that will mean a lot of code will change deeply across the entire codebase.\n\nNot sure what you mean here.",
+      "parentUuid": "367fd4df_0f55876b",
+      "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b963138f_53637122",
         "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
         "patchSetId": 1
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "We have \"contains\" in Java array?\nI\u0027m unaware.",
       "parentUuid": "b963138f_53637122",
+      "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e51ef69_79806cde",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-18T12:45:42Z",
+      "side": 1,
+      "message": "Ah I thought it was a Set.\n\nAlso, why are you ignoring case here?",
+      "parentUuid": "4d6f58b1_b9a934f6",
       "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
