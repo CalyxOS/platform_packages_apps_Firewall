@@ -85,6 +85,24 @@
       "message": "Don\u0027t need a loop, can just use `contains`, at which point you could just drop this method entirely.",
       "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d6f58b1_b9a934f6",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-06-18T11:37:29Z",
+      "side": 1,
+      "message": "We have \"contains\" in Java array?\nI\u0027m unaware.",
+      "parentUuid": "b963138f_53637122",
+      "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
