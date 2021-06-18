@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "367fd4df_0f55876b",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-06-18T11:52:51Z",
+      "side": 1,
+      "message": "It can\u0027t work because of the different objects involved. The loop here is to convert ApplicationInfo returned from getInstalledApplicationsAsUser to PackageInfo to retrieve permissions.\n\nAccept we fetch apps with getInstalledPackagesAsUser if such function exists. Plus that will mean a lot of code will change deeply across the entire codebase.",
+      "parentUuid": "523eea25_2b6f4586",
+      "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b963138f_53637122",
         "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
         "patchSetId": 1
