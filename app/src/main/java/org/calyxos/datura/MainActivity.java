@@ -160,20 +160,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             packages.addAll(pm.getInstalledApplicationsAsUser(PackageManager.GET_META_DATA, user.id));
         }
 
-        //filter out packages without internet access permissions
-        List<ApplicationInfo> internetPackages = new ArrayList<>();
-        for (ApplicationInfo applicationInfo : packages) {
-            try {
-                PackageInfo packageInfo = pm.getPackageInfo(applicationInfo.packageName, PackageManager.GET_META_DATA | PackageManager.GET_PERMISSIONS);
-                if (packageInfo.requestedPermissions != null && hasInternetPermission(packageInfo.requestedPermissions)) {
-                    internetPackages.add(applicationInfo);
-                }
-            } catch (PackageManager.NameNotFoundException ignored) {
-            }
-        }
-
-        packages = internetPackages;
-
         //filter system and installed apps
         List<ApplicationInfo> sysApps = new ArrayList<>();
         List<ApplicationInfo> instApps = new ArrayList<>();
@@ -183,7 +169,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // the framework code which handles setting the policies has a similar check.
             if (Util.isApp(ai.uid)) {
                 if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                    sysApps.add(ai);
+                    //filter out packages without internet access permissions
+                    try {
+                        PackageInfo packageInfo = pm.getPackageInfo(ai.packageName, PackageManager.GET_META_DATA | PackageManager.GET_PERMISSIONS);
+                        if (packageInfo.requestedPermissions != null && hasInternetPermission(packageInfo.requestedPermissions)) {
+                            sysApps.add(ai);
+                        }
+                    } catch (PackageManager.NameNotFoundException ignored) {}
                 } else {
                     instApps.add(ai);
                 }
