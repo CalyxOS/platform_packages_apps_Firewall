@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "523eea25_2b6f4586",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-18T10:36:25Z",
+      "side": 1,
+      "message": "We should also only filter this out for system apps, and always show all installed apps anyway.",
+      "parentUuid": "ccf2f6fe_62c88fee",
+      "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b963138f_53637122",
         "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
         "patchSetId": 1
