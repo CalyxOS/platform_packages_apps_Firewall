@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eb46ffa_6d75b58b",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-18T09:41:49Z",
+      "side": 1,
+      "message": "Can just `import static android.Manifest.permission.INTERNET",
+      "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c197b3f0_4f5fdb70",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-18T09:41:49Z",
+      "side": 1,
+      "message": "Can print a log here.",
+      "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccf2f6fe_62c88fee",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-18T09:41:49Z",
+      "side": 1,
+      "message": "Can just add it as an additional check here instead of needed two loops.\n\n`if (isApp \u0026\u0026 packageInfo.requestedPermissions.contains(INTERNET))`",
+      "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b963138f_53637122",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-18T09:41:49Z",
+      "side": 1,
+      "message": "Don\u0027t need a loop, can just use `contains`, at which point you could just drop this method entirely.",
+      "revId": "26c902b27dc05dec04e7c46a209746bbf857f547",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
