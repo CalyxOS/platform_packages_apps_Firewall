@@ -163,12 +163,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //filter out packages without internet access permissions
         List<ApplicationInfo> internetPackages = new ArrayList<>();
         for (ApplicationInfo applicationInfo : packages) {
-            try {
-                PackageInfo packageInfo = pm.getPackageInfo(applicationInfo.packageName, PackageManager.GET_META_DATA | PackageManager.GET_PERMISSIONS);
-                if (packageInfo.requestedPermissions != null && hasInternetPermission(packageInfo.requestedPermissions)) {
-                    internetPackages.add(applicationInfo);
+            if (isSystemApp(applicationInfo)) {
+                try {
+                    PackageInfo packageInfo = pm.getPackageInfo(applicationInfo.packageName, PackageManager.GET_META_DATA | PackageManager.GET_PERMISSIONS);
+                    if (packageInfo.requestedPermissions != null && hasInternetPermission(packageInfo.requestedPermissions)) {
+                        internetPackages.add(applicationInfo);
+                    }
+                } catch (PackageManager.NameNotFoundException ignored) {
                 }
-            } catch (PackageManager.NameNotFoundException ignored) {
             }
         }
 
@@ -182,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Skip anything that isn't an "app" since we can't set policies for those, as
             // the framework code which handles setting the policies has a similar check.
             if (Util.isApp(ai.uid)) {
-                if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                if (isSystemApp(ai)) {
                     sysApps.add(ai);
                 } else {
                     instApps.add(ai);
@@ -279,6 +281,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             }
         }
+    }
+
+    private boolean isSystemApp(ApplicationInfo ai) {
+        return (ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
     }
 
     private boolean hasInternetPermission(String[] permissions) {
