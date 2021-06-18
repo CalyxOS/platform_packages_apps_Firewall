@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c745e1_2fcc829e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-18T12:45:54Z",
+      "side": 1,
+      "message": "This could\u0027ve just been amended into the original commit.",
+      "revId": "c5054149741b4c909f86b1ddf57308b7452e784b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
