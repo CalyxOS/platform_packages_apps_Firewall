@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import org.calyxos.datura.GlobalSettingsActivity;
 import org.calyxos.datura.MainActivity;
 import org.calyxos.datura.NewPackageInstallReceiver;
 import org.calyxos.datura.R;
@@ -150,13 +151,14 @@ public class DefaultConfigService extends Service {
                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
                 notificationManager.cancel(null, notificationId);
 
-                MainActivity mainActivity = MainActivity.getInstance();
+                GlobalSettingsActivity globalSettingsActivity = GlobalSettingsActivity.getInstance();
                 DefaultConfigService defaultConfigService = DefaultConfigService.getInstance();
                 defaultConfigService.stopForeground(true);
 
-                //update the main activity adapter to show default config service has been killed
-                if (mainActivity != null) {
-                    mainActivity.serverServiceConnection();
+                //update the activity to show default config service has been killed
+                if (globalSettingsActivity != null) {
+                    globalSettingsActivity.serverServiceConnection();
+                    globalSettingsActivity.updateToggle();
                 }
 
                 defaultConfigService.stopService();
