@@ -99,34 +99,34 @@
                     app:layout_constraintTop_toTopOf="@+id/default_config_accordion">
 
                     <include
-                        layout="@layout/fragment_allow_all_network"
+                        layout="@layout/fragment_allow_all_network_def_conf"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="0dp"
                         android:layout_marginBottom="25dp" />
 
                     <include
-                        layout="@layout/fragment_allow_background"
+                        layout="@layout/fragment_allow_background_def_conf"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="25dp" />
 
                     <include
-                        layout="@layout/fragment_allow_wifi"
+                        layout="@layout/fragment_allow_wifi_def_conf"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="25dp" />
 
                     <include
                         android:id="@+id/fragment_allow_mobile_include_id"
-                        layout="@layout/fragment_allow_mobile"
+                        layout="@layout/fragment_allow_mobile_def_conf"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="25dp" />
 
                     <include
-                        android:id="@+id/fragment_allow_vpn_include_id"
-                        layout="@layout/fragment_allow_vpn"
+                        android:id="@+id/def_conf_fragment_allow_vpn_include_id"
+                        layout="@layout/fragment_allow_vpn_def_conf"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="25dp" />
