@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2ca36cd_4f29d3da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000014
+      },
+      "writtenOn": "2021-06-24T21:36:44Z",
+      "side": 1,
+      "message": "Will have to merge this before https://review.calyxos.org/c/CalyxOS/platform_packages_apps_Firewall/+/4055 first to avoid overriding the changes for system apps with internet permission",
+      "revId": "71d790d2f788515f0ef9968526abd553ec014b02",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
