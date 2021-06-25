@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <include
                 layout="@layout/fragment_use_defaults_accordion_content"
@@ -98,7 +98,7 @@
 
             <include
                 layout="@layout/fragment_allow_background"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="83dp"
                 android:layout_marginBottom="25dp" />
