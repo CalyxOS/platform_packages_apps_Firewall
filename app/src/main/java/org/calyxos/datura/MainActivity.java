@@ -170,12 +170,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (Util.isApp(ai.uid)) {
                 if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
                     //filter out packages without internet access permissions
-                    try {
+                    if (pm.checkPermission(Manifest.permission.INTERNET, ai.packageName) == PackageManager.PERMISSION_GRANTED) {
+                        sysApps.add(ai);
+                    }
+                    //this method might be slower. Open to tests
+                    /*try {
                         PackageInfo packageInfo = pm.getPackageInfo(ai.packageName, PackageManager.GET_META_DATA | PackageManager.GET_PERMISSIONS);
                         if (packageInfo.requestedPermissions != null && hasInternetPermission(packageInfo.requestedPermissions)) {
                             sysApps.add(ai);
                         }
-                    } catch (PackageManager.NameNotFoundException ignored) {}
+                    } catch (PackageManager.NameNotFoundException ignored) {}*/
                 } else {
                     instApps.add(ai);
                 }
