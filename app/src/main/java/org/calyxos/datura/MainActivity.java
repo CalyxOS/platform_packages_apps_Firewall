@@ -1,5 +1,7 @@
 package org.calyxos.datura;
 
+import static android.Manifest.permission.INTERNET;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
@@ -107,7 +109,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // the framework code which handles setting the policies has a similar check.
             if (UserHandle.isApp(ai.uid)) {
                 if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                    sysApps.add(ai);
+                    // Filter out system apps without INTERNET permission
+                    if (pm.checkPermission(INTERNET, ai.packageName) == PackageManager.PERMISSION_GRANTED) {
+                        sysApps.add(ai);
+                    }
                 } else {
                     instApps.add(ai);
                 }
