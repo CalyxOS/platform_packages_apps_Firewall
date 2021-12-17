@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ad12b04_e77649e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-17T22:06:09Z",
+      "side": 1,
+      "message": "Works but we\u0027ll have the implications of running this as system uid to consider before we go ahead.",
+      "revId": "ed8f62a435a40bac3d1b71b25484d9442983e5c9",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
