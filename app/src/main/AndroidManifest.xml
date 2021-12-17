@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="org.calyxos.datura"
-    android:versionCode="30000001"
-    android:versionName="11-1.0">
+    android:versionCode="31000001"
+    android:versionName="12-1.0">
     <!--
     The version code is the targeted SDK_VERSION plus 6 digits for our own version code.
     The version name is the targeted Android version followed by - and our own version name.
@@ -30,7 +30,8 @@
         android:theme="@style/Theme.Firewall">
 
         <activity android:name=".MainActivity"
-            android:theme="@style/Theme.Firewall.NoActionBar">
+            android:theme="@style/Theme.Firewall.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
