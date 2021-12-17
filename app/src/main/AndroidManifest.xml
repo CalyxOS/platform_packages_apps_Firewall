@@ -14,6 +14,8 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.CONNECTIVITY_INTERNAL"
         tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.NETWORK_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.NETWORK_STACK"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
