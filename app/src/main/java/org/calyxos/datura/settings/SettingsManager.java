@@ -1,16 +1,18 @@
 package org.calyxos.datura.settings;
 
 import android.content.Context;
+import android.net.ConnectivitySettingsManager;
 import android.net.NetworkPolicyManager;
 import android.util.SparseIntArray;
 
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
-import static android.net.NetworkPolicyManager.POLICY_REJECT_ALL;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_CELLULAR;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_VPN;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_WIFI;
+
+import java.util.Set;
 
 public class SettingsManager {
 
@@ -53,7 +55,8 @@ public class SettingsManager {
     }
 
     public boolean getAppRestrictAll(int uid) {
-        return getAppRestriction(uid, POLICY_REJECT_ALL);
+        return !ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(mContext)
+                .contains(uid);
     }
 
     public boolean getAppRestrictCellular(int uid) {
@@ -74,7 +77,14 @@ public class SettingsManager {
     }
 
     public void setAppRestrictAll(int uid, boolean restrict) throws RuntimeException {
-        setAppRestriction(uid, POLICY_REJECT_ALL, restrict);
+        Set<Integer> uids =
+                ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(mContext);
+        if (!restrict) {
+            uids.remove(uid);
+        } else {
+            uids.add(uid);
+        }
+        ConnectivitySettingsManager.setUidsAllowedOnRestrictedNetworks(mContext, uids);
     }
 
     public void setAppRestrictCellular(int uid, boolean restrict) throws RuntimeException {
