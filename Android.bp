@@ -7,6 +7,7 @@ android_app {
 
     platform_apis: true,
     system_ext_specific: true,
+    privileged: true,
     certificate: "platform",
 
     static_libs: [
@@ -14,4 +15,16 @@ android_app {
         "androidx-constraintlayout_constraintlayout",
         "com.google.android.material_material",
     ],
+
+    required: [
+        "privapp_permissions_org.calyxos.datura",
+    ],
+}
+
+prebuilt_etc {
+    name: "privapp_permissions_org.calyxos.datura",
+    system_ext_specific: true,
+    sub_dir: "permissions",
+    src: "permissions_org.calyxos.datura.xml",
+    filename_from_src: true,
 }
