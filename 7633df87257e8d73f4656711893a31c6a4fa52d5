@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "082fd13f_468936e2",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-19T23:51:40Z",
+      "side": 1,
+      "message": "import android.app.AppGlobals;\n\nAppGlobals.getPackageManager().getPackagesHoldingPermissions(new String[]{INTERNET})",
+      "revId": "7633df87257e8d73f4656711893a31c6a4fa52d5",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
