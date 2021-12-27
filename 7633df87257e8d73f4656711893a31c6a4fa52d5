@@ -16,6 +16,24 @@
       "message": "import android.app.AppGlobals;\n\nAppGlobals.getPackageManager().getPackagesHoldingPermissions(new String[]{INTERNET})",
       "revId": "7633df87257e8d73f4656711893a31c6a4fa52d5",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea745760_ed3637b0",
+        "filename": "app/src/main/java/org/calyxos/datura/MainActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-27T16:52:56Z",
+      "side": 1,
+      "message": "For now it\u0027s better to keep user apps without internet since they were present in 11.\n\nWe can figure out a better solution later (I\u0027d say something like showing them but greying them out)",
+      "parentUuid": "082fd13f_468936e2",
+      "revId": "7633df87257e8d73f4656711893a31c6a4fa52d5",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
