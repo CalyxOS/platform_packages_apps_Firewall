@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_short_name">Τείχος προστασίας</string>
+    <string name="allow_vpn_data">Να επιτρέπονται δεδομένα VPN</string>
+    <string name="search">Αναζήτηση</string>
+    <string name="sort_by_last_used">Ταξινόμηση κατά την τελευταία χρήση</string>
+    <string name="sort_by_name">Ταξινόμηση με βάση το όνομα</string>
+    <string name="about_license">Άδεια: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_author">Αναπτύχθηκε από: <a href="https://github.com/esecoder">Ese Udom</a> και <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="about_design">Σχεδιασμός από: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_source_code">Πηγαίος κώδικας: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="allow_background_data">Να επιτρέπεται η πρόσβαση στο δίκτυο στο παρασκήνιο</string>
+    <string name="app_name">Τείχος προστασίας Datura</string>
+    <string name="allow_wifi_data">Να επιτρέπονται δεδομένα Wi-Fi</string>
+    <string name="allow_mobile_data">Να επιτρέπονται δεδομένα κινητής τηλεφωνίας</string>
+    <string name="about_sponsor">Χορηγός: <a href="https://www.calyxinstitute.org">Calyx Institute</a> για χρήση στο <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="installed_apps">Εγκατεστημένες εφαρμογές</string>
+    <string name="system_apps">Εφαρμογές συστήματος</string>
+    <string name="about">Σχετικά με</string>
+    <string name="about_summary">Μια εφαρμογή τείχους προστασίας που χρησιμοποιεί το εσωτερικό API δικτύου του Android.</string>
+</resources>
