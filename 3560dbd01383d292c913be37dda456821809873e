@@ -349,6 +349,24 @@
       "parentUuid": "a71e1df7_79716fbd",
       "revId": "3560dbd01383d292c913be37dda456821809873e",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cad5ce22_7457fc5a",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T21:43:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1f6044fa_279dd3a5",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
