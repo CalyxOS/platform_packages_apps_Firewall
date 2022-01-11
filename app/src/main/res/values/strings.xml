@@ -8,11 +8,11 @@
     <string name="block_cleartext_etc">Block cleartext traffic, ads, and trackers</string>
     <string name="allow_cleartext">Allow cleartext traffic</string>
     <string name="block_ads_trackers">Block ads and trackers</string>
-    <string name="system_apps">System Apps</string>
+    <string name="system_apps">System apps</string>
     <string name="allow_background_data">Allow background network access</string>
     <string name="allow_wifi_data">Allow Wi-Fi data</string>
     <string name="allow_vpn_data">Allow VPN data</string>
-    <string name="app_name_text">App Name</string>
+    <string name="app_name_text">App name</string>
     <string name="setting_status">Setting status</string>
     <string name="installed_apps">Installed apps</string>
     <string name="allow_mobile_data">Allow mobile data</string>
@@ -22,8 +22,9 @@
     <string name="search">Search</string>
     <string name="sort_by_last_used">Sort by last used</string>
     <string name="sort_by_name">Sort by name</string>
-    <string name="dark_theme">Dark Theme</string>
-    <string name="light_theme">Light Theme</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="light_theme">Light theme</string>
+
     <!-- About -->
     <string name="about_title">About</string>
     <string name="about_summary">A firewall application using Android\'s internal network API.</string>
@@ -32,6 +33,6 @@
     <string name="about_author">Written by: <a href="https://github.com/esecoder">Ese Udom</a> and <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
     <string name="about_design">Design by: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
     <string name="about_sponsor">Sponsored by: <a href="https://www.calyxinstitute.org">Calyx Institute</a> for use in <a href="https://calyxos.org">CalyxOS</a></string>
-    <string name="about_source_code">Source Code: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="about_source_code">Source code: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
 
 </resources>
