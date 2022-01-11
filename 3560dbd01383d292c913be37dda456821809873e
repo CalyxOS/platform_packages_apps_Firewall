@@ -316,6 +316,24 @@
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93a5ee10_e2005503",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T22:20:18Z",
+      "side": 1,
+      "message": "Let\u0027s keep it as-is for now.",
+      "parentUuid": "ba2633ca_4e98fb0d",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a71e1df7_79716fbd",
