@@ -1,37 +1,39 @@
 <resources>
     <string name="app_name">Datura Firewall</string>
     <string name="app_short_name">Firewall</string>
-    <string name="settings">Settings</string>
-    <string name="about">About</string>
-    <string name="global_settings">Global settings</string>
-    <string name="use_defaults">Use defaults</string>
-    <string name="block_cleartext_etc">Block cleartext traffic, ads, and trackers</string>
-    <string name="allow_cleartext">Allow cleartext traffic</string>
-    <string name="block_ads_trackers">Block ads and trackers</string>
-    <string name="system_apps">System Apps</string>
+
+    <string name="installed_apps">Installed apps</string>
+    <string name="system_apps">System apps</string>
+
     <string name="allow_background_data">Allow background network access</string>
     <string name="allow_wifi_data">Allow Wi-Fi data</string>
-    <string name="allow_vpn_data">Allow VPN data</string>
-    <string name="app_name_text">App Name</string>
-    <string name="setting_status">Setting status</string>
-    <string name="installed_apps">Installed apps</string>
     <string name="allow_mobile_data">Allow mobile data</string>
-    <string name="default_settings">Default settings</string>
-    <string name="status_text_placeholder">Allow %1$s</string>
-    <string name="error_setting_preference">Error while setting preference for %1$s</string>
+    <string name="allow_vpn_data">Allow VPN data</string>
+
     <string name="search">Search</string>
     <string name="sort_by_last_used">Sort by last used</string>
     <string name="sort_by_name">Sort by name</string>
-    <string name="dark_theme">Dark Theme</string>
-    <string name="light_theme">Light Theme</string>
+
     <!-- About -->
-    <string name="about_title">About</string>
+    <string name="about">About</string>
     <string name="about_summary">A firewall application using Android\'s internal network API.</string>
-    <string name="about_version">Version: %s</string>
     <string name="about_license">License: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
     <string name="about_author">Written by: <a href="https://github.com/esecoder">Ese Udom</a> and <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
     <string name="about_design">Design by: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
     <string name="about_sponsor">Sponsored by: <a href="https://www.calyxinstitute.org">Calyx Institute</a> for use in <a href="https://calyxos.org">CalyxOS</a></string>
-    <string name="about_source_code">Source Code: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="about_source_code">Source code: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
 
+    <!-- Work in progress features -->
+    <string name="app_name_text" translatable="false">App name</string>
+    <string name="settings" translatable="false">Settings</string>
+    <string name="global_settings" translatable="false">Global settings</string>
+    <string name="setting_status" translatable="false">Setting status</string>
+    <string name="use_defaults" translatable="false">Use defaults</string>
+    <string name="default_settings" translatable="false">Default settings</string>
+    <string name="status_text_placeholder" translatable="false">Allow %1$s</string>
+    <string name="error_setting_preference" translatable="false">Error while setting preference for %1$s</string>
+    <string name="block_cleartext_etc" translatable="false">Block cleartext traffic, ads, and trackers</string>
+    <string name="allow_cleartext" translatable="false">Allow cleartext traffic</string>
+    <string name="block_ads_trackers" translatable="false">Block ads and trackers</string>
+    <string name="about_version" translatable="false">Version: %s</string>
 </resources>
