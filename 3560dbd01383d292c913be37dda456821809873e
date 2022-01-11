@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c555e8ea_e65a0b65",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T20:11:57Z",
+      "side": 1,
+      "message": "Likely unused.",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f925b532_ffc56077",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T20:11:57Z",
+      "side": 1,
+      "message": "Is this used?",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b77b888b_fcf54a12",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T20:11:57Z",
+      "side": 1,
+      "message": "Unused",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05c27c0d_28555fda",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T20:11:57Z",
+      "side": 1,
+      "message": "Unused",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7e8bd7b_a6222c75",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T20:11:57Z",
+      "side": 1,
+      "message": "Unused",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6635a11d_359b4895",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T20:11:57Z",
+      "side": 1,
+      "message": "Is this used?",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15169308_2e31006f",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T20:11:57Z",
+      "side": 1,
+      "message": "Used?",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73b1c394_c169868a",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T20:11:57Z",
+      "side": 1,
+      "message": "Thoughts on this string?",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5349d2c4_814562e0",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T20:11:57Z",
+      "side": 1,
+      "message": "Same here, do we want to change before translating?",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a71e1df7_79716fbd",
+        "filename": "app/src/main/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-11T20:11:57Z",
+      "side": 1,
+      "message": "Seedvault translations have had troubles with these complex strings with links before. If you can think of a better way we could switch, otherwise it\u0027s fine.",
+      "revId": "3560dbd01383d292c913be37dda456821809873e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
