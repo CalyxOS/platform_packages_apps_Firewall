@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0752d4f7_64269d8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-14T14:04:32Z",
+      "side": 1,
+      "message": "I didn\u0027t do it this way intentionally.\n\nThis will just hide user apps without any way of the user knowing why it\u0027s there.\n\n\"Why is MuPDF Viewer not appearing in Firewall\"\n\nIt has to be greyed out.\n\n\n\nFor system apps hiding is fine since there\u0027s way too many as mentioned in original commit message.",
+      "revId": "bc546c4e381fa673bc9b33628a7f32c2aa052d79",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
