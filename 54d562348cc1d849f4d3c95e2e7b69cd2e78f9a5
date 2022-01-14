@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38cfe42d_938ddce8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-14T23:03:47Z",
+      "side": 1,
+      "message": "PS1 was ok but didn\u0027t handle all cases.\n\nPS2 tries but doesn\u0027t work.\n\nPS3 won\u0027t be for a while, probably not worth it to muck around with this more 😞",
+      "revId": "54d562348cc1d849f4d3c95e2e7b69cd2e78f9a5",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
