@@ -1,5 +1,6 @@
 package org.calyxos.datura.adapter;
 
+import android.Manifest;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
@@ -372,8 +373,12 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                 mVpnToggle.setChecked(!mSettingsManager.getAppRestrictVpn(app.uid));
 
                 //initialize main toggle
+                final boolean hasInternetPermission = mPackageManager.checkPermission(
+                        Manifest.permission.INTERNET, app.packageName)
+                        == PackageManager.PERMISSION_GRANTED;
+                mMainToggle.setEnabled(hasInternetPermission);
                 mMainToggle.setChecked(!mSettingsManager.getAppRestrictAll(app.uid));
-                if (!mMainToggle.isChecked()) {
+                if (!hasInternetPermission || !mMainToggle.isChecked()) {
                     mBackgroundToggle.setEnabled(false);
                     mWifiToggle.setEnabled(false);
                     mMobileToggle.setEnabled(false);
