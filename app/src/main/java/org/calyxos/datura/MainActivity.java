@@ -107,12 +107,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (ApplicationInfo ai : packages) {
             // Skip anything that isn't an "app" since we can't set policies for those, as
             // the framework code which handles setting the policies has a similar check.
-            if (UserHandle.isApp(ai.uid)) {
+            // Also filter out apps without INTERNET permission
+            if (UserHandle.isApp(ai.uid) && pm.checkPermission(INTERNET, ai.packageName)
+                    == PackageManager.PERMISSION_GRANTED) {
                 if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                    // Filter out system apps without INTERNET permission
-                    if (pm.checkPermission(INTERNET, ai.packageName) == PackageManager.PERMISSION_GRANTED) {
-                        sysApps.add(ai);
-                    }
+                    sysApps.add(ai);
                 } else {
                     instApps.add(ai);
                 }
