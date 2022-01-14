@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d4dc5a7_70c5c098",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-14T23:01:28Z",
+      "side": 1,
+      "message": "MuPdfViewer is a good test for this since it does not have INTERNET perms.\n\nAnd ThornApple ofcourse, given it has a noinet variant.",
+      "revId": "c729096d039e2ef9221e5210f284eb542ad2d221",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
