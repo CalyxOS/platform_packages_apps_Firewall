@@ -380,9 +380,13 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.ViewHolder> impl
                 mMainToggle.setChecked(!mSettingsManager.getAppRestrictAll(app.uid));
                 if (!hasInternetPermission || !mMainToggle.isChecked()) {
                     mBackgroundToggle.setEnabled(false);
+                    mBackgroundToggle.setChecked(false);
                     mWifiToggle.setEnabled(false);
+                    mWifiToggle.setChecked(false);
                     mMobileToggle.setEnabled(false);
+                    mMobileToggle.setChecked(false);
                     mVpnToggle.setEnabled(false);
+                    mVpnToggle.setChecked(false);
                 }
 
                 // Set status text
