@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Datura Güvenlik Duvarı</string>
+    <string name="app_short_name">Güvenlik duvarı</string>
+    <string name="installed_apps">Kurulu uygulamalar</string>
+    <string name="system_apps">Sistem uygulamaları</string>
+    <string name="allow_background_data">Arka planda ağ erişimine izin ver</string>
+    <string name="allow_wifi_data">Wi-Fi verilerine izin ver</string>
+    <string name="allow_mobile_data">Mobil verilere izin ver</string>
+    <string name="allow_vpn_data">VPN verilerine izin ver</string>
+    <string name="search">Ara</string>
+    <string name="sort_by_last_used">Son kullanılana göre sırala</string>
+    <string name="sort_by_name">Ada göre sırala</string>
+    <string name="about">Hakkında</string>
+    <string name="about_summary">Android\'in dahili ağ API\'sini kullanan bir güvenlik duvarı uygulaması.</string>
+    <string name="about_license">Lisans: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_author">Yazanlar: <a href="https://github.com/esecoder">Ese Udom</a> ve <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="about_design">Tasarım: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_sponsor">Sponsor: <a href="https://calyxos.org">CalyxOS</a>\'de kullanmak için <a href="https://www.calyxinstitute.org">Calyx Institute</a></string>
+    <string name="about_source_code">Kaynak kodları: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+</resources>

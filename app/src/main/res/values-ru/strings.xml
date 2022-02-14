@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about_sponsor">Спонсор: <a href="https://www.calyxinstitute.org">Институт Calyx</a> для использования в <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="allow_wifi_data">Разрешить передачу данных по Wi-Fi</string>
+    <string name="allow_mobile_data">Разрешить мобильные данные</string>
+    <string name="search">Поиск</string>
+    <string name="about_license">Лицензия: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="sort_by_name">Сортировать по имени</string>
+    <string name="about">О приложении</string>
+    <string name="app_name">Брандмауэр Datura</string>
+    <string name="app_short_name">Брандмауэр</string>
+    <string name="installed_apps">Установленные приложения</string>
+    <string name="system_apps">Системные приложения</string>
+    <string name="allow_background_data">Разрешить фоновый доступ к сети</string>
+    <string name="allow_vpn_data">Разрешить данные VPN</string>
+    <string name="sort_by_last_used">Сортировать по последнему использованию</string>
+    <string name="about_summary">Приложение брандмауэр, использующее API внутренней сети Android.</string>
+    <string name="about_author">Авторы: <a href="https://github.com/esecoder"> Эсе Удом</a> и <a href="https://github.com/chirayudesai"> Чирайю Десаи</a></string>
+    <string name="about_design">Дизайн от: <a href="https://www.glennsorrentino.com/">Гленн Соррентино</a></string>
+    <string name="about_source_code">Исходный код: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+</resources>
