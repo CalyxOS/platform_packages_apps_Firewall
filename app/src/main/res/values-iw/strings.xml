@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about_sponsor">מומן על ידי: <a href="https://www.calyxinstitute.org">מכון Calyx</a> לשימוש במסגרת <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="app_short_name">חומת אש</string>
+    <string name="about">על אודות</string>
+    <string name="about_source_code">קוד המקור: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="installed_apps">יישומונים מותקנים</string>
+    <string name="about_license">רישיון: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="app_name">חומת האש Datura</string>
+    <string name="about_design">עוצב על ידי: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="system_apps">יישומוני מערכת</string>
+    <string name="allow_background_data">לאפשר גישה לרשת ברקע</string>
+    <string name="allow_wifi_data">לאפשר חיבור דרך רשת אלחוטית</string>
+    <string name="allow_mobile_data">לאפשר חיבור דרך רשת סלולרית</string>
+    <string name="allow_vpn_data">לאפשר חיבור דרך VPN</string>
+    <string name="search">חיפוש</string>
+    <string name="sort_by_last_used">סידור לפי מועד השימוש</string>
+    <string name="sort_by_name">סידור לפי שם</string>
+    <string name="about_summary">יישומון חומת אש שמשתמש ב־API הפנימי של Android.</string>
+    <string name="about_author">נכתב על ידי: <a href="https://github.com/esecoder">Ese Udom</a> ו־<a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+</resources>
