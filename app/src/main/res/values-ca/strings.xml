@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about_author">Escrit per by: <a href="https://github.com/esecoder">Ese Udom</a> i <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="app_name">Tallafocs Datura</string>
+    <string name="allow_background_data">Autoritzar accés a la xarxa en segon pla</string>
+    <string name="allow_wifi_data">Autoritzar dades Wi-Fi</string>
+    <string name="app_short_name">Tallafocs</string>
+    <string name="installed_apps">Aplicacions Instal·lades</string>
+    <string name="system_apps">Aplicacions del sistema</string>
+    <string name="allow_mobile_data">Autoritzar dades mòbils</string>
+    <string name="allow_vpn_data">Autoritzar dades de VPN</string>
+    <string name="search">Buscar</string>
+    <string name="sort_by_last_used">Ordena per darrer ús</string>
+    <string name="sort_by_name">Ordena per nom</string>
+    <string name="about">Quant a</string>
+    <string name="about_summary">Una aplicació de tallafocs que utilitza l\'API interna de xarxa d\'Android.</string>
+    <string name="about_license">Llicència: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_design">Dissenyat per: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_sponsor">Patrocinat per: <a href="https://www.calyxinstitute.org">Calyx Institute</a> per l\'ús a <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="about_source_code">Codi font: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+</resources>

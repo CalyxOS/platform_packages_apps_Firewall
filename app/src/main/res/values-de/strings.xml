@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Datura-Firewall</string>
+    <string name="app_short_name">Firewall</string>
+    <string name="installed_apps">Installierte Apps</string>
+    <string name="allow_vpn_data">VPN-Daten zulassen</string>
+    <string name="about_author">Geschrieben von: <a href="https://github.com/esecoder">Ese Udom</a> und <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="about_source_code">Quellcode: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="system_apps">System-Apps</string>
+    <string name="allow_background_data">Netzwerkzugriff im Hintergrund zulassen</string>
+    <string name="allow_wifi_data">WLAN-Daten zulassen</string>
+    <string name="allow_mobile_data">Mobile Daten zulassen</string>
+    <string name="search">Suche</string>
+    <string name="sort_by_last_used">Nach zuletzt verwendet sortieren</string>
+    <string name="sort_by_name">Nach Namen sortieren</string>
+    <string name="about">Über</string>
+    <string name="about_license">Lizenz: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_design">Design von: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_sponsor">Gesponsert von: <a href="https://www.calyxinstitute.org">Calyx Institute</a> zur Verwendung in <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="about_summary">Eine Firewall-Anwendung, welche die interne Netzwerk-API von Android verwendet.</string>
+</resources>
