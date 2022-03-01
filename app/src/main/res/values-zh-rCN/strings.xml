@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about_author">作者：<a href="https://github.com/esecoder">Ese Udom</a>和<a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="about_summary">一款使用 Android 内部网络 API 的防火墙应用。</string>
+    <string name="about">关于</string>
+    <string name="about_source_code">源代码：https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="about_sponsor">赞助人：<a href="https://www.calyxinstitute.org">Calyx Institute</a>，用于<a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="app_name">曼陀罗防火墙</string>
+    <string name="app_short_name">防火墙</string>
+    <string name="installed_apps">已安装应用</string>
+    <string name="system_apps">系统应用</string>
+    <string name="allow_background_data">允许后台网络访问</string>
+    <string name="allow_wifi_data">允许无线网络数据</string>
+    <string name="allow_mobile_data">允许移动数据</string>
+    <string name="allow_vpn_data">允许 VPN 数据</string>
+    <string name="search">搜索</string>
+    <string name="sort_by_last_used">按上次使用排序</string>
+    <string name="sort_by_name">按名称排序</string>
+    <string name="about_license">许可证:<a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_design">设计师：<a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+</resources>
