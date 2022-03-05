@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="search">검색</string>
+    <string name="allow_vpn_data">VPN 데이터 허용</string>
+    <string name="allow_mobile_data">모바일 데이터 허용</string>
+    <string name="allow_background_data">백그라운드 네트워크 액세스 허용</string>
+    <string name="app_name">Datura Firewall</string>
+    <string name="about">정보</string>
+    <string name="installed_apps">설치된 앱</string>
+    <string name="system_apps">시스템 앱</string>
+    <string name="allow_wifi_data">Wi-Fi 데이터 허용</string>
+    <string name="app_short_name">Firewall</string>
+    <string name="sort_by_last_used">최근에 사용된 순으로 정렬</string>
+    <string name="sort_by_name">이름 순으로 정렬</string>
+    <string name="about_design">디자인: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_license">라이선스: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_sponsor">스폰서: <a href="https://www.calyxinstitute.org">Calyx Institute</a> for use in <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="about_source_code">소스 코드: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="about_author">제작자: <a href="https://github.com/esecoder">Ese Udom</a> and <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="about_summary">Android 내장 네트워크 API를 이용한 방화벽 애플리케이션입니다.</string>
+</resources>
