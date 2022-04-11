@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about_sponsor">Sponsorowana przez: <a href="https://www.calyxinstitute.org">Calyx Institute</a> do wykorzystania w <a href="https://calyxos.org">CalyxOS</a></string>
+</resources>
