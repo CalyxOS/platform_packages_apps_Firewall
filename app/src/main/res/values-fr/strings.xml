@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="search">Chercher</string>
-    <string name="about_author">Écrit par : <a href="https://github.com/esecoder">Ese Udom</a> et <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="about_author">Écrit par: <a href="https://github.com/esecoder">Ese Udom</a> et <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
     <string name="about_source_code">Code source : https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
     <string name="about_sponsor">Sponsorisé par : <a href="https://www.calyxinstitute.org">Calyx Institute</a> pour l\'utilisation dans <a href="https://calyxos.org">CalyxOS</a></string>
     <string name="app_name">Pare-feu Datura</string>
