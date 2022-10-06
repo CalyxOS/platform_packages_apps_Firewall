@@ -17,4 +17,5 @@
     <string name="about_source_code">Código fuente: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
     <string name="app_name">Cortafuegos de Datura</string>
     <string name="allow_mobile_data">Permitir datos móviles</string>
+    <string name="about_summary">Una aplicación de firewall que utiliza la API de red interna de Android.</string>
 </resources>
