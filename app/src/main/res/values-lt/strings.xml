@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Datura ugniasienė</string>
+    <string name="app_short_name">Ugniasienė</string>
+    <string name="installed_apps">Įdiegtos programėlės</string>
+    <string name="system_apps">Sistemos programėlės</string>
+    <string name="allow_background_data">Leisti foninę tinklo prieigą</string>
+    <string name="allow_wifi_data">Leisti Wi-Fi duomenis</string>
+    <string name="allow_mobile_data">Leisti mobiliuosius duomenis</string>
+    <string name="allow_vpn_data">Leisti VPN duomenis</string>
+    <string name="search">Ieškoti</string>
+    <string name="sort_by_last_used">Rūšiuoti pagal paskutinį kartą naudotą</string>
+    <string name="sort_by_name">Rūšiuoti pagal pavadinimą</string>
+    <string name="about">Apie</string>
+    <string name="about_summary">Ugniasienės programėlė, naudojanti Android vidinio tinklo API.</string>
+    <string name="about_license">Licencija: <a href="https://www.apache.org/licenses/LICENSE-2.0"> „Apache2“ </a></string>
+    <string name="about_author">Parašė: <a href="https://github.com/esecoder">Ese Udom</a> ir <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="about_design">Dizainas: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_sponsor">Remia: <a href="https://www.calyxinstitute.org">Calyx institutas</a>, skirta naudoti <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="about_source_code">Šaltinio kodas: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+</resources>
