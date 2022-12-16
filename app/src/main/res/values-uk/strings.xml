@@ -1,2 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_short_name">Брандмауер</string>
+    <string name="installed_apps">Встановлені застосунки</string>
+    <string name="allow_background_data">Дозволити доступ до мережі у фоновому режимі</string>
+    <string name="allow_wifi_data">Дозволити Wi-Fi дані</string>
+    <string name="allow_vpn_data">Дозволити VPN дані</string>
+    <string name="search">Пошук</string>
+    <string name="sort_by_last_used">Сортувати за останнім використанням</string>
+    <string name="sort_by_name">Сортувати за назвою</string>
+    <string name="about">Про</string>
+    <string name="about_license">Ліцензія:
+\n<a href="https://www.apache.org/licenses/LICENSE-2.0">
+\nApache2</a></string>
+    <string name="about_design">Дизайн:
+\n<a href="https://www.glennsorrentino.com/">
+\nGlenn Sorrentino</a></string>
+    <string name="about_sponsor">Спонсор:
+\n<a href="https://www.calyxinstitute.org">
+\nCalyx Institute</a> для використання в
+\n<a href="https://calyxos.org">
+\nCalyxOS</a></string>
+    <string name="about_source_code">Вихідний код:
+\nhttps://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="app_name">Брандмауер Datura</string>
+    <string name="system_apps">Системні застосунки</string>
+    <string name="allow_mobile_data">Дозволити мобільні дані</string>
+    <string name="about_summary">Брандмауер-застосунок, що використовує внутрішній мережевий API Android.</string>
+    <string name="about_author">Автор тексту:
+\n<a href="https://github.com/esecoder">
+\nEse Udom</a> та
+\n<a href="https://github.com/chirayudesai">
+\nChirayu Desai</a></string>
+</resources>
