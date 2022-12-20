@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about_license">Licenza: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_source_code">Codice sorgente: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="about_author">Scritto da: <a href="https://github.com/esecoder">Ese Udom</a> e <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="app_name">Firewall Datura</string>
+    <string name="app_short_name">Firewall</string>
+    <string name="installed_apps">Applicazioni installate</string>
+    <string name="system_apps">Applicazioni di sistema</string>
+    <string name="allow_background_data">Consenti l\'accesso alla rete in background</string>
+    <string name="allow_vpn_data">Consenti uso dati VPN</string>
+    <string name="allow_mobile_data">Consenti uso dati mobili</string>
+    <string name="allow_wifi_data">Consenti uso dati Wi-Fi</string>
+    <string name="search">Cerca</string>
+    <string name="sort_by_last_used">Ordina per usato per ultimo</string>
+    <string name="sort_by_name">Ordina per nome</string>
+    <string name="about">Di più</string>
+    <string name="about_summary">Un\'applicazione firewall che utilizza l\'API di rete interna di Android.</string>
+    <string name="about_design">Design di: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_sponsor">Sponsorizzato da: <a href="https://www.calyxinstitute.org">Calyx Institute</a> per uso su <a href="https://calyxos.org">CalyxOS</a></string>
+</resources>
