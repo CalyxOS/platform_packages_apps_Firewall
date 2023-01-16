@@ -54,7 +54,7 @@ android {
         languageVersion = "1.7"
     }
     lint {
-        abortOnError false
+        lintConfig file("lint.xml")
     }
 }
 
