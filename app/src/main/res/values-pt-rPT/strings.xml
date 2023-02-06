@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Datura Firewall</string>
+    <string name="app_short_name">Firewall</string>
+    <string name="installed_apps">Apps instaladas</string>
+    <string name="system_apps">Apps do sistema</string>
+    <string name="allow_background_data">Permitir acesso à rede em segundo plano</string>
+    <string name="allow_wifi_data">Permitir dados de Wi-Fi</string>
+    <string name="allow_mobile_data">Permitir dados móveis</string>
+    <string name="allow_vpn_data">Permitir dados VPN</string>
+    <string name="search">Procurar</string>
+    <string name="sort_by_last_used">Classificar por último usado</string>
+    <string name="sort_by_name">Classificar por nome</string>
+    <string name="about">Sobre</string>
+    <string name="about_summary">Uma aplicação de backup usando a API de backup interna do Android.</string>
+    <string name="about_license">Licença: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_author">Escrito por: <a href="https://github.com/esecoder">Ese Udom</a> e <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="about_design">Design por: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_sponsor">Patrocinado por: <a href="https://www.calyxinstitute.org">Instituto Calyx </a> para uso no <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="about_source_code">Código fonte: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+</resources>
