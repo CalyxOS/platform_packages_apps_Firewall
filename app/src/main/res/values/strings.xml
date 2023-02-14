@@ -9,6 +9,7 @@
     <string name="allow_wifi_data">Allow Wi-Fi data</string>
     <string name="allow_mobile_data">Allow mobile data</string>
     <string name="allow_vpn_data">Allow VPN data</string>
+    <string name="allow_other_networks">Allow other networks</string>
 
     <string name="search">Search</string>
     <string name="sort_by_last_used">Sort by last used</string>
