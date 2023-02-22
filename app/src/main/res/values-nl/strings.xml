@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about_license">Licentie: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_design">Ontworpen door: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_sponsor">Gesponsord door: <a href="https://www.calyxinstitute.org">Calyx Institute</a> voor gebruik in <a href="https://calyxos.org">CalyxOS</a></string>
+</resources>

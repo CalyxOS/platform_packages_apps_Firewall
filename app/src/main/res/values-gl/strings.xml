@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Datura Firewall</string>
+    <string name="app_name">Devasa de Datura</string>
     <string name="app_short_name">Firewall</string>
     <string name="installed_apps">Aplicacións instaladas</string>
     <string name="system_apps">Aplicacións do sistema</string>
@@ -12,10 +12,10 @@
     <string name="sort_by_last_used">Ordear polo último utilizado</string>
     <string name="sort_by_name">Ordear polo nome</string>
     <string name="about">Sobre</string>
-    <string name="about_summary">Unha aplicación de firewall que utiliza a API da rede interna de Android.</string>
+    <string name="about_summary">Unha aplicación de devasa que utiliza a API da rede interna de Android.</string>
     <string name="about_license">Licenza: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
-    <string name="about_author">Programadores: <a href="https://github.com/esecoder">Ese Udom</a> e <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
-    <string name="about_design">Deseño: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
-    <string name="about_sponsor">Patrocinado: <a href="https://www.calyxinstitute.org">Calyx Institute</a> para o seu uso en <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="about_author">Escrito por: <a href="https://github.com/esecoder">Ese Udom</a> e <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="about_design">Deseñado por: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_sponsor">Patrocinado por: <a href="https://www.calyxinstitute.org">Calyx Institute</a> para o seu uso en <a href="https://calyxos.org">CalyxOS</a></string>
     <string name="about_source_code">Código fonte: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
 </resources>
