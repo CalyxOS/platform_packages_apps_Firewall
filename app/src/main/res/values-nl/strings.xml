@@ -3,4 +3,19 @@
     <string name="about_license">Licentie: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
     <string name="about_design">Ontworpen door: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
     <string name="about_sponsor">Gesponsord door: <a href="https://www.calyxinstitute.org">Calyx Institute</a> voor gebruik in <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="app_name">Datura Firewall</string>
+    <string name="app_short_name">Firewall</string>
+    <string name="system_apps">Systeemapps</string>
+    <string name="allow_background_data">Sta netwerktoegang in de achtergrond toe</string>
+    <string name="allow_wifi_data">Sta wifiverbinding toe</string>
+    <string name="allow_vpn_data">Sta VPN-verbinding toe</string>
+    <string name="search">Zoek</string>
+    <string name="sort_by_last_used">Sorteer op laatst gebruikt</string>
+    <string name="sort_by_name">Sorteer op naam</string>
+    <string name="about">Over</string>
+    <string name="about_summary">Een firewallapp die het de interne netwerk-API van Android gebruikt.</string>
+    <string name="about_source_code">Broncode: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="installed_apps">Geïnstalleerde apps</string>
+    <string name="allow_mobile_data">Sta mobile verbinding toe</string>
+    <string name="about_author">Geschreven door: <a href="https://github.com/esecoder">Ese Udom</a> en <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
 </resources>
