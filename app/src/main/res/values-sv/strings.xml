@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about">Om</string>
+    <string name="about_license">Licens: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_author">Skriven av: <a href="https://github.com/esecoder">Ese Udom</a> och <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="app_name">Datura brandvägg</string>
+    <string name="app_short_name">Brandvägg</string>
+    <string name="installed_apps">Installerade appar</string>
+    <string name="system_apps">Systemappar</string>
+    <string name="allow_background_data">Tillåt nätverksåtkomst i bakgrunden</string>
+    <string name="allow_wifi_data">Tillåt trådlös data</string>
+    <string name="allow_mobile_data">Tillåt mobilt data</string>
+    <string name="allow_vpn_data">Tillåt VPN data</string>
+    <string name="search">Sök</string>
+    <string name="sort_by_last_used">Sortera efter senast använd</string>
+    <string name="sort_by_name">Sortera efter namn</string>
+    <string name="about_summary">En brandväggsapplikation som använder Androids interna nätverks API.</string>
+    <string name="about_design">Designad av: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
+    <string name="about_sponsor">Sponsrad av: <a href="https://www.calyxinstitute.org">Calyx Institute</a> för nyttjande i <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="about_source_code">Källkod: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+</resources>
