@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about_sponsor">Sponsorowana przez: <a href="https://www.calyxinstitute.org">Calyx Institute</a> do wykorzystania w <a href="https://calyxos.org">CalyxOS</a></string>
+    <string name="app_short_name">Zapora sieciowa</string>
+    <string name="installed_apps">Zainstalowane aplikacje</string>
+    <string name="system_apps">Aplikacje systemowe</string>
+    <string name="allow_background_data">Zezwól na dostęp do sieci w tle</string>
+    <string name="search">Wyszukaj</string>
+    <string name="about_source_code">Kod źródłowy: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="app_name">Zapora sieciowa Datura</string>
+    <string name="about_summary">Aplikacja zapory sieciowej używa wewnętrznego API sieci Androida.</string>
+    <string name="allow_wifi_data">Zezwól na przesyłanie danych przez Wi-Fi</string>
+    <string name="allow_mobile_data">Zezwól na używanie pakietu mobilnego</string>
+    <string name="allow_vpn_data">Zezwól na przesyłanie danych przez VPN</string>
+    <string name="sort_by_last_used">Sortuj według ostatniego użycia</string>
+    <string name="sort_by_name">Sortuj według nazwy</string>
+    <string name="about">O nas</string>
+    <string name="about_license">Licencja: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_author">Napisane przez: <a href="https://github.com/esecoder">Ese Udom</a> i <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
+    <string name="about_design">Zaprojektowane przez: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
 </resources>
