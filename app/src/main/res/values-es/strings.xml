@@ -15,7 +15,7 @@
     <string name="about_author">Programadores: <a href="https://github.com/esecoder">Ese Udom</a> y <a href="https://github.com/chirayudesai">Chirayu Desai</a></string>
     <string name="about_design">Diseño por: <a href="https://www.glennsorrentino.com/">Glenn Sorrentino</a></string>
     <string name="about_source_code">Código fuente: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
-    <string name="app_name">Cortafuegos de Datura</string>
+    <string name="app_name">Firewall Datura</string>
     <string name="allow_mobile_data">Permitir datos móviles</string>
     <string name="about_summary">Una aplicación de firewall que utiliza la API de red interna de Android.</string>
 </resources>
