@@ -2,15 +2,6 @@ plugins {
     id 'com.android.application'
 }
 
-def gitDescribe = { ->
-    def stdout = new ByteArrayOutputStream()
-    exec {
-        commandLine 'git', 'describe', '--always', '--tags', '--dirty=-dirty'
-        standardOutput = stdout
-    }
-    return stdout.toString().trim()
-}
-
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -19,7 +10,6 @@ android {
         applicationId "org.calyxos.datura"
         minSdkVersion 30
         targetSdkVersion 30
-        versionNameSuffix "-$gitDescribe"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
