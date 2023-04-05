@@ -2,11 +2,9 @@
 // $ m
 def aospDeps = fileTree(include: [
         // For more information about this module:
-        // https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-11.0.0_r3/Android.bp#507
-        // framework_intermediates/classes-header.jar works for gradle build as well,
-        // but not unit tests, so we use the actual classes (without updatable modules).
+        // https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-13.0.0_r35/Android.bp#373
         //
-        // out/target/common/obj/JAVA_LIBRARIES/framework-minus-apex_intermediates/classes.jar
+        // out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/classes.jar
         'android.jar',
         // out/target/common/obj/JAVA_LIBRARIES/core-libart.com.android.art.release_intermediates/classes.jar
         'libcore.jar'
@@ -24,25 +22,25 @@ dependencies {
      */
 
     implementation('androidx.appcompat:appcompat') {
-        // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-11.0.0_r3/current/androidx/Android.bp#150
-        version { strictly '1.3.0-alpha01' }
+        // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-13.0.0_r35/current/androidx/Android.bp#241
+        version { strictly '1.6.0-alpha05' } // 1.6.0-alpha02 in AOSP but not available
     }
 
     implementation('androidx.constraintlayout:constraintlayout') {
-        // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-11.0.0_r3/current/extras/constraint-layout-x/Android.bp#30
-        version { strictly '2.0.0-beta7' }
+        // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-13.0.0_r3/current/extras/constraint-layout-x/Android.bp#64
+        version { strictly '2.2.0-alpha05' }
     }
 
     implementation('com.google.android.material:material') {
-        // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-11.0.0_r3/current/extras/material-design-x/Android.bp#6
-        version { strictly '1.1.0-alpha05' }
+        // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-13.0.0_r32/current/extras/material-design-x/Android.bp#6
+        version { strictly '1.7.0-alpha03' }
     }
 
     /**
      * Test Dependencies (do not concern the AOSP build)
      */
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
