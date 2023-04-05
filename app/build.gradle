@@ -12,13 +12,12 @@ def gitDescribe = { ->
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdk 33
 
     defaultConfig {
         applicationId "org.calyxos.datura"
-        minSdkVersion 30
-        targetSdkVersion 30
+        minSdk 33
+        targetSdk 33
         versionNameSuffix "-$gitDescribe"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
