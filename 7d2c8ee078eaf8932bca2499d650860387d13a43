@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "602da5d9_db0422df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-05T20:17:35Z",
+      "side": 1,
+      "message": "This is quite nice actually, I\u0027d like it for all apps.\n\nWhen building with gradle, easily tells you what you\u0027re running.",
+      "revId": "7d2c8ee078eaf8932bca2499d650860387d13a43",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
