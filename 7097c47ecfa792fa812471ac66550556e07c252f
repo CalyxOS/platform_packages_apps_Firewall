@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7fb0144_d018d3b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T13:16:36Z",
+      "side": 1,
+      "message": "Unless this is really well tested I\u0027d rather not touch this app too much, and we can deal with things in the rewrite.\n\nIt\u0027s already buggy, trying to fix it hasn\u0027t been fun, and since it\u0027s just UI code it seemed easier to start over.",
+      "revId": "7097c47ecfa792fa812471ac66550556e07c252f",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
