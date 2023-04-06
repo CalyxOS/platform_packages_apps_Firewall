@@ -36,7 +36,6 @@
         android:theme="@style/Theme.Firewall">
 
         <activity android:name=".MainActivity"
-            android:theme="@style/Theme.Firewall.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

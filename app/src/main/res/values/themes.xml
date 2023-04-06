@@ -1,11 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.Firewall" parent="Theme.AppCompat.DayNight">
-        <item name="colorAccent">@color/color_accent</item>
+    <!-- Base Theme -->
+    <style name="BaseTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:navigationBarColor">?android:colorBackground</item>
+        <item name="android:statusBarColor">?android:colorBackground</item>
     </style>
 
-    <style name="Theme.Firewall.NoActionBar" parent="Theme.Firewall">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <!-- Light Theme -->
+    <style name="Theme.Firewall" parent="BaseTheme">
+        <item name="colorPrimary">@android:color/system_accent1_500</item>
+        <item name="colorAccent">@android:color/system_accent1_500</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 </resources>
