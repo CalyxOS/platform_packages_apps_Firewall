@@ -31,6 +31,11 @@ dependencies {
         version { strictly '2.2.0-alpha05' }
     }
 
+    implementation('androidx.core:core-ktx') {
+        // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-13.0.0_r32/current/androidx/Android.bp#2275
+        version { strictly '1.9.0-alpha05' } // 1.9.0-alpha03 in AOSP but has SDK version issues
+    }
+
     implementation('com.google.android.material:material') {
         // https://android.googlesource.com/platform/prebuilts/sdk/+/refs/tags/android-13.0.0_r32/current/extras/material-design-x/Android.bp#6
         version { strictly '1.7.0-alpha03' }
