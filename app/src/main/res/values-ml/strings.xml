@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="allow_wifi_data">വൈഫൈ ഡാറ്റ അനുവദിക്കുക</string>
+    <string name="allow_mobile_data">മൊബൈൽ ഡാറ്റ അനുവദിക്കുക</string>
+    <string name="allow_vpn_data">വിപിഎൻ ഡാറ്റ അനുവദിക്കുക</string>
+    <string name="search">തിരയുക</string>
+    <string name="sort_by_last_used">അവസാനം ഉപയോഗിച്ച പ്രകാരം അടുക്കുക</string>
+    <string name="sort_by_name">പേര് പ്രകാരം അടുക്കുക</string>
+    <string name="about">കുറിച്ച്</string>
+</resources>
