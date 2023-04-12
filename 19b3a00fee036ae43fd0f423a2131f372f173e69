@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3904719d_793d51cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:57:08Z",
+      "side": 1,
+      "message": "We have a new repo for this, apps_Datura. You can start a new project, https://gitlab.com/CalyxOS/tmp/platform_packages_apps_datura\n\nCan even grab the initial commits from this repo, and then cherry-pick (to preserve authorship) or copy over (ok sometimes) anything useful from this repo",
+      "revId": "19b3a00fee036ae43fd0f423a2131f372f173e69",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
