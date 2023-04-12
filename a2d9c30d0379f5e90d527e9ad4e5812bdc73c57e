@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "579023ed_0329b518",
+        "filename": "app/lint.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:58:01Z",
+      "side": 1,
+      "message": "This is far nicer than a \"tools:\" bit everywhere, should do it for all apps eventually.",
+      "revId": "a2d9c30d0379f5e90d527e9ad4e5812bdc73c57e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
