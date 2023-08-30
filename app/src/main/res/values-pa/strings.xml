@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Datura ਫਾਇਰਵਾਲ</string>
+    <string name="installed_apps">ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਾਂ</string>
+    <string name="allow_background_data">ਬੈਕਗ੍ਰਾਊਂਡ ਨੈੱਟਵਰਕ ਪਹੁੰਚ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ</string>
+    <string name="allow_wifi_data">Wi-Fi ਡੇਟਾ ਦੀ ਆਗਿਆ ਦਿਓ</string>
+    <string name="search">ਖੋਜੋ</string>
+    <string name="sort_by_last_used">ਪਿਛਲੀ ਵਾਰ ਵਰਤੇ ਗਏ ਮੁਤਾਬਕ ਕ੍ਰਮ-ਬੱਧ ਕਰੋ</string>
+    <string name="sort_by_name">ਨਾਮ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
+    <string name="about_license">ਲਾਈਸੈਂਸ: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache2</a></string>
+    <string name="about_author">ਲਿਖਿਆ ਗਿਆ by: <a href="https://github.com/esecoder">ਈਸੈ ਉਡੋਮ</a> and <a href="https://github.com/chirayudesai">ਚਿਰਾਯੂ ਦੇਸਾਈ</a></string>
+    <string name="about_source_code">ਸ੍ਰੋਤ ਕੋਡ: https://gitlab.com/CalyxOS/platform_packages_apps_Firewall</string>
+    <string name="system_apps">ਸਿਸਟਮ ਐਪਾਂ</string>
+    <string name="app_short_name">ਫਾਇਰਵਾਲ</string>
+    <string name="allow_mobile_data">ਮੋਬਾਈਲ ਡਾਟਾ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ</string>
+    <string name="allow_vpn_data">VPN ਡੇਟਾ ਦੀ ਆਗਿਆ ਦਿਓ</string>
+    <string name="about">ਐਪ ਦੇ ਬਾਰੇ</string>
+    <string name="about_summary">ਐਂਡਰਾਇਡ ਦੇ ਅੰਦਰੂਨੀ ਨੈੱਟਵਰਕ API ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹੋਏ ਇੱਕ ਫਾਇਰਵਾਲ ਐਪਲੀਕੇਸ਼ਨ।</string>
+    <string name="about_design">ਡਿਜ਼ਾਈਨ ਦੁਆਰਾ: <a href="https://www.glennsorrentino.com/">ਗਲੈਨ ਸੌਰਿਨਟੀਨੋ</a></string>
+    <string name="about_sponsor">ਸਪਾਂਸਰ ਕੀਤਾ: <a href="https://www.calyxinstitute.org">Calyx Institute</a> for use in <a href="https://calyxos.org">CalyxOS</a></string>
+</resources>
